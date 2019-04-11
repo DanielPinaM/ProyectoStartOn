@@ -21,9 +21,29 @@
 
 	<?php
 		if(isset($_SESSION['login']) && $_SESSION['login'] == true){
-			$id = $_SESSION['id_empresa'];
+			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_empresa']))){
+				$id = $_SESSION['id_empresa'];
+				$SA = SA_Empresa::getInstance();
+				$transfer = $SA->getElement($id);
+			}
+			else if($_SERVER["REQUEST_METHOD"] == "GET" && $_GET){
+			$id = htmlspecialchars($_GET["id"]);
 			$SA = SA_Empresa::getInstance();
 			$transfer = $SA->getElement($id);
+			}
+		}
+		else if($_SERVER["REQUEST_METHOD"] == "GET" && $_GET){
+			$id = htmlspecialchars($_GET["id"]);
+			$SA = SA_Empresa::getInstance();
+			$transfer = $SA->getElement($id);
+
+		}
+
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
 		}
 	?>
 	<div id="perfil">
@@ -59,7 +79,11 @@
 				echo "<p> ".$transfer->getBuscamos()." </p>";
 			?>
 		</div>
-		<a href="mod_perf.php" >Modificar perfil</button>
+		<?php
+		if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_empresa'])))
+				echo '<a href="mod_perf.php" >Modificar perfil</button>';
+		?>
 	</div>
 	<!--<button type ='button'  onclick="window.location = 'http://www.marca.com';"/> WebEmpresa.es </button>
 	<!-- poner el CV en vez de marca arriba, osea, window.open('curriculum.php', 'width=800,height=600') -->
