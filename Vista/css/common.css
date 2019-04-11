@@ -10,7 +10,7 @@
 }
 body{
 	
-	background-image: url(../../img/BackGround2.png');
+	background-image: url('../../img/BackGround2.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed
 	margin: 0px;
