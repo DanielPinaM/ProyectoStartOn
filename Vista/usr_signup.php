@@ -20,12 +20,17 @@
 					$apellido = test_input($_POST["apellido"]);
 					$email = test_input($_POST["email"]);
 					$password = sha1(md5(test_input($_POST["password"])));
-
-					$SA = SA_Usuario::getInstance();
-					$transfer = new TransferUsuario("",$nombre,$apellido,$password, $email,"", "" ,"" ,"","","");
-				 	$dir = $SA->createElement($transfer);
+					$password2 = sha1(md5(test_input($_POST["password2"])));
+					if($password !== $password2){
+						$dir = "Error";
+					}
+					else{
+						$SA = SA_Usuario::getInstance();
+						$transfer = new TransferUsuario("",$nombre,$apellido,$password, $email,"", "" ,"" ,"","","");
+				 		$dir = $SA->createElement($transfer);
+				 	}
 				 	if($dir !== "Error"){
-					header('Location: '.$dir);
+						header('Location: '.$dir);
 				 	}
 				}
                 
