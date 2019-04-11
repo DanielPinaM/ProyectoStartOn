@@ -1,7 +1,7 @@
 <?php
-	require_once("../config.php");
-	include_once "../SA/SA_Usuario.php";
-	include_once "../SA/SA_Empresa.php";
+	require_once __DIR__'../includes/config.php';
+	require_once __DIR__'../patrones/SA_Usuario.php';
+	require_once __DIR__'../patrones/SA_Empresa.php';
  ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 
 <body>
 	<div id="container">
-			<?php require("includes/common/header.php")?>
+			<?php require __DIR__'common/header.php'?>
 			<div class="row">
 				<?php
 				if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -57,7 +57,7 @@
 				  <input type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
-			<?php require("includes/common/footer.php")?>
+			<?php require __DIR__'common/footer.php'?>
 		</div>
 </body>
 </html>
