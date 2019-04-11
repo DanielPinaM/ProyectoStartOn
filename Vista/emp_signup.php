@@ -19,12 +19,17 @@ require_once __DIR__'../patrones/SA_Empresa.php';
 					$nombre = test_input($_POST["nombre"]);
 					$email = test_input($_POST["email"]);
 					$password = sha1(md5(test_input($_POST["password"])));
-
-					$SA = SA_Empresa::getInstance();
-					$transfer = new empresaTransfer("",$nombre,$password, $email,"", "" ,"" ,"","","","","");
-				 	$dir = $SA->createElement($transfer);
-				 	if($dir !== "error"){
-					header('Location: '.$dir);
+					$password2 = sha1(md5(test_input($_POST["password2"])));
+					if($password !== $password2){
+						$dir = "Error";
+					}
+					else{
+						$SA = SA_Empresa::getInstance();
+						$transfer = new empresaTransfer("",$nombre,$password, $email,"", "" ,"" ,"","","","","");
+				 		$dir = $SA->createElement($transfer);
+				 	}
+				 	if($dir !== "Error"){
+						header('Location: '.$dir);
 				 	}
 				}
                 
@@ -42,6 +47,7 @@ require_once __DIR__'../patrones/SA_Empresa.php';
 					<p>Nombre: <input type="text" name="nombre" value=""></p>
 				  <p>E-mail: <input type="email" name="email" value=""></p>
 				  <p>Contraseña: <input type="password" name="password" value=""></p>
+				  <p>Repetir contraseña: <input type="password" name= "password2" value=""></p>
 				  <input type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
