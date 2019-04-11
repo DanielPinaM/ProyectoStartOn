@@ -18,10 +18,31 @@
 	<?php require __DIR__'common/header.php'?>
 
 	<?php
-		if(isset($_SESSION['login']) && $_SESSION['login'] == true){	
-			$id = $_SESSION['id_usuario'];		
+		if(isset($_SESSION['login']) && $_SESSION['login'] == true){
+			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario']))){
+				$id = $_SESSION['id_usuario'];	
+				$SA = SA_Usuario::getInstance();
+				$transferUser = $SA->getElement($id);
+			}
+			else if($_SERVER["REQUEST_METHOD"] == "GET" && $_GET){
+			$id = htmlspecialchars($_GET["id"]);
 			$SA = SA_Usuario::getInstance();
 			$transferUser = $SA->getElement($id);
+
+			}
+		}
+		else if($_SERVER["REQUEST_METHOD"] == "GET" && $_GET){
+			$id = htmlspecialchars($_GET["id"]);
+			$SA = SA_Usuario::getInstance();
+			$transferUser = $SA->getElement($id);
+
+		}
+
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
 		}
 	?>
 
@@ -58,7 +79,11 @@
 						echo "<p> ".$transferUser->getPasiones()." </p>";
 					?>
 				</div>
-				<a href="mod_perf.php" >Modificar perfil</button>
+				<?php
+					if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+						if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario'])))
+							echo '<a href="mod_perf.php" >Modificar perfil</button>';
+				?>
 			</div>
 
 
