@@ -18,7 +18,7 @@
 	<?php require __DIR__'common/header.php'?>
 
 	<?php
-		if(isset($_SESSION['login']) && $_SESSION['login'] == true){
+		if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
 			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario']))){
 				$id = $_SESSION['id_usuario'];	
 				$SA = SA_Usuario::getInstance();
