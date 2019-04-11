@@ -11,11 +11,13 @@
 body{
 	background-color: #ffbdbd;
 	margin: 0px;
+  font-family: arial;
 }
 
 .titulo{
 	font-size: 50px;
 	padding: 10px;
+  font-family: monospace;
 }
 /*
 	Estilo de la barra de navegacion
