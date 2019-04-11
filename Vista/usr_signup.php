@@ -49,6 +49,7 @@
 					<p>Apellido: <input type="text" name="apellido" value=""></p>
 				  <p>E-mail: <input type="email" name="email" value=""></p>
 				  <p>Contraseña: <input type="password" name="password" value=""></p>
+				  <p>Repetir contraseña: <input type="password" name= "password2" value=""></p>
 				  <input type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
