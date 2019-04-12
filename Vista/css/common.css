@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 body{
-	
+
 	background-image: url('../../img/BackGround2.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed
@@ -19,7 +19,7 @@ body{
 
 .titulo{
 	font-size: 50px;
-	padding: 10px;
+	padding: 30px;
   font-family: monospace;
 }
 /*
@@ -52,7 +52,6 @@ li a:hover {
 }
 
 .row{
-	background-color: #c9c9ff;
 	text-align: center;
 }
 .row:after {
@@ -63,8 +62,52 @@ li a:hover {
 /*
 	Estilo del pie de pagina
 */
+
+.botonUsuario {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 20px;
+  outline: 0;
+  display: inline-block;
+  padding: 12px;
+  color: black;
+  text-align: center;
+  cursor: pointer;
+  background-color: #c9c9ff;
+  width: 33%;
+  font-size: 22px;
+}
+.botonEmpresa {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 20px;
+  outline: 0;
+  display: inline-block;
+  padding: 12px;
+  color: black;
+  text-align: center;
+  background-color: #ffbdbd;
+  cursor: pointer;
+  width: 33%;
+  font-size: 22px;
+}
+a {
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+}
+.botonEmpresa:hover, a:hover {
+   box-shadow: 5px 10px #888888;
+}
+.botonUsuario:hover, a:hover {
+   box-shadow: 5px 10px #888888;
+}
 .footer {
-  background-color: #F1F1F1;
+  background-color: #aaaaaa;
+  position: fixed;
+  right: auto;
+  width:  100%;
+  bottom: 0px;
   text-align: center;
   padding: 10px;
 }

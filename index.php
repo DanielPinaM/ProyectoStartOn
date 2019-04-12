@@ -31,8 +31,8 @@
 		<div class="row">
 			<?php if (isset($_SESSION['login'])) {
 				if(!$_SESSION['login']){
-				echo "<div class=\"column\"><a href=\"vista/usr_signup.php\" >Registro de usuarios</a></div>
-					<div class=\"column\"><a href=\"vista/emp_signup.php\">Registro de empresas</a></div>";
+				echo "<div class=\"column\"><a class= \"botonUsuario\" href=\"vista/usr_signup.php\" >Registro de usuarios</a></div>
+					<div class=\"column\"><a class= \"botonEmpresa\" href=\"vista/emp_signup.php\">Registro de empresas</a></div>";
 				}
 			} ?>
 
