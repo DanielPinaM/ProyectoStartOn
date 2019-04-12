@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="row"> <!--Row titulo-->
+      <div class="ayudaCard"> <!--Row titulo-->
         <div>
           <p>¿Donde selecciono que tipo de startup soy?</p>
         </div>
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="row"> <!--Row titulo-->
+      <div class="ayudaCard"> <!--Row titulo-->
         <div>
         <p>¿Necesito algún requisito para registrar mi startup?</p>
         </div>
@@ -38,7 +38,7 @@
         </div>
       </div>
 
-      <div class="row"> <!--Row titulo-->
+      <div class="ayudaCard"> <!--Row titulo-->
         <div>
         <p>¿Tengo que estar buscando empleo para registrarme como usuario?</p>
         </div>
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="row"> <!--Row titulo-->
+      <div class="ayudaCard"> <!--Row titulo-->
         <div>
         <p>¿La plataforma es gratis?</p>
         </div>
@@ -57,7 +57,7 @@
       </div>
 
 
-      <div class="row"> <!--Row titulo-->
+      <div class="ayudaCard"> <!--Row titulo-->
         <div>
         <p>¿Puedo contactar con una startup de la plataforma?</p>
         </div>
@@ -66,7 +66,7 @@
         </div>
       </div>
 
-      <div class="row"> <!--Row titulo-->
+      <div class="ayudaCard"> <!--Row titulo-->
         <div>
         <p>¿Puedo cambiar mi usuario para que sea una startup?</p>
         </div>
@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <div class="row"> <!--Row BUSCAS OTRA COSA-->
+      <div class="ayudaCard"> <!--Row BUSCAS OTRA COSA-->
         <div class="card"> <!--Div Titulo-->
           <a href="/ProyectoStartOn/vista/politicaprivacidad.php">Política de privacidad.</a>
         </div>
