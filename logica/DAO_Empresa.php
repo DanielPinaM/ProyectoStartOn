@@ -1,6 +1,6 @@
 <?php
 
-include_once "DAO_Interface.php";
+require_once("DAO_Interface.php");
 
 class DAO_Empresa implements DAO_Interface {
 
@@ -22,7 +22,7 @@ class DAO_Empresa implements DAO_Interface {
 
 		$app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-		
+
 		$ID_Empresa=$transfer->getId_Empresa();
 		$email=$transfer->getEmail();
 		$password=$transfer->getPassword();

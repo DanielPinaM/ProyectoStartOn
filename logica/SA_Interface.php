@@ -1,5 +1,6 @@
 <?php
-require_once '../include/config.php';
+require_once("../includes/config.php");
+
     interface SA_Interface {
 
     	public function getAllElements();

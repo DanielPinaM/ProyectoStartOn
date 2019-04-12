@@ -1,0 +1,22 @@
+<?php if(!isset($_SESSION['login'])) $_SESSION['login']=false ?>
+<div>
+	<ul class="nav_bar">
+		<li><a class="button" href="index.php">Inicio</a>
+		<li><a class="button" href="vista/listEmpresa.php">Startups</a>
+		<li><a class="button" href="vista/listUser.php">Usuarios</a>
+		<li><a class="button" href="">Eventos</a>
+		<li><a class="button" href="vista/conocenos.php">Conócenos</a>
+		<li><a class="button" href="">Ayuda</a>
+		<?php
+			if(!$_SESSION['login'])
+				echo '<li style="float:right"><a id="inicio_sesion" class="button" href="vista/login.php">Inicia sesión</a>';
+			else{
+				echo '<li style="float:right"><a id="inicio_sesion" class="button" href="vista/logout.php">Cerrar sesión</a>';
+				if(isset($_SESSION['id_usuario']))
+					echo '<li style="float:right"><a id="inicio_sesion" class="button" href="vista/perfUser.php">Perfil</a>';
+				else
+					echo '<li style="float:right"><a id="inicio_sesion" class="button" href="vista/perfEmp.php">Perfil</a>';
+			}
+		?>
+	</ul>
+</div>

@@ -1,8 +1,8 @@
 <?php
 //session_start();
-include "DAO_Usuario.php";
-include "TransferUsuario.php";
-include_once "SA_Interface.php";
+require("DAO_Usuario.php");
+require("TransferUsuario.php");
+require_once("SA_Interface.php") ;
 
 class SA_Usuario implements SA_Interface {
 
@@ -154,7 +154,7 @@ class SA_Usuario implements SA_Interface {
 				if ($userDAO->getElement($id) != NULL) {
 				    //Eliminamos el usuario y si no ha producico error redirigimos al inicio
 					if ($userDAO->deleteElement($id)) {
-						return "index.php";
+						return "../index.php";
 					}
 					//Si no se ha podido eliminar se comunica al usuario
 					else {
@@ -188,7 +188,7 @@ class SA_Usuario implements SA_Interface {
     			if($userObject == null || $password !== $userObject->getPassword()){
     				$_SESSION['success'] = "error";
     				$_SESSION['login'] = false;
-    				return "index.php";
+    				return "../index.php";
     			}
     			else{
     			    //Si el usuario es correcto se crea una variable de sesión con el id del usuario y actualizamos la variabel logeado

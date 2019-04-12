@@ -1,6 +1,6 @@
 <?php
 
-require_once '../include/config.php';
+require_once("../includes/config.php");
 
   interface DAO_Interface
   {

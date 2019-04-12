@@ -1,7 +1,7 @@
 
-<?php 
-require_once __DIR__'../includes/config.php';
-require_once __DIR__'../patrones/SA_Usuario.php';
+<?php
+require_once ("../includes/config.php");
+require_once ("../logica/SA_Usuario.php");
  ?>
 <!DOCTYPE html>
 <html>
@@ -12,9 +12,9 @@ require_once __DIR__'../patrones/SA_Usuario.php';
 </head>
 <body>
 	<div id="container">
-		<?php require __DIR__'common/header.php'?>
+		<?php require("common/header.php")?>
 		<div class="row">
-			<?php	
+			<?php
 				$SA = SA_Usuario::getInstance();
 				$ListOfUser = $SA->getAllElements();
 				foreach($ListOfUser as $value){
@@ -34,6 +34,6 @@ require_once __DIR__'../patrones/SA_Usuario.php';
 				}
 			?>
 		</div>
-		<?php require __DIR__'common/footer.php'?>
+		<?php require("common/footer.php")?>
 	</div>
 </body>

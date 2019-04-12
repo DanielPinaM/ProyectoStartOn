@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<?php 
-	require_once __DIR__'../includes/config.php';
-	require_once __DIR__'../patrones/SA_Usuario.php';
-	require_once __DIR__'../patrones/SA_Empresa.php';
+<?php
+require_once ("../includes/config.php");
+require_once ("../logica/SA_Empresa.php");
+require_once ("../logica/SA_Usuario.php");
  ?>
 
 <html>
@@ -13,7 +13,7 @@
 	<title>Start On</title>
 </head>
 <body>
-	<?php require __DIR__'common/header.php'?>
+	<?php require("common/header.php")?>
 	<?php
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$nombre = test_input($_POST["nombre"]);
@@ -35,12 +35,12 @@
 			 	if($dir !== "Error"){
 					header('Location: '.$dir);
 			 	}
-			} 
+			}
 			else{
 				$fase = test_input($_POST["fase"]);
 				$buscamos = test_input($_POST["buscamos"]);
 				$ofrecemos = test_input($_POST["ofrecemos"]);
-				$sector = test_input($_POST["sector"]);				
+				$sector = test_input($_POST["sector"]);
 
 				$SA = SA_Empresa::getInstance();
 				$transfer = new empresaTransfer($_SESSION["id_empresa"],$nombre,$password, $email,$localizacion,$sector,$oficio, $fase ,$imagen,$presentacion,$buscamos,$ofrecemos);
@@ -53,15 +53,15 @@
 		else{
 			if(isset($_SESSION['login']) && $_SESSION['login'] == true){
 				if(isset($_SESSION["id_usuario"])){
-					$id = $_SESSION['id_usuario'];		
+					$id = $_SESSION['id_usuario'];
 					$SA = SA_Usuario::getInstance();
 					$transfer = $SA->getElement($id);
 				}else{
-					$id = $_SESSION['id_empresa'];		
+					$id = $_SESSION['id_empresa'];
 					$SA = SA_Empresa::getInstance();
 					$transfer = $SA->getElement($id);
 				}
-				
+
 			}
 		}
 
@@ -91,13 +91,13 @@
 				  			<p>Ofrecemos: <textarea rows="4" cols="20" name="ofrecemos" value=""></textarea></p>
 				  			<p>Sector: <input type="text" name="sector" value=""></p>';
 			  			}
-			  	 ?>	
+			  	 ?>
 			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
 			  	<p>Oficio: <input type="text" name="oficio" value=<?php echo $transfer->getOficio(); ?>></p>
 			  	<p>Imagen de perfil: <input type="text" name="imagen" value=<?php echo $transfer->getImagenPerfil(); ?>></p>
 				<input type="submit" name="submit" value="Guardar Cambios">
 		  		</form>
 	</div>
-		<?php require __DIR__'common/footer.php'?>
+		<?php require("common/footer.php")?>
 </body>
 </html>

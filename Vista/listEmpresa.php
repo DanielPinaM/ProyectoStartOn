@@ -1,7 +1,7 @@
 
-<?php 
-require_once __DIR__'/../includes/config.php';
-require_once __DIR__'/../patrones/SA_Empresa.php';
+<?php
+require_once ("../includes/config.php");
+require_once ("../logica/SA_Empresa.php");
  ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require_once __DIR__'/../patrones/SA_Empresa.php';
 </head>
 <body>
 	<div id="container">
-		<?php require __DIR__'common/header.php'?>
+		<?php require("common/header.php")?>
 		<div class="row">
 			<?php
 				$SA = SA_Empresa::getInstance();
@@ -29,6 +29,6 @@ require_once __DIR__'/../patrones/SA_Empresa.php';
 				}
 			?>
 		</div>
-		<?php require __DIR__'common/footer.php'?>
+		<?php require("common/footer.php")?>
 	</div>
 </body>

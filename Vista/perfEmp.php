@@ -1,23 +1,20 @@
-
-
 <!DOCTYPE html>
-
-<?php 
-	require_once __DIR__'../includes/config.php';
-	require_once __DIR__'../patrones/SA_Empresa.php';
+<?php
+require_once ("../includes/config.php");
+require_once ("../logica/SA_Empresa.php");
 ?>
 
 <html>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="perfiles.css" />
+	<link rel="stylesheet" type="text/css" href="css/perfiles.css" />
 	<link rel="stylesheet" type="text/css" href="css/common.css" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 
 <body>
 
-	<?php require __DIR__'common/header.php'?>
+	<?php require("common/header.php")?>
 
 	<?php
 		if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa'])){
@@ -86,8 +83,8 @@
 		?>
 	</div>
 	<!--<button type ='button'  onclick="window.location = 'http://www.marca.com';"/> WebEmpresa.es </button>
-	<!-- poner el CV en vez de marca arriba, osea, window.open('curriculum.php', 'width=800,height=600') -->
+		poner el CV en vez de marca arriba, osea, window.open('curriculum.php', 'width=800,height=600') -->
 
-		<?php require __DIR__'common/footer.php'?>
+		<?php require("common/footer.php")?>
 </body>
 </html>

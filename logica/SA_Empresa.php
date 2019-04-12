@@ -1,8 +1,8 @@
 <?php
 //session_start();
-include "DAO_Empresa.php";
-include "TransferEmpresa.php";
-include_once "SA_Interface.php";
+require("DAO_Empresa.php");
+require("TransferEmpresa.php");
+require_once("SA_Interface.php");
 
 class SA_Empresa implements SA_Interface {
 
@@ -148,7 +148,7 @@ class SA_Empresa implements SA_Interface {
 				if ($empDAO->getElementById($id) != NULL) {
 				    //Eliminamos el usuario y si no ha producico error redirigimos al inicio
 					if ($empDAO->deleteElement($id)) {
-						return "index.php";
+						return "../index.php";
 					}
 					//Si no se ha podido eliminar se comunica al empresa
           else {
@@ -185,7 +185,7 @@ class SA_Empresa implements SA_Interface {
     			if($empObject == null || $password !== $empObject->getPassword()){
             $_SESSION['success'] = "error";
             $_SESSION['login'] = false;
-    				return "index.php";
+    				return "../index.php";
     			}
     			else{
     				$_SESSION['id_empresa'] =$empObject->getId_Empresa();

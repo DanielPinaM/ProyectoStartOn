@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 
-<?php 
-	require_once __DIR__'../includes/config.php';
-	require_once __DIR__'../patrones/SA_Usuario.php';
+<?php
+require_once ("../includes/config.php");
+require_once ("../logica/SA_Usuario.php");
  ?>
 <html>
 <head>
@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="container">
-			<?php require __DIR__'common/header.php'?>
+			<?php require("common/header.php")?>
 			<div class="row">
 				<?php
 				if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,18 +33,18 @@
 						header('Location: '.$dir);
 				 	}
 				}
-                
+
 				function test_input($data) {
 				  $data = trim($data);
 				  $data = stripslashes($data);
 				  $data = htmlspecialchars($data);
 				  return $data;
 				}
-				
+
 				?>
 				</form>
 				<h2>Regístrate como usuario aquí:</h2>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 					<p>Nombre: <input type="text" name="nombre" value=""></p>
 					<p>Apellido: <input type="text" name="apellido" value=""></p>
 				  <p>E-mail: <input type="email" name="email" value=""></p>
@@ -53,7 +53,7 @@
 				  <input type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
-				<?php require __DIR__'common/footer.php'?>
+				<?php require("common/footer.php")?>
 		</div>
 </body>
 </html>

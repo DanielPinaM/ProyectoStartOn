@@ -1,3 +1,3 @@
 <div class="footer">
-	Aqui ira el footer
+	Proyecto univeritario para la Universidad Complutense de Madrid.
 </div>

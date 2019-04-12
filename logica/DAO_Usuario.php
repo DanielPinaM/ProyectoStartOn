@@ -1,6 +1,6 @@
 <?php
 
-include_once "DAO_Interface.php";
+require_once("DAO_Interface.php");
 
 
 class DAO_Usuario implements  DAO_Interface {
@@ -22,7 +22,7 @@ class DAO_Usuario implements  DAO_Interface {
 	public function createElement($transfer){//crea usuario
 		$app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
-		
+
 		$nombre=$transfer->getNombre();
 		$apellido=$transfer->getApellido();
 		$idUser=$transfer->getId_Usuario();
@@ -123,7 +123,7 @@ public function updateElement($id, $campo, $nuevoValor) {
 			return $lista;
 		}
 		else {
-			
+
 			return ;//NULL
 		}
 	}
@@ -148,7 +148,7 @@ public function updateElement($id, $campo, $nuevoValor) {
 		else {
 			return ;
 		}
-		
+
 	}
 }
 ?>
