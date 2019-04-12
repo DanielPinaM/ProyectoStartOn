@@ -11,7 +11,7 @@
 		<?php require ("vista/common/indexHeader.php")?>
 		<div class="row">
 			<div class="titulo">
-				Start On
+				<img id="logo_inicio" src="img/Logo1.png">
 			</div>
 
 			<?php
@@ -31,8 +31,8 @@
 		<div class="row">
 			<?php if (isset($_SESSION['login'])) {
 				if(!$_SESSION['login']){
-				echo "<div class=\"column\"><a class= \"botonUsuario\" href=\"vista/usr_signup.php\" >Registro de usuarios</a></div>
-					<div class=\"column\"><a class= \"botonEmpresa\" href=\"vista/emp_signup.php\">Registro de empresas</a></div>";
+				echo "<div class=\"column\"><a class= \"botonGuay\" id= \"Botonusuario\" href=\"vista/usr_signup.php\" >Registro de usuarios</a></div>
+					<div class=\"column\"><a class= \"botonGuay\" id= \"Botonempresa\" href=\"vista/emp_signup.php\">Registro de empresas</a></div>";
 				}
 			} ?>
 

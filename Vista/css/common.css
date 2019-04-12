@@ -8,8 +8,11 @@
 * {
   box-sizing: border-box;
 }
-body{
+.container{
+  	margin: 0px;
+}
 
+body{
 	background-image: url('../../img/BackGround2.png');
 	background-repeat: no-repeat;
 	background-attachment: fixed
@@ -17,6 +20,11 @@ body{
   font-family: arial;
 }
 
+#logo_inicio{
+  padding: 30px;
+  width: 50%;
+  height: auto;
+}
 .titulo{
 	font-size: 50px;
 	padding: 30px;
@@ -27,10 +35,10 @@ body{
 */
 ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin: -8px;
+  padding: 0px;
   overflow: hidden;
-  background-color: #333;
+  background-color: #111111;
 }
 li {
   float: left;
@@ -48,14 +56,10 @@ li a:hover {
 .column{
 	float: left;
 	width: 50%;
-
 }
 
 .row{
-<<<<<<< HEAD
-=======
 	background-color: none;
->>>>>>> c3fa11d6efcf2e560b8bf028cadd1c28ec1b5839
 	text-align: center;
 }
 .row:after {
@@ -64,61 +68,44 @@ li a:hover {
   clear: both;
 }
 /*
-	Estilo del pie de pagina
+	Estilo de botones
 */
 
-.botonUsuario {
+.botonGuay {
   border-style: solid;
   border-width: 1px;
   border-radius: 20px;
+  border-color: #aaaaaa;
   outline: 0;
   display: inline-block;
   padding: 12px;
   color: black;
   text-align: center;
   cursor: pointer;
-  background-color: #c9c9ff;
   width: 33%;
   font-size: 22px;
 }
-.botonEmpresa {
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 20px;
-  outline: 0;
-  display: inline-block;
-  padding: 12px;
-  color: black;
-  text-align: center;
+.botonGuay:hover{
+   box-shadow: 5px 10px #888888;
+}
+#Botonempresa{
+  background-color: #c9c9ff;
+}
+#Botonusuario{
   background-color: #ffbdbd;
-  cursor: pointer;
-  width: 33%;
-  font-size: 22px;
 }
 a {
   text-decoration: none;
   font-size: 18px;
   color: black;
 }
-.botonEmpresa:hover, a:hover {
-   box-shadow: 5px 10px #888888;
-}
-.botonUsuario:hover, a:hover {
-   box-shadow: 5px 10px #888888;
-}
+
 .footer {
-<<<<<<< HEAD
   background-color: #aaaaaa;
   position: fixed;
-  right: auto;
+  margin: 0px 0px 0px -8px;
   width:  100%;
   bottom: 0px;
-=======
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  background-color: #F1F1F1;
->>>>>>> c3fa11d6efcf2e560b8bf028cadd1c28ec1b5839
   text-align: center;
   padding: 10px;
 }
