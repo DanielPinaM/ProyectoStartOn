@@ -64,6 +64,9 @@ li a:hover {
 	Estilo del pie de pagina
 */
 .footer {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
   background-color: #F1F1F1;
   text-align: center;
   padding: 10px;
