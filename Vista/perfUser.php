@@ -2,8 +2,8 @@
 
 
 <?php 
-require_once ("../config.php");
-include_once "../SA/SA_Usuario.php";
+	require_once __DIR__'../includes/config.php';
+	require_once __DIR__'../patrones/SA_Usuario.php';
  ?>
 
 <html>
@@ -15,15 +15,34 @@ include_once "../SA/SA_Usuario.php";
 
 <body>
 
-	<?php
-		require("includes/common/header.php");
-	?>
+	<?php require __DIR__'common/header.php'?>
 
 	<?php
-		if(isset($_SESSION['login']) && $_SESSION['login'] == true){	
-			$id = $_SESSION['id_usuario'];		
+		if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
+			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario']))){
+				$id = $_SESSION['id_usuario'];	
+				$SA = SA_Usuario::getInstance();
+				$transferUser = $SA->getElement($id);
+			}
+			else if($_SERVER["REQUEST_METHOD"] == "GET" && $_GET){
+			$id = htmlspecialchars($_GET["id"]);
 			$SA = SA_Usuario::getInstance();
 			$transferUser = $SA->getElement($id);
+
+			}
+		}
+		else if($_SERVER["REQUEST_METHOD"] == "GET" && $_GET){
+			$id = htmlspecialchars($_GET["id"]);
+			$SA = SA_Usuario::getInstance();
+			$transferUser = $SA->getElement($id);
+
+		}
+
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
 		}
 	?>
 
@@ -60,7 +79,11 @@ include_once "../SA/SA_Usuario.php";
 						echo "<p> ".$transferUser->getPasiones()." </p>";
 					?>
 				</div>
-				<a href="mod_perf.php" >Modificar perfil</button>
+				<?php
+					if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+						if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario'])))
+							echo '<a href="mod_perf.php" >Modificar perfil</button>';
+				?>
 			</div>
 
 
@@ -68,9 +91,6 @@ include_once "../SA/SA_Usuario.php";
 			<!-- <button type ='button'  onclick="window.location = 'http://www.marca.com';"/> CV </button> -->
 			<!-- poner el CV en vez de marca arriba, osea, window.open('curriculum.php', 'width=800,height=600') -->
 
-
-			<?php
-				require("includes/common/footer.php");
-			?>
+			<?php require __DIR__'common/footer.php'?>
 </body>
 </html>

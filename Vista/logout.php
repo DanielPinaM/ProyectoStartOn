@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-	require_once("../config.php");
+	require_once __DIR__'../includes/config.php';
 	session_unset(); 
 	session_destroy();
  ?>
@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="container">
-		<?php require("includes/common/header.php")?>
+		<?php require __DIR__'common/header.php'?>
 		<div class="row">
 			<div class="titulo">
 				Start On
@@ -20,6 +20,6 @@
 		<div class="row">
 			Saliste de la sesion. Te echaremos de menos
 		</div>
-		<?php require("includes/common/footer.php");?>
+		<?php require __DIR__'common/footer.php'?>
 </body>
 </html>
