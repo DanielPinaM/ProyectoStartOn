@@ -7,7 +7,6 @@ require_once ("../logica/SA_Usuario.php");
 
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="perfiles.css" />
 	<link rel="stylesheet" type="text/css" href="css/common.css" />
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Start On</title>
