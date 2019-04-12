@@ -52,7 +52,7 @@ li a:hover {
 }
 
 .row{
-	background-color: #c9c9ff;
+	background-color: none;
 	text-align: center;
 }
 .row:after {
