@@ -95,6 +95,26 @@
 	</div>
   		</div>
 
+      <div class="row"> <!--/Row Formulario contacto-->
+        <body>
+        	<form action="" method="post" class="form-consulta"> <!-- /ProyectoStartOn/logica/tratadoContacto.php -->
+        		<label>Nombre y apellido: <span>*</span>
+        			<input type="text" name="nombre" placeholder="Nombre y apellido" class="campo-form" required>
+        		</label>
+
+        		<label>Email: <span>*</span>
+        			<input type="email" name="email" placeholder="Email" class="campo-form" required>
+        		</label>
+
+        		<label>Consulta:
+        			<textarea name="consulta" class="campo-form"></textarea>
+        		</label>
+
+        		<input type="submit" value="Enviar" class="btn-form">
+        	</form>
+        </body>
+      </div>
+
   		<?php require("common/footer.php")?>
 
   	</div>
