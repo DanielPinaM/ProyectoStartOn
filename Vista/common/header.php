@@ -1,11 +1,11 @@
 <?php if(!isset($_SESSION['login'])) $_SESSION['login']=false ?>
 <div>
 	<ul class="nav_bar">
-		<li><a class="button" href="../index.php">Inicio</a>
-		<li><a class="button" href="listEmpresa.php">Startups</a>
-		<li><a class="button" href="listUser.php">Usuarios</a>
+		<li><a class="button" href="/ProyectoStartOn/index.php">Inicio</a>
+		<li><a class="button" href="/ProyectoStartOn/vista/listEmpresa.php">Startups</a>
+		<li><a class="button" href="/ProyectoStartOn/vista/listUser.php">Usuarios</a>
 		<li><a class="button" href="">Eventos</a>
-		<li><a class="button" href="conocenos.php">Conócenos</a>
+		<li><a class="button" href="/ProyectoStartOn/vista/conocenos.php">Conócenos</a>
 		<li><a class="button" href="">Ayuda</a>
 		<?php
 			if(!$_SESSION['login'])
