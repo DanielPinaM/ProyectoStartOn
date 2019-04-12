@@ -92,8 +92,6 @@
 			</div>
 		</div>
 		<div class="row white_space"></div>
-	</div>
-  		</div>
 
       <div class="row"> <!--/Row Formulario contacto-->
         <body>
@@ -114,6 +112,8 @@
         	</form>
         </body>
       </div>
+
+  </div>
 
   		<?php require("common/footer.php")?>
 

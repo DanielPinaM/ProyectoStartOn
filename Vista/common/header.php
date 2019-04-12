@@ -15,7 +15,7 @@
 		<li><a href="/ProyectoStartOn/vista/listUser.php">Usuarios</a>
 		<li><a href="">Eventos</a>
 		<li><a href="/ProyectoStartOn/vista/conocenos.php">Conócenos</a>
-		<li><a href="">Ayuda</a>
+		<li><a href="/ProyectoStartOn/vista/ayuda.php">Ayuda</a>
 		<?php
 			if(!$_SESSION['login'])
 				echo '<li style="float:right"><a id="inicio_sesion" href="/ProyectoStartOn/vista/login.php">Inicia sesión</a>';
