@@ -82,8 +82,6 @@ require_once ("../logica/SA_Empresa.php");
 				echo '<a href="mod_perf.php" >Modificar perfil</button>';
 		?>
 	</div>
-	<!--<button type ='button'  onclick="window.location = 'http://www.marca.com';"/> WebEmpresa.es </button>
-		poner el CV en vez de marca arriba, osea, window.open('curriculum.php', 'width=800,height=600') -->
 
 		<?php require("common/footer.php")?>
 </body>
