@@ -54,7 +54,6 @@ require_once ("../logica/SA_Empresa.php");
 
 		<div id="card">
 			<h2>Carta de presentacion</h2>
-			<hr />
 			<?php
 				echo "<p> ".$transfer->getCartaPresentacion()." </p>";
 			?>
@@ -62,7 +61,6 @@ require_once ("../logica/SA_Empresa.php");
 
 		<div id="card">
 			<h2>Que ofrecemos</h2>
-			<hr />
 			<?php
 				echo "<p> ".$transfer->getOfrecemos()." </p>";
 			?>
@@ -70,7 +68,6 @@ require_once ("../logica/SA_Empresa.php");
 
 		<div id="card">
 			<h2>Que buscamos</h2>
-			<hr />
 			<?php
 				echo "<p> ".$transfer->getBuscamos()." </p>";
 			?>

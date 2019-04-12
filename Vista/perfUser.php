@@ -44,7 +44,7 @@ require_once ("../logica/SA_Usuario.php");
 
 			<div id="perfil">
 				<div id="card">
-					<img src= "<?php echo $transferUser->getImagenPerfil(); ?>" alt= 'John' style="width:100%">
+					<img id="FotoPerfil" src= "/ProyectoStartOn/img/usuario.png" alt= 'John' style="width:100%">
 					<?php
 					echo " <p id ='burbuja'> ".$transferUser->getNombre()."  ".$transferUser->getApellido()."</p>";
 					echo " <p id ='burbuja'> ".$transferUser->getOficio()." </p>";
@@ -54,7 +54,6 @@ require_once ("../logica/SA_Usuario.php");
 
 				<div id="card">
 					<h2>Carta de presentacion</h2>
-					<hr />
 					<?php
 						echo "<p> ".$transferUser->getCartaPresentacion()." </p>";
 					?>
@@ -62,7 +61,6 @@ require_once ("../logica/SA_Usuario.php");
 
 				<div id="card">
 					<h2>Experiencia</h2>
-					<hr />
 					<?php
 						echo "<p> ".$transferUser->getExperiencia()." </p>";
 					?>
@@ -70,7 +68,6 @@ require_once ("../logica/SA_Usuario.php");
 
 				<div id="card">
 					<h2>Pasiones</h2>
-					<hr />
 					<?php
 						echo "<p> ".$transferUser->getPasiones()." </p>";
 					?>

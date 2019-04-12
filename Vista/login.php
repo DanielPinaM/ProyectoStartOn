@@ -11,10 +11,9 @@ require_once ("../logica/SA_Usuario.php");
 	<title>Start On</title>
 	<meta charset="utf-8">
 </head>
-
 <body>
+    			<?php require("common/header.php")?>
 	<div id="container">
-			<?php require("common/header.php")?>
 			<div class="row">
 				<?php
 				if ($_SERVER["REQUEST_METHOD"] == "POST") {
