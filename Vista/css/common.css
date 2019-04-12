@@ -8,10 +8,6 @@
 * {
   box-sizing: border-box;
 }
-.container{
-  	margin: 0px;
-}
-
 body{
 	background-image: url('../../img/BackGround2.png');
 	background-repeat: no-repeat;
@@ -20,11 +16,19 @@ body{
   font-family: arial;
 }
 
+/*logos*/
 #logo_inicio{
   padding: 30px;
   width: 50%;
   height: auto;
 }
+#logo_cabecera{
+  padding-top: 5px;
+  padding-left: 5px;
+  width: 35px;
+  height: 35px;
+}
+
 .titulo{
 	font-size: 50px;
 	padding: 30px;
@@ -36,9 +40,14 @@ body{
 ul {
   list-style-type: none;
   margin: -8px;
-  padding: 0px;
+  padding: 0;
   overflow: hidden;
   background-color: #111111;
+}
+#cabecera {
+  width: 100%;
+  height: 10%;
+  position: fixed;
 }
 li {
   float: left;
@@ -70,7 +79,6 @@ li a:hover {
 /*
 	Estilo de botones
 */
-
 .botonGuay {
   border-style: solid;
   border-width: 1px;
@@ -88,18 +96,37 @@ li a:hover {
 .botonGuay:hover{
    box-shadow: 5px 10px #888888;
 }
+#botonSubmitE{
+  padding: 2px;
+  width: 100px;
+  background-color: #c9c9ff;
+}
+#botonSubmitU{
+  padding: 2px;
+  width: 100px;
+  background-color: #ffbdbd;
+}
+#botonSubmit:hover{
+  box-shadow: 1px 2px #888888;
+}
 #Botonempresa{
   background-color: #c9c9ff;
 }
 #Botonusuario{
   background-color: #ffbdbd;
 }
+#botonHeader{
+  background-image:url('../img/Logo2.png');
+  background-repeat:no-repeat;
+}
 a {
   text-decoration: none;
   font-size: 18px;
   color: black;
 }
-
+/*
+  Estilo del footer
+*/
 .footer {
   background-color: #aaaaaa;
   position: fixed;

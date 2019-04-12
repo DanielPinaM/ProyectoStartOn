@@ -44,7 +44,6 @@ require_once ("../logica/SA_Usuario.php");
 				  $data = htmlspecialchars($data);
 				  return $data;
 				}
-
 				?>
 
 				<h2>Inicia sesión:</h2>
@@ -54,7 +53,7 @@ require_once ("../logica/SA_Usuario.php");
 				 <p> Iniciar sesión como: <br>
 				  <input type="radio" name="mode" value ="usuario" checked> Usuario
 				  <input type="radio" name="mode" value ="empresa"> Empresa </p>
-				  <input type="submit" name="submit" value="Submit">
+				  <input id= 'botonSubmit' class ='botonGuay' type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
 			<?php require("common/footer.php")?>

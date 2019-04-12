@@ -13,8 +13,6 @@ require_once ("../logica/SA_Usuario.php");
 
 <body>
 
-	<?php require("common/header.php")?>
-
 	<?php
 		if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
 			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario']))){
@@ -43,6 +41,7 @@ require_once ("../logica/SA_Usuario.php");
 			return $data;
 		}
 	?>
+	<?php require("common/header.php")?>
 
 			<div id="perfil">
 				<div id="card">
@@ -84,11 +83,6 @@ require_once ("../logica/SA_Usuario.php");
 				?>
 			</div>
 
-
-
-			<!-- <button type ='button'  onclick="window.location = 'http://www.marca.com';"/> CV </button> -->
-			<!-- poner el CV en vez de marca arriba, osea, window.open('curriculum.php', 'width=800,height=600') -->
-
-			<?php require("common/header.php")?>
+			<?php require("common/footer.php")?>
 </body>
 </html>

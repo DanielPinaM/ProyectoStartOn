@@ -48,7 +48,7 @@ require_once ("../logica/SA_Empresa.php");
 				  <p>E-mail: <input type="email" name="email" value=""></p>
 				  <p>Contraseña: <input type="password" name="password" value=""></p>
 				  <p>Repetir contraseña: <input type="password" name= "password2" value=""></p>
-				  <input type="submit" name="submit" value="Submit">
+				  <input id= 'botonSubmitE' class ='botonGuay' type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
 			<?php require("common/footer.php")?>
