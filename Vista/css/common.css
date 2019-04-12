@@ -52,6 +52,10 @@ li a:hover {
 }
 
 .row{
+<<<<<<< HEAD
+=======
+	background-color: none;
+>>>>>>> c3fa11d6efcf2e560b8bf028cadd1c28ec1b5839
 	text-align: center;
 }
 .row:after {
@@ -103,11 +107,18 @@ a {
    box-shadow: 5px 10px #888888;
 }
 .footer {
+<<<<<<< HEAD
   background-color: #aaaaaa;
   position: fixed;
   right: auto;
   width:  100%;
   bottom: 0px;
+=======
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: #F1F1F1;
+>>>>>>> c3fa11d6efcf2e560b8bf028cadd1c28ec1b5839
   text-align: center;
   padding: 10px;
 }
