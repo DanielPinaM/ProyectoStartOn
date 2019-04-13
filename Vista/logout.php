@@ -15,7 +15,7 @@ require_once ("../includes/config.php");
 		<?php require("common/header.php")?>
 		<div class="row">
 			<div class="titulo">
-				Start On
+				<img id="logo_inicio" src="../img/Logo1.png">
 			</div>
 		</div>
 		<div class="row">
