@@ -94,9 +94,18 @@ require_once ("../logica/SA_Usuario.php");
 			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
 			  	<p>Oficio: <input type="text" name="oficio" value=<?php echo $transfer->getOficio(); ?>></p>
 			  	<p>Imagen de perfil: <input type="text" name="imagen" value=<?php echo $transfer->getImagenPerfil(); ?>></p>
-				<input type="submit" name="submit" value="Guardar Cambios">
+				<input id="botoSubmitU" type="submit" name="submit" value="Guardar Cambios">
 		  		</form>
+		  		<input type="button" value="Borrar Perfil" onclick="borrarPerfil()"></input>
+
+		  		<script type="text/javascript">
+		  			function borrarPerfil(){
+		  				if(confirm("¿Estás seguro de que quieres borrar tu perfil? (Los datos guardados se perderán para siempre)")){
+		  					window.location.assign("delete.php");
+		  				}
+		  			}
+		  		</script>
 	</div>
-		<?php require("common/footer.php")?>
+		 <?php //require("common/footer.php")?>
 </body>
 </html>
