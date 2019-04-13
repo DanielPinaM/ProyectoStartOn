@@ -43,11 +43,11 @@ require_once ("../logica/SA_Empresa.php");
 				?>
 				</form>
 				<h2>Regístrate como empresa aquí:</h2>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-					<p>Nombre: <input type="text" name="nombre" value=""></p>
-				  <p>E-mail: <input type="email" name="email" value=""></p>
-				  <p>Contraseña: <input type="password" name="password" value=""></p>
-				  <p>Repetir contraseña: <input type="password" name= "password2" value=""></p>
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-consulta">
+					<p>Nombre de la empresa: <input type="text" name="nombre" value="" class="campo-form"></p>
+				  <p>E-mail: <input type="email" name="email" value="" class="campo-form"></p>
+				  <p>Contraseña: <input type="password" name="password" value="" class="campo-form"></p>
+				  <p>Repetir contraseña: <input type="password" name= "password2" value="" class="campo-form"></p>
 				  <input id= 'botonSubmitE' class ='botonGuay' type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
