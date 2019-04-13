@@ -148,7 +148,7 @@ class SA_Empresa implements SA_Interface {
 				if ($empDAO->getElementById($id) != NULL) {
 				    //Eliminamos el usuario y si no ha producico error redirigimos al inicio
 					if ($empDAO->deleteElement($id)) {
-						return "../index.php";
+						return "logout.php";
 					}
 					//Si no se ha podido eliminar se comunica al empresa
           else {

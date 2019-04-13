@@ -151,10 +151,10 @@ class SA_Usuario implements SA_Interface {
 
 				$userDAO = DAO_Usuario::getInstance();
 				//Comprobamos si el id del posible usuario asignado en la base de datos
-				if ($userDAO->getElement($id) != NULL) {
+				if ($userDAO->getElementById($id) != NULL) {
 				    //Eliminamos el usuario y si no ha producico error redirigimos al inicio
 					if ($userDAO->deleteElement($id)) {
-						return "../index.php";
+						return "logout.php";
 					}
 					//Si no se ha podido eliminar se comunica al usuario
 					else {
