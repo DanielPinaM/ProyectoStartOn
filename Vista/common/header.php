@@ -1,13 +1,4 @@
 <?php if(!isset($_SESSION['login'])) $_SESSION['login']=false ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<title>Start On</title>
-	<meta charset="utf-8">
-</head>
-
-<body>
 	<div id="cabecera">
 	<ul>
 		<li><a href="/ProyectoStartOn/index.php"><img id='logo_cabecera' src="/ProyectoStartOn/img/Logo1.png"></a>
@@ -28,6 +19,4 @@
 			}
 		?>
 	</ul>
-	</div
-</body>
-</html>
+</div>

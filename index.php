@@ -7,8 +7,8 @@
 	<title>Start On</title>
 </head>
 <body>
-	<div class="container">
-		<?php require ("vista/common/header.php")?>
+  		<?php require ("vista/common/header.php")?>
+	<div id="container">
 		<div class="row">
 			<div class="titulo">
 				<img id="logo_inicio" src="img/Logo1.png">
