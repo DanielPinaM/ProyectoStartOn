@@ -75,7 +75,7 @@ class DAO_Empresa implements DAO_Interface {
 		$app = Aplicacion::getSingleton();
 		$db = $app->conexionBd();
 		$consulta="DELETE FROM empresa WHERE ID_Empresa = '$id'";
-		$res = mysqli_query($db, $consulta)? false : true;
+		$res = mysqli_query($db, $consulta)? true : false;
     return $res;
 	}
 //--------------------------
