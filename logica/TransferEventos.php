@@ -1,18 +1,20 @@
 <?php
-class usuarioTransfer {
+class eventoTransfer {
 
 	private $nombre;
+	private $Localizacion;
 	private $precio;
 	private $cantidad;
 	private $fecha;
-	private $imagenEvento;
+	private $Img_Evento;
 
-	function __construct($nombre, $precio, $cantidad, $fecha,$imagenEvento){
+	function __construct($nombre, $Localizacion ,$precio, $cantidad, $fecha,$Img_Evento){
 		$this->nombre = $nombre;
+		$this->Localizacion = $Localizacion;
 		$this->precio = $precio;
 		$this->cantidad = $cantidad;
 		$this->fecha = $fecha;
-		$this->$imagenEvento = $imagenEvento;
+		$this->Img_Evento = $Img_Evento;
 	}
 
 	/**GETTER: devuelve los parametros privados*/
@@ -22,6 +24,10 @@ class usuarioTransfer {
 		return $this->nombre;
 	}
 
+	/**@return nombre: string value*/
+	public function getLocalizacion(){
+		return $this->Localizacion;
+	}
 	/**@return precio: integer value*/
 	public function getPrecio(){
 		return $this->precio;
@@ -29,16 +35,16 @@ class usuarioTransfer {
 
 /**@return cantidad: integer value*/
 	public function getCantidad(){
-		return $this->precio;
+		return $this->cantidad;
 	}
 
 /**@return fecha: date value*/
 	public function getFecha(){
-		return $this->cantidad;
+		return $this->fecha;
 	}
 /**@return imagenEvento: url value*/
 	public function getImagenEvento(){
-		return $this->fecha;
+		return $this->Img_Evento;
 	}
 
 /**SETTER: cambian los valores */
@@ -64,8 +70,8 @@ class usuarioTransfer {
 	}
 
 /** set @param imagenEvebto : string value */
-	public function setImagenEvento($imagenEvento){
-		$this->imagenEvento = $imagenEvento;
+	public function setImagenEvento($Img_Evento){
+		$this->Img_Evento = $Img_Evento;
 	}
 
 }
