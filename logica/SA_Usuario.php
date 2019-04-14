@@ -22,9 +22,9 @@ class SA_Usuario implements SA_Interface {
 
     /**Esta lista solo se genera cuando se ha iniciado sesion
     @return lista: contiene una lista de todos los elementos de la lista de usuarios sin filtros*/
-	function getAllElements($orden){
+	function getAllElements(){
 		$userDAO = DAO_Usuario::getInstance();
-		return 	$userDAO->getAllElements($orden);
+		return 	$userDAO->getAllElements();
 	}
 
 	/**@param id: posible id de un usuario

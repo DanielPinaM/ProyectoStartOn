@@ -102,12 +102,12 @@ class DAO_Empresa implements DAO_Interface {
 	}
 
     //--------------------------
-	public function getAllElements($orden){
+	public function getAllElements(){
 		$app = Aplicacion::getSingleton();
 		$db = $app->conexionBd();
 		$lista= array();
 
-		$consul = "SELECT * FROM empresa ORDER BY '$orden'";
+		$consul = "SELECT * FROM empresa ORDER BY nombre";
 		$query = mysqli_query($db, $consul);
 
 		if ($query){
