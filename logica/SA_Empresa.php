@@ -21,9 +21,9 @@ class SA_Empresa implements SA_Interface {
 
      /**Para acceder a esta funcion se debe estar iniciado sesion
      @return lista: contiene una lista de todos los elementos de la lista de usuarios sin filtros o null*/
-	function getAllElements(){
+	function getAllElements($orden){
 	  $empDAO = DAO_Empresa::getInstance();
-		return $empDAO->getAllElements();
+		return $empDAO->getAllElements($orden);
 	}
 
 	/**@param id: posible id de una empresa

@@ -3,7 +3,7 @@ require_once("../includes/config.php");
 
     interface SA_Interface {
 
-    	public function getAllElements();
+    	public function getAllElements($orden);
     	public function getElement($id);
     	public function createElement($transfer);
     	public function updateElement($transfer);
