@@ -22,10 +22,10 @@ require_once ("../logica/SA_Usuario.php");
 					echo '<pre>';
 					var_dump($value->getImagenPerfil());
 					echo '</pre>';
-					echo '<div id= "card">';
+
 					*/
 					//FALTA PONERSE DE ACUERDO DONDE SE VAN A AGUARDAR LAS FOTOS
-
+	         echo '<div id= "card">';
 						echo '<img src = '. $value->getImagenPerfil() .'alt = "Foto de perfil" style="width:100%">';
 						echo ' <p> '. $value->getNombre(). '</p>';
 						echo '<p> '. $value->getOficio(). '</p>';

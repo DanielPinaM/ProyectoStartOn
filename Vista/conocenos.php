@@ -12,21 +12,20 @@
     <?php require("common/header.php")?>
   	<div id="container">
 
-  		<div class="row"> <!--Row titulo-->
+  		<div class="rowC"> <!--Row titulo-->
   			<div class="titulo">Conócenos</div>
   		</div>
 
-  		<div class="row">
-        <div>
-  				<p>Esta página ha sido realizada como parte de un proyecto universitario.</p>
-          <p>Universidad Complutense de Madrid.</p>
-          <p>Nuestro proyecto se trata de una web para poner en contacto a personas interesadas
-          en el mundo del emprendimiento que estén el la etapa laboral de su vida con startups
+  		<div class="rowC">
+        <div class ="descripcion">
+  				<p>Esta página ha sido realizada como parte de un proyecto universitario de la Universidad Complutense de Madrid.</p>
+          <p>"Nuestro proyecto se trata de una web para poner en contacto a personas interesadas
+          en el mundo del emprendimiento que estén en la etapa laboral de su vida con startups
            en cualquier fase que quieran buscar a nuevos integrantes en sus equipos.</p>
   			</div>
       </div>
 
-      <div class="row">
+      <div class="rowC">
     		<div class="titulo">Nuestro equipo</div>
     	</div>
 
