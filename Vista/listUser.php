@@ -26,7 +26,7 @@ require_once ("../logica/SA_Usuario.php");
 					*/
 					//FALTA PONERSE DE ACUERDO DONDE SE VAN A AGUARDAR LAS FOTOS
 	         echo '<div id= "card">';
-						echo '<a href ="/ProyectoStartOn/vista/perfUser.php'.$value->getId_Usuario().'" ><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"  style="width:100%"></a>';
+						echo '<a href ="/ProyectoStartOn/vista/perfUser.php?id='.$value->getId_Usuario().'" ><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"  style="width:100%"></a>';
 						echo ' <p> '. $value->getNombre(). '</p>';
 						echo '<p> '. $value->getOficio(). '</p>';
 						echo '<p> '. $value->getLocalizacion(). '</p>';
