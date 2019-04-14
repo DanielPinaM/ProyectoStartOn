@@ -182,6 +182,7 @@ a {
 */
 div #card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  min-height: 250px;
   max-width: 300px;
   margin: 100px 30px 30px 30px;
   padding: 8px;
@@ -209,7 +210,12 @@ div #perfil {
   margin: auto;
   text-align: center;
 }
-
+#Modperfil{
+margin-top: 45px;
+margin-bottom: 45px;
+display: inline-block;
+text-align: center;
+}
 /*
 tarjetas ayuda
 */

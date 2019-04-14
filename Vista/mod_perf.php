@@ -71,7 +71,7 @@ require_once ("../logica/SA_Usuario.php");
 		  return $data;
 		}
 	?>
-	<div id="perfil">
+	<div id="Modperfil">
 		<form method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 				<p>Nombre: <input type="text" name="nombre" value=<?php echo $transfer->getNombre(); ?>></p>
 				<?php if(isset($_SESSION["id_usuario"])){
@@ -106,6 +106,6 @@ require_once ("../logica/SA_Usuario.php");
 		  			}
 		  		</script>
 	</div>
-		 <?php //require("common/footer.php")?>
+		 <?php require("common/footer.php")?>
 </body>
 </html>

@@ -37,7 +37,7 @@
 			} ?>
 
 		</div>
-		<?php require ("vista/common/footer.php")?>
 	</div>
+  		<?php require ("vista/common/footer.php")?>
 </body>
 </html>

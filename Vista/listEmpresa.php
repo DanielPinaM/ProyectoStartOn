@@ -7,12 +7,12 @@ require_once ("../logica/SA_Empresa.php");
 <!DOCTYPE html>
 <html>
 <head>
-  <?php require("common/header.php")?>
-	<link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
 	<title>Start On</title>
 	<meta charset="utf-8">
 </head>
 <body>
+    <?php require("common/header.php")?>
 	<div id="container">
 		<div class="row">
 			<?php
@@ -29,6 +29,6 @@ require_once ("../logica/SA_Empresa.php");
 				}
 			?>
 		</div>
-		<?php require("common/footer.php")?>
 	</div>
+  		<?php require("common/footer.php")?>
 </body>

@@ -6,14 +6,15 @@ require_once ("../logica/SA_Empresa.php");
 
 <!DOCTYPE html>
 <html>
+
 <head>
-	<link rel="stylesheet" type="text/css" href="css/common.css">
-	<title>Start On</title>
-	<meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <title>Start On</title>
+  <meta charset="utf-8">
 </head>
 <body>
+  			<?php require("common/header.php")?>
 	<div id="container">
-			<?php require("common/header.php")?>
 			<div class="row">
 				<?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
 					$nombre = test_input($_POST["nombre"]);
@@ -51,7 +52,7 @@ require_once ("../logica/SA_Empresa.php");
 				  <input id= 'botonSubmitE' class ='botonGuay' type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
-			<?php require("common/footer.php")?>
 		</div>
+    			<?php require("common/footer.php")?>
 </body>
 </html>
