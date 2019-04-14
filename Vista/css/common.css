@@ -7,14 +7,15 @@
 */
 * {
   box-sizing: border-box;
-  font-family: arial;
 }
 html, body{
   height:100%;
-  margin:0;
+  margin:0px;
+
   display: flex;
   flex-direction: column;
 }
+
 
 body{
 	background-image: url('../../img/BackGround2.png');
@@ -70,7 +71,6 @@ li a {
 }
 li a:hover {
   background-color: #ffbdbd;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .column{
@@ -85,12 +85,12 @@ li a:hover {
 .descripcion{
 	background-color: pink;
 	text-align: left;
-  margin-left: 30px
+  margin-left: 30px;
 }
 .titulo{
 	background-color: none;
 	text-align: center;
-  margin-top: 30px
+  margin-top: 30px;
 }
 
 
@@ -118,7 +118,7 @@ li a:hover {
 .botonGuay:hover{
   border-style: solid;
   border-width: 1px;
-  box-shadow: 0 7px 12px 0 rgba(0,0,0,0.7);
+  box-shadow: 5px 10px #888888;
   border-color: #aaaaaa;
   border-radius: 20px;
 }
@@ -132,18 +132,16 @@ li a:hover {
 #botonSubmitU{
   padding: 2px;
   width: 100px;
-  background-color: #ffbdbd;
+  background-color: #c9c9ff;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 20px;
 }
-/*
 #botonSubmit:hover{
   box-shadow: 1px 2px #888888;
   border-radius: 20px;
 }
-*/
 #Botonempresa{
-  background-color: #ffbdbd;
+  background-color: #c9c9ff;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 20px;
 }
@@ -167,13 +165,12 @@ a {
 /*
   Estilo del footer
 */
+
 .footer {
   background-color: #aaaaaa;
-  position: absolute;
-  /*pa que se quede abajo de una f*** vez*/
   box-sizing: border-box;
   position: relative;
-  /**/
+  position:fixed;
   margin: 0px;
   width:  100%;
   bottom: 0px;
@@ -193,7 +190,6 @@ div #card {
   text-align: center;
   background-color: #c9c9ff;
 }
-
 
 div #burbuja {
   color: grey;
@@ -263,7 +259,6 @@ extras
   border:0;
   font-family: 'Source Sans Pro', sans-serif;
   font-size:1em;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .row_content{
