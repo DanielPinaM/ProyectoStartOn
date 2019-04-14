@@ -19,7 +19,7 @@ require_once ("../logica/SA_Eventos.php");
       $ListOfEvents = $SA->getAllElements();
       foreach($ListOfEvents as $value){
         echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
-          echo '<img src = '. $value->getImagenEvento() .' alt = "Foto de perfil" style="width:100%">';
+          echo '<a href ="/ProyectoStartOn/vista/perfEvento.php" ><img src= "/ProyectoStartOn/img/'.$value->getImagenEvento().'"  style="width:100%"></a>';
           echo ' <p> '. $value->getNombre(). '</p>';
           echo '<p> '. $value->getFecha(). '</p>';
           echo '<p> '. $value->getLocalizacion(). '</p>';

@@ -30,7 +30,7 @@ class empresaTransfer {
 	}
 
 	/**GETTER: devuelve los parametros privados*/
-	
+
 	/**@return $id_empresa: string value*/
 	public function getId_Empresa() {
 		return $this->id_empresa;
@@ -63,7 +63,10 @@ class empresaTransfer {
 
 		/**@return imagenPerfil: url value*/
 	public function getImagenPerfil(){
-		return $this->imagenPerfil;
+		if(($this->imagenPerfil)==null)
+			return 'img/empresa.png';
+		else
+			return $this->imagenPerfil;
 	}
 	public function getCartaPresentacion(){
 		return $this->cartaPresentacion;
@@ -80,7 +83,7 @@ class empresaTransfer {
 	public function getOficio(){
 		return $this->oficio;
 	}
-	
+
 
 /**SETTER: cambian los valores */
 

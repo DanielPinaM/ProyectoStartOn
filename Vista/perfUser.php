@@ -44,8 +44,8 @@ require_once ("../logica/SA_Usuario.php");
 
 			<div id="perfil">
 				<div id="card">
-					<img id="FotoPerfil" src= "/ProyectoStartOn/img/usuario.png" alt= 'John' style="width:100%">
 					<?php
+          echo '<a href ="/ProyectoStartOn/vista/perfUser.php" ><img src= "/ProyectoStartOn/'.$transferUser->getImagenPerfil().'"  style="width:100%"></a>';
 					echo " <p id ='burbuja'> ".$transferUser->getNombre()."  ".$transferUser->getApellido()."</p>";
 					echo " <p id ='burbuja'> ".$transferUser->getOficio()." </p>";
 					echo " <p id ='burbuja'> ".$transferUser->getLocalizacion()." </p>";
