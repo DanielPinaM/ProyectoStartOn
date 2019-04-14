@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-04-2019 a las 21:05:41
+-- Tiempo de generación: 14-04-2019 a las 19:44:30
 -- Versión del servidor: 10.1.36-MariaDB
 -- Versión de PHP: 7.2.10
 
@@ -80,6 +80,28 @@ CREATE TABLE `evento` (
   `Img_Evento` varchar(255) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+--
+-- Volcado de datos para la tabla `evento`
+--
+
+INSERT INTO `evento` (`Nombre`, `Localizacion`, `Precio`, `Cantidad`, `Fecha`, `Img_Evento`) VALUES
+('BilbApp 3ª Edición', 'Bilbao', 'Gratis', 250, '2019-05-24', 'bilbapp.jpg'),
+('Blockchain exe', 'Madrid', '20 €', 350, '2019-05-31', 'blockchain.jpg'),
+('Campus Experts Summit', 'Madrid', 'Gratis', 300, '2019-07-04', 'campus.jpg'),
+('Content', 'Valencia', 'Gratis', 250, '2019-06-07', 'content.jpg'),
+('Demium startups pitch', 'Madrid', 'Gratis', 100, '2019-03-17', 'demium.jpg'),
+('EU-StartUps Summit', 'Barcelona', '50 €', 650, '2019-06-21', 'eu.jpg'),
+('Full Funnel B2B Markting Conference', 'Valencia', '20 €', 500, '2019-04-03', 'B2B.jpg'),
+('Infaimon Vision Congress', 'Barcelona', '15 €', 600, '2019-06-22', 'infaimon.jpg'),
+('Payoneer Meetup', 'Barcelona', 'Gratis', 200, '2019-07-11', 'payoneer.jpg'),
+('Sesame summit', 'Valencia', 'Gratis', 500, '2019-04-04', 'sesame.jpg'),
+('Sopela business market', 'Bilbao', 'Gratis', 250, '2019-04-19', 'sopela.jpg'),
+('StartUp my rooftop', 'Barcelona', 'Gratis', 150, '2019-05-10', 'rooftop.jpg'),
+('Startup Week Bilbao', 'Bilbao', 'Gratis', 325, '2019-03-04', 'startupweek.jpg'),
+('StartUp Weekend TechStars', 'Valencia', 'Gratis', 250, '2019-05-17', 'startupweekend.jpg'),
+('TechF3st UC3M', 'Madrid', 'Gratis', 750, '2019-03-14', 'tech.jpg'),
+('Venture on the road', 'Bilbao', '15 €', 300, '2019-05-24', 'venture.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -143,7 +165,7 @@ INSERT INTO `usuario` (`ID_usuario`, `email`, `password`, `Nombre`, `Apellidos`,
 ('3', 'helenap@gmail.com', '6f6b0db803758bcafba10900d4269ccceebc9eaa', 'Helena', 'Pómez', 'Valencia', 'Mi experiencia se basa en haber estudiado diseño de producto en la EASD Valencia. He producido decenas de diseños para diferentes compañías y proyectos que se pueden ver en mi portfolio helenapomez.es , tengo ganas de añadir a este camino desde el mundo del emprendimiento.', 'Si tuviese que escoger mis principales pasiones tendrían que ser dibujar comics, bailar y reír con mis amigos y familia. Cada día leo lo que pueda y pienso que es la mejor manera de aprender de forma rápido junto a la práctica. Me encanta ser sociable y conocer a gente maravillosa.', 'Buenas me llamo Helena y tengo 26 años. Toda mi vida me he dedicado a diseñar, desde varias perspectivas, más concretamente ropa, comics y los últimos 5 años aplicaciones y páginas web. Llevo tiempo queriendo experimentar con lo que significa llevar una startup adelante.', 'img/helenap.jpg', 'UX Designer'),
 ('4', 'tomask@gmail.com', '2a2ced81987b9344dcd56dd19877b7cbe6ff34b2', 'Tomás', 'Ko', 'Bilbao', 'Mi experiencia ha sido el grado en Economía en la universidad de Utah, además de 6 años de contable para 3 empresas multinacionales. Pero creo que la experiencia que más vale es la que he adquirido en el sector del turismo por todo mi movimiento.', 'Mi pasión principal es, cómo puedes adivinar, viajar. Me encanta todos los aspectos de ello desde los cambios culturales en las grandes ciudades hasta perderme por los bosques de cada país que visito.', 'Hola soy Tomás, tengo 31 y llevo toda mi vida moviendome por el mundo, he vivido en 5 continentes y estos últimos 2 años estoy muy contento en España. Me gustaría encontrar una empresa de viajes o turismo para aplicar mis experiencias junto a la economía.', 'img/tomask.jpg', 'Contable'),
 ('5', 'laurac@gmail.com', 'a43782cbc6ef9032aa29ddf6e29bf46f3712a6f1', 'Laura', 'Canales', 'La Coruña', 'Trabaje 8 años de profesora de conducir de motos, y estos últimos 10 de profesora de Movilidad y Urbanismo en la Universidad de A Coruña. Tengo ganas de perseguir lo que de verdad importa y pasar al siguiente nivel en mi vida.', 'Mi pasión es el motociclismo y utilizarlo para viajar por todo tipo de lugares, desde las más altas montañas a temperaturas negativas, hasta calas calurosas y con curvas vertiginosas. Quiero aprovechar mi pasión y trabajar en alguna empresa que relacione el motociclismo con los viajes, ¡o si no la crearé yo misma!', '¡Hola StartOn! Soy Laura, tengo 41 años y quiero dejar mi puesto de profesora en la universidad para perseguir mi obsesión con el motociclismo y los viajes.', 'img/laurac.jpg', 'Profesora'),
-('6', 'danpina@ucm.es', 'c7a2851fd2f7da303050a63d00a8135322d81147', 'Daniel', 'Piña', 'Madrid', 'Tengo experiencia en proyectos personales así como de la universidad.\r\nLlevo casi 3 años inmerso en el mundo del emprendimiento y las startups y con ganas de cada vez más aprender más sobre ello.', 'Me apasionan pocas cosas pero que de verdad me importan.\r\nMe apasiona mirar a los ojos y rodearme de gente con tenga sus propias pasiones que le causen un brillo en los ojos.\r\nTambién me apasiona investigar sobre creación de hábitos, minimalismo, y con ello centrarse en lo que de verdad le importa a uno mismo en la vida.', 'Hola soy Daniel, tengo 20 años y vivo en Madrid pero nacido y con mi corazón en La Coruña. Estudio Ingeniería Informática.\r\nLLevo ya un tiempo muy interesado en el emprendimiento, en como se comportan las personas, y cómo ser feliz de verdad y encontrar tu camino centrandote en lo que de verdad importa día a día.', 'img/pepeg.jpg', 'Estudiante');
+('6', 'danpina@ucm.es', 'c7a2851fd2f7da303050a63d00a8135322d81147', 'Daniel', 'Piña', 'Madrid', 'Tengo experiencia en proyectos personales así como de la universidad.\r\nLlevo casi 3 años inmerso en el mundo del emprendimiento y las startups y con ganas de cada vez más aprender más sobre ello.', 'Me apasionan pocas cosas pero que de verdad me importan.\r\nMe apasiona mirar a los ojos y rodearme de gente con tenga sus propias pasiones que le causen un brillo en los ojos.\r\nTambién me apasiona investigar sobre creación de hábitos, minimalismo, y con ello centrarse en lo que de verdad le importa a uno mismo en la vida.', 'Hola soy Daniel, tengo 20 años y vivo en Madrid pero nacido y con mi corazón en La Coruña. Estudio Ingeniería Informática.\r\nLLevo ya un tiempo muy interesado en el emprendimiento, en como se comportan las personas, y cómo ser feliz de verdad y encontrar tu camino centrandote en lo que de verdad importa día a día.', 'img/usuario.png', 'Estudiante');
 
 --
 -- Índices para tablas volcadas
