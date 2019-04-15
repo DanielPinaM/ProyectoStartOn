@@ -92,6 +92,13 @@ li a:hover {
 	text-align: center;
   margin-top: 30px;
 }
+.tituloIndx{
+  font-size: 50px;
+  margin-top: 30px;
+  margin-bottom: -30px;
+  font-family: monospace;
+  color: #777777;
+}
 
 
 .row:after {

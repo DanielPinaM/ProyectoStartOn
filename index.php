@@ -10,6 +10,9 @@
   		<?php require ("vista/common/header.php")?>
 	<div id="container">
 		<div class="row">
+      <div class="rowC"> <!--Row titulo-->
+        <div class="tituloIndx">Conectando talento con Startups</div>
+      </div>
 			<div class="titulo">
 				<img id="logo_inicio" src="img/Logo1.png">
 			</div>
