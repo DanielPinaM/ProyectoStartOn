@@ -73,30 +73,30 @@ require_once ("../logica/SA_Usuario.php");
 	?>
 	<div id="Modperfil">
 		<form method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-				<p>Nombre: <input type="text" name="nombre" value=<?php echo $transfer->getNombre(); ?>></p>
+				<p>Nombre: <input type="text" id="ModperfilCampos" name="nombre" value=<?php echo $transfer->getNombre(); ?>></p>
 				<?php if(isset($_SESSION["id_usuario"])){
-				echo '<p>Apellidos: <input type="text" name="apellido" value="'.$transfer->getApellido().'"></p>';
+				echo '<p>Apellidos: <input type="text" name="apellido"id="ModperfilCampos" value="'.$transfer->getApellido().'"></p>';
 				}?>
-				<p>E-mail: <input type="email" name="email" value=<?php echo $transfer->getEmail(); ?>></p>
-				<p>Contraseña: <input type="text" name="password" value=""></p>
-			 	<p>Localidad: <input type="text" name="localizacion" value=<?php echo $transfer->getLocalizacion(); ?>></p>
+				<p>E-mail: <input type="email" id="ModperfilCampos"name="email" value=<?php echo $transfer->getEmail(); ?>></p>
+				<p>Contraseña: <input type="text" id="ModperfilCampos"name="password" value=""></p>
+			 	<p>Localidad: <input type="text" id="ModperfilCampos"name="localizacion" value=<?php echo $transfer->getLocalizacion(); ?>></p>
 			  	<?php 	if(isset($_SESSION["id_usuario"])){
-				  			echo '<p>Experiencia: <textarea rows="4" cols="20" name="experiencia" value=""></textarea><p>
-				  			<p>Pasiones: <textarea rows="4" cols="20" name="pasiones" value=""></textarea></p>';
+				  			echo '<p>Experiencia: <textarea rows="4" cols="20" name="experiencia" id="ModperfilCampos"value=""></textarea><p>
+				  			<p>Pasiones: <textarea rows="4" cols="20" name="pasiones" id="ModperfilCampos"value=""></textarea></p>';
 				  		}
 			  			else{
-			  				echo '<p>Fase: <input type="text" name="fase" value=""></p>
-			  				<p>Buscamos: <textarea rows="4" cols="20" name="buscamos" value=""></textarea><p>
-				  			<p>Ofrecemos: <textarea rows="4" cols="20" name="ofrecemos" value=""></textarea></p>
+			  				echo '<p>Fase: <input type="text" name="fase"id="ModperfilCampos" value=""></p>
+			  				<p>Buscamos: <textarea rows="4" cols="20" name="buscamos"id="ModperfilCampos" value=""></textarea><p>
+				  			<p>Ofrecemos: <textarea rows="4" cols="20" name="ofrecemos"id="ModperfilCampos" value=""></textarea></p>
 				  			<p>Sector: <input type="text" name="sector" value=""></p>';
 			  			}
 			  	 ?>
-			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
-			  	<p>Oficio: <input type="text" name="oficio" value=<?php echo $transfer->getOficio(); ?>></p>
-			  	<p>Imagen de perfil: <input type="text" name="imagen" value=<?php echo $transfer->getImagenPerfil(); ?>></p>
-				<input id="botoSubmitU" type="submit" name="submit" value="Guardar Cambios">
+			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" id="ModperfilCampos"value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
+			  	<p>Oficio: <input type="text" name="oficio" id="ModperfilCampos"value=<?php echo $transfer->getOficio(); ?>></p>
+			  	<p>Imagen de perfil: <input type="text"id="ModperfilCampos" name="imagen" value=<?php echo $transfer->getImagenPerfil(); ?>></p>
+				<input class="botonGuay" type="submit" name="submit" value="Guardar">
 		  		</form>
-		  		<input type="button" value="Borrar Perfil" onclick="borrarPerfil()"></input>
+		  		<input class="botonGuay" type="button" value="Borrar" onclick="borrarPerfil()"></input>
 
 		  		<script type="text/javascript">
 		  			function borrarPerfil(){
