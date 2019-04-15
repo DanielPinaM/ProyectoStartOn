@@ -98,7 +98,7 @@ require_once ("../logica/SA_Usuario.php");
 			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" id="ModperfilCampos"value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
 			  	<p>Oficio: <input type="text" name="oficio" id="ModperfilCampos"value=<?php echo $transfer->getOficio(); ?>></p>
 			  	<p>Imagen de perfil: <input type="text"id="ModperfilCampos" name="imagen" value=<?php echo $transfer->getImagenPerfil(); ?>></p>
-				<input id="botonSubmit" class="botonGuay" type="submit" name="submit" value="Guardar">
+				<p><input id="botonSubmit" class="botonGuay" type="submit" name="submit" value="Guardar"></p>
 		  		</form>
           <div>
 		  		      <input id="botonSubmit" class="botonGuay" type="button" value="Borrar" onclick="borrarPerfil()"></input>
