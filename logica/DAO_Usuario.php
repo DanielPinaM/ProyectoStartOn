@@ -120,12 +120,8 @@ public function updateElement($id, $campo, $nuevoValor) {
 
 				array_push($lista,$transfer);
 			}
-			return $lista;
 		}
-		else {
-
-			return ;//NULL
-		}
+		return empty($lista) ? null : $lista;
 	}
 
 	/**Esta funcion se encarga de buscar un elemento en la base de datos a traves del campo gmail
