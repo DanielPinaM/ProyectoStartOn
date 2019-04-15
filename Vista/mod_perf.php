@@ -71,7 +71,11 @@ require_once ("../logica/SA_Usuario.php");
 		  return $data;
 		}
 	?>
+  <div class="rowC"> <!--Row modificar campos-->
+    <div class="titulo">Modificar campos:</div>
+  </div>
 	<div id="Modperfil">
+
 		<form method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 				<p>Nombre: <input type="text" id="ModperfilCampos" name="nombre" value=<?php echo $transfer->getNombre(); ?>></p>
 				<?php if(isset($_SESSION["id_usuario"])){
@@ -94,10 +98,11 @@ require_once ("../logica/SA_Usuario.php");
 			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" id="ModperfilCampos"value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
 			  	<p>Oficio: <input type="text" name="oficio" id="ModperfilCampos"value=<?php echo $transfer->getOficio(); ?>></p>
 			  	<p>Imagen de perfil: <input type="text"id="ModperfilCampos" name="imagen" value=<?php echo $transfer->getImagenPerfil(); ?>></p>
-				<input class="botonGuay" type="submit" name="submit" value="Guardar">
+				<input id="botonSubmit" class="botonGuay" type="submit" name="submit" value="Guardar">
 		  		</form>
-		  		<input class="botonGuay" type="button" value="Borrar" onclick="borrarPerfil()"></input>
-
+          <div>
+		  		      <input id="botonSubmit" class="botonGuay" type="button" value="Borrar" onclick="borrarPerfil()"></input>
+          </div>
 		  		<script type="text/javascript">
 		  			function borrarPerfil(){
 		  				if(confirm("¿Estás seguro de que quieres borrar tu perfil? (Los datos guardados se perderán para siempre)")){
