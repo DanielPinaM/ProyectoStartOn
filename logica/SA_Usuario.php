@@ -59,24 +59,21 @@ class SA_Usuario implements SA_Interface {
 			    $userDAO = DAO_Usuario::getInstance();
 			    //Recibimos la lista de los elementos que tenemos en la base de datos
 			    if($userDAO->getElementByEmail($transfer->getEmail()) != NULL) {
-			       $size = sizeof($userDAO->getAllElements());
+			      $size = sizeof($userDAO->getAllElements());
                 //Generamos el id del nuevo usuario a partir del tamaño de la lista
 		        $transfer->setId_Usuario($this->generateId($size));
 		        //Hasheamos la contraseña para evitar fallos de seguridad
 		        $transfer->setPassword($transfer->getPassword());
 		        //Añadimos el elemento a la base de datos a traves del DAO
-				$userDAO->createElement($transfer);
+    				$prueba = $userDAO->createElement($transfer);
 
-				$_SESSION['id_usuario'] =$transfer->getId_Usuario();
-    			$_SESSION['login'] = true;
-    			$_SESSION['nombre'] = $transfer->getNombre();
+    				$_SESSION['id_usuario'] =$transfer->getId_Usuario();
+        			$_SESSION['login'] = true;
+        			$_SESSION['nombre'] = $transfer->getNombre();
 
     			return "perfUser.php";
-
 			   }
-			   else {
-				   return "Error";
-			   }
+	        return "Error";
         }
 
         /**Esta funcion se encarga de logear un usuario a traves del numero del tamaño
