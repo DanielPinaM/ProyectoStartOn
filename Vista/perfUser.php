@@ -73,7 +73,7 @@ require_once ("../logica/SA_Usuario.php");
 					?>
 				</div>
 				<?php
-					if(isset($_SESSION['login']) && $_SESSION['login'] == true)
+					if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario']))
 						if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario'])))
 							echo '<div class="row"><a  id= "botonSubmit" class ="botonGuay" href="mod_perf.php" >Modificar perfil</a></div>';
 				?>

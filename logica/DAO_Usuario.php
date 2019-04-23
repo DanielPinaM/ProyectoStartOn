@@ -41,7 +41,7 @@ class DAO_Usuario implements  DAO_Interface {
 		}
 		else
 		{
-			$consulta="INSERT INTO usuario  (ID_usuario, email, password, Nombre, Apellidos, Localizacion, Experiencia, Pasiones, CartaPresentacion, Img_Perfil, Oficio) VALUES('$idUser' ,'$email', '$password', '$nombre', '$apellidos', '$localizacion', '$experiencia' ,'$pasiones', '$cartaPresentacion', '$imagen', '$oficio')";
+			$consulta="INSERT INTO usuario  (ID_usuario, email, password, Nombre, Apellidos, Localizacion, Experiencia, Pasiones, CartaPresentacion, Img_Perfil, Oficio) VALUES('$idUser' ,'$email', '$password', '$nombre', '$apellido', '$localizacion', '$experiencia' ,'$pasiones', '$cartaPresentacion', '$imagen', '$oficio')";
 		}
 		return $conn->query($consulta);
 	}
@@ -110,13 +110,13 @@ public function updateElement($id, $campo, $nuevoValor) {
 		$db = $app->conexionBd();
 		$lista= array();
 
-		$consul = "SELECT * FROM usuario ORDER BY nombre";
+		$consul = "SELECT * FROM usuario ORDER BY ID_usuario";
 		$query = mysqli_query($db, $consul);
 
 		if ($query) {
 			while($fila=mysqli_fetch_assoc($query)){
-        $transfer = new TransferUsuario($fila["ID_usuario"],$fila["email"],$fila["password"],
-        $fila["Nombre"], $fila["Apellidos"], $fila["Localizacion"], $fila["Experiencia"], $fila["Pasiones"], $fila["CartaPresentacion"], $fila["Img_Perfil"], $fila["Oficio"]);
+        $transfer = new TransferUsuario($fila["ID_usuario"],$fila["Nombre"],$fila["Apellidos"],
+        $fila["password"], $fila["email"], $fila["Localizacion"], $fila["Experiencia"], $fila["Pasiones"], $fila["CartaPresentacion"], $fila["Img_Perfil"], $fila["Oficio"]);
 
 				array_push($lista,$transfer);
 			}

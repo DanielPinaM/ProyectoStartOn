@@ -20,14 +20,14 @@ require_once ("../logica/SA_Usuario.php");
 					$email = test_input($_POST["email"]);
 					$password = sha1(md5(test_input($_POST["password"])));
 
-					if($_REQUEST["mode"] == "usuario"){
+					//if($_REQUEST["mode"] == "usuario"){
 						$SA = SA_Usuario::getInstance();
 						$transfer = new TransferUsuario("","","",$password, $email,"", "" ,"" ,"","", "");
 					 	$dir = $SA->login($transfer);
-					 	if($dir !== "error"){
+					 if($dir !== "Error" && $dir!=="../index.php"){
 							header('Location: '.$dir);
 					 	}
-					} else{
+					  else{
 						$SA = SA_Empresa::getInstance();
 						$transfer = new empresaTransfer("","",$password, $email,"", "" ,"" ,"","","","","");
 						$dir = $SA->login($transfer);
@@ -50,8 +50,8 @@ require_once ("../logica/SA_Usuario.php");
 				  <p>E-mail: <input type="email" name="email" value="" class="campo-form"></p>
 				  <p>Contraseña: <input type="password" name="password" value="" class="campo-form"></p>
 				 <p> Iniciar sesión como:<p>
-				 <p> <input type="radio" name="mode" value ="usuario" checked> Usuario
-				  <input type="radio" name="mode" value ="empresa"> Empresa </p>
+				 <!--<p> <input type="radio" name="mode" value ="usuario" checked> Usuario
+				  <input type="radio" name="mode" value ="empresa"> Empresa </p>-->
 				  <input id= 'botonSubmit' class ='botonGuay' type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>

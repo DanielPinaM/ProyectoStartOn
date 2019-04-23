@@ -59,9 +59,11 @@ class SA_Usuario implements SA_Interface {
 			    $userDAO = DAO_Usuario::getInstance();
 			    //Recibimos la lista de los elementos que tenemos en la base de datos
 			    if($userDAO->getElementByEmail($transfer->getEmail()) != NULL) {
-			      $size = sizeof($userDAO->getAllElements());
+            $elements = $userDAO->getAllElements();
+			      $size = sizeof($elements);
+
                 //Generamos el id del nuevo usuario a partir del tamaño de la lista
-		        $transfer->setId_Usuario($this->generateId($size));
+		        $transfer->setId_Usuario($this->generateId($elements[$size-1]->getId_Usuario()));
 		        //Hasheamos la contraseña para evitar fallos de seguridad
 		        $transfer->setPassword($transfer->getPassword());
 		        //Añadimos el elemento a la base de datos a traves del DAO
@@ -80,7 +82,7 @@ class SA_Usuario implements SA_Interface {
           @param size: contiene un entero positivo
           @return size + 1: devuelve un numero posterior al pasado por parametro*/
     function generateId($size) {
-      return $size + 1;
+      return $size +1 ;
     }
 
     /**Esta funcion se encarga de actualiar los campos de un usuario,
