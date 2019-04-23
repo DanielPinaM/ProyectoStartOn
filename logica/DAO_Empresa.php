@@ -107,7 +107,7 @@ class DAO_Empresa implements DAO_Interface {
 		$db = $app->conexionBd();
 		$lista= array();
 
-		$consul = "SELECT * FROM empresa ORDER BY nombre";
+		$consul = "SELECT * FROM empresa ORDER BY ID_Empresa";
 		$query = mysqli_query($db, $consul);
 
 		if ($query){

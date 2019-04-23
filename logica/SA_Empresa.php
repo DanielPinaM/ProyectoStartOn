@@ -52,8 +52,11 @@ class SA_Empresa implements SA_Interface {
 			$empDAO = DAO_Empresa::getInstance();
 			    //Recibimos la lista de los elementos que tenemos en la base de datos
 		  if($empDAO->getElementByEmail($transfer->getEmail()) != NULL) {
-        $size = sizeof($empDAO->getAllElements());
-		    $transfer->setId_Empresa($this->generateId($size)); //Generacion del id de manera "aleatoria
+        $elements = $empDAO->getAllElements();
+        $size = sizeof($elements);
+
+            //Generamos el id del nuevo usuario a partir del tamaño de la lista
+        $transfer->setId_Empresa($this->generateId($elements[$size-1]->getId_Empresa()));
 		     //Hasheamos la contraseña para evitar fallos de seguridad
 		    $transfer->setPassword($transfer->getPassword());
 		    //Añadimos el elemento a la base de datos a traves del DAO
