@@ -20,7 +20,7 @@ require_once ("../logica/SA_Empresa.php");
 				$ListOfEmp = $SA->getAllElements();
 				foreach($ListOfEmp as $value){
 					echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
-						echo '<a href ="/ProyectoStartOn/vista/perfEmp.php?id='.$value->getId_Empresa().'" ><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"  style="width:100%"></a>';
+						echo '<a href ="/ProyectoStartOn/vista/perfEmp.php?id='.$value->getId_Empresa().'" ><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"style="width:100%"></a>';
 						echo ' <p> '. $value->getNombre(). '</p>';
 						echo '<p> '. $value->getFase(). '</p>';
 						echo '<p> '. $value->getLocalizacion(). '</p>';

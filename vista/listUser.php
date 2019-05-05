@@ -29,7 +29,7 @@ require_once ("../logica/SA_Usuario.php");
            echo '<a ';
            if(isset($_SESSION['login']) && $_SESSION['login'])
             echo 'href ="/ProyectoStartOn/vista/perfUser.php?id='.$value->getId_Usuario().'"';
-            echo '><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"  style="width:100%"></a>';
+            echo '><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"style="width:100%"></a>';
 						echo ' <p> '. $value->getNombre(). '</p>';
 						echo '<p> '. $value->getOficio(). '</p>';
 						echo '<p> '. $value->getLocalizacion(). '</p>';
