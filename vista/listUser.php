@@ -30,9 +30,9 @@ require_once ("../logica/SA_Usuario.php");
            if(isset($_SESSION['login']) && $_SESSION['login'])
             echo 'href ="/ProyectoStartOn/vista/perfUser.php?id='.$value->getId_Usuario().'"';
             echo '><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"  style="width:100%"></a>';
-						echo ' <p> '. $value->getNombre(). '</p>';
-						echo '<p> '. $value->getOficio(). '</p>';
-						echo '<p> '. $value->getLocalizacion(). '</p>';
+						echo ' <p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
+						echo '<p class="burbuja"> '. $value->getOficio(). '</p>';
+						echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
 					echo'</div>';
 				}
 			?>
