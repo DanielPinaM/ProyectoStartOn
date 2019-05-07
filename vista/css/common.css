@@ -223,6 +223,20 @@ div #card {
   background-color: #c9c9ff;
 }
 
+div #card img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 20px;
+}
+@supports(object-fit: cover){
+    div #card img{
+      height: 300px;
+      object-fit: cover;
+      object-position: center top;
+    }
+}
+
 div #burbuja {
   color: grey;
   font-size: 18px;
