@@ -1,4 +1,5 @@
 <?php require_once ("includes/config.php"); ?>
+
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" type="text/css" href="vista/css/common.css">
@@ -7,7 +8,7 @@
 	<title>Start On</title>
 </head>
 <body>
-  		<?php require ("vista/common/header.php")?>
+  		<?php require ("vista/common/indexHeader.php")?>
 	<div id="container">
 		<div class="row">
       <div class="rowC"> <!--Row titulo-->
@@ -34,8 +35,8 @@
 		<div class="row">
 			<?php if (isset($_SESSION['login'])) {
 				if(!$_SESSION['login']){
-				echo "<div class=\"column\"><a class= \"botonGuay\" id= \"Botonusuario\" href=\"vista/usr_signup.php\" >Registro de usuarios</a></div>
-					<div class=\"column\"><a class= \"botonGuay\" id= \"Botonempresa\" href=\"vista/emp_signup.php\">Registro de empresas</a></div>";
+				echo '<div class="column"><a class= "botonGuay" id= "Botonusuario" href="vista/usr_signup.php" >Registro de usuarios</a></div>
+					<div class="column"><a class= "botonGuay" id= "Botonempresa" href="vista/emp_signup.php">Registro de empresas</a></div>';
 				}
 			} ?>
 

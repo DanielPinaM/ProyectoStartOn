@@ -229,6 +229,7 @@ div #card img {
   height: auto;
   border-radius: 20px;
 }
+/*
 @supports(object-fit: cover){
     div #card img{
       height: 300px;
@@ -236,7 +237,7 @@ div #card img {
       object-position: center top;
     }
 }
-
+*/
 div #burbuja {
   color: grey;
   font-size: 18px;
