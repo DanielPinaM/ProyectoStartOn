@@ -46,36 +46,36 @@ require_once ("../logica/SA_Usuario.php");
 				<div id="card">
 					<?php
           echo '<a href ="/ProyectoStartOn/vista/perfUser.php" ><img src= "/ProyectoStartOn/'.$transferUser->getImagenPerfil().'"  style="width:100%"></a>';
-					echo " <p id ='burbuja'> ".$transferUser->getNombre()."  ".$transferUser->getApellido()."</p>";
-					echo " <p id ='burbuja'> ".$transferUser->getOficio()." </p>";
-					echo " <p id ='burbuja'> ".$transferUser->getLocalizacion()." </p>";
+					echo " <p class='burbuja' id='btitulo'> ".$transferUser->getNombre()."  ".$transferUser->getApellido()."</p>";
+					echo " <p class ='burbuja'> ".$transferUser->getOficio()." </p>";
+					echo " <p class ='burbuja'> ".$transferUser->getLocalizacion()." </p>";
 					?>
 				</div>
 
 				<div id="card">
-					<h2>Carta de presentacion</h2>
+					<p class ='burbuja' id='btitulo'>Carta de presentacion</p>
 					<?php
-						echo "<p> ".$transferUser->getCartaPresentacion()." </p>";
+						echo "<p class='burbuja' id='btexto'> ".$transferUser->getCartaPresentacion()." </p>";
 					?>
 				</div>
 
 				<div id="card">
-					<h2>Experiencia</h2>
+					<p class ='burbuja' id='btitulo'>Experiencia</p>
 					<?php
-						echo "<p> ".$transferUser->getExperiencia()." </p>";
+						echo "<p class='burbuja' id='btexto'> ".$transferUser->getExperiencia()." </p>";
 					?>
 				</div>
 
 				<div id="card">
-					<h2>Pasiones</h2>
+					<p class ='burbuja' id='btitulo'>Pasiones</p>
 					<?php
-						echo "<p> ".$transferUser->getPasiones()." </p>";
+						echo "<p class='burbuja' id='btexto'> ".$transferUser->getPasiones()." </p>";
 					?>
 				</div>
 				<?php
 					if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario']))
 						if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario'])))
-							echo '<div class="row"><a  id= "botonSubmit" class ="botonGuay" href="mod_perf.php" >Modificar perfil</a></div>';
+							echo '<div class="row"><a class ="botonGuay" href="mod_perf.php" >Modificar perfil</a></div>';
 				?>
 			</div>
 

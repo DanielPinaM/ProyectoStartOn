@@ -43,7 +43,7 @@ require_once ("../logica/SA_Empresa.php");
 
 				?>
 				</form>
-				<h2>Regístrate como empresa aquí:</h2>
+				<p class="titulo">Regístrate como empresa aquí:</p>
 				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-consulta">
 					<p>Nombre de la empresa: <input type="text" name="nombre" value="" class="campo-form"></p>
 				  <p>E-mail: <input type="email" name="email" value="" class="campo-form"></p>

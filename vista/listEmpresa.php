@@ -24,7 +24,7 @@ require_once ("../logica/SA_Empresa.php");
 						echo ' <p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
 						echo '<p class="burbuja"> '. $value->getFase(). '</p>';
 						echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
-						echo '<p class="burbuja"> '. $value->getCartaPresentacion(). '</p>';
+						echo '<p class="burbuja" id="btexto"> '. $value->getCartaPresentacion(). '</p>';
 					echo'</div>';
 				}
 			?>

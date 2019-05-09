@@ -29,10 +29,12 @@ body{
   padding: 30px;
   width: 50%;
   height: auto;
+  box-shadow: 0 0px 0px 0 rgba(0,0,0,0);
 }
 #logo_cabecera{
   width: 100px;
   height: auto;
+  box-shadow: none;
 }
 
 .titulo{
@@ -50,6 +52,8 @@ ul {
   overflow: hidden;
   background-color: #c9c9ff;
   border-bottom: solid;
+  border: 0px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 #cabecera {
   width: 100%;
@@ -68,6 +72,7 @@ li a {
   padding: 10px 20px;
   text-decoration: none;
   border-radius: 20px;
+  font-size: 18px;
 }
 li a:hover {
   background-color: #ffbdbd;
@@ -95,9 +100,10 @@ li a:hover {
 }
 .tituloIndx{
   font-size: 50px;
-  margin-top: 30px;
+  margin-top: 150px;
   margin-bottom: -30px;
-  font-family: monospace;
+  font-family: arial;
+  font-size: 70px;
   color: #777777;
 }
 
@@ -113,22 +119,22 @@ li a:hover {
 */
 .botonGuay {
   border-radius: 20px;
-  outline: 0;
+  border: 0px;
   display: inline-block;
-  padding: 12px;
+  padding: 8px;
   color: black;
   text-align: center;
   cursor: pointer;
   width: 33%;
-  font-size: 22px;
+  font-size: 16px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: white;
 }
 .botonGuay:hover{
   border-style: solid;
-  border-width: 1px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-width: 0.5px;
+  box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
   border-color: #aaaaaa;
-  border-radius: 20px;
 }
 #botonSubmitE{
   padding: 2px;
@@ -144,10 +150,7 @@ li a:hover {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 20px;
 }
-#botonSubmit:hover{
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border-radius: 20px;
-}
+
 #Botonempresa{
   background-color: #c9c9ff;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -208,7 +211,10 @@ img{
 #btitulo{
   font-weight: bold;
     background-color: #ffbdbd;
+}
 
+#btexto{
+  padding: 14px;
 }
 
 div #card {
@@ -238,7 +244,7 @@ div #card img {
     }
 }
 */
-div #burbuja {
+/*div #burbuja {
   color: grey;
   font-size: 18px;
   border-style: outset;
@@ -247,7 +253,7 @@ div #burbuja {
   border-width: 1px;
   background-color: #ffbdbd;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+}*/
 #FotoPerfil{
     border-radius: 20px;
 }
