@@ -46,30 +46,30 @@ require_once ("../logica/SA_Empresa.php");
 		<div id="card">
 			<?php
 			echo '<a href ="/ProyectoStartOn/vista/perfUser.php" ><img src= "/ProyectoStartOn/'.$transfer->getImagenPerfil().'"  style="width:100%"></a>';
-			echo '<p id ="burbuja"> '.$transfer->getNombre().'</p>';
-			echo '<p id ="burbuja"> '.$transfer->getLocalizacion().'</p>';
-			echo '<p id ="burbuja"> '.$transfer->getSector().'</p>';
+			echo '<p class ="burbuja" id="btitulo"> '.$transfer->getNombre().'</p>';
+			echo '<p class ="burbuja"> '.$transfer->getLocalizacion().'</p>';
+			echo '<p class ="burbuja"> '.$transfer->getSector().'</p>';
 			?>
 		</div>
 
 		<div id="card">
-			<h2>Carta de presentacion</h2>
+			<p class ='burbuja' id='btitulo'>Carta de presentacion</p>
 			<?php
-				echo "<p> ".$transfer->getCartaPresentacion()." </p>";
+				echo "<p class='burbuja' id='btexto'> ".$transfer->getCartaPresentacion()." </p>";
 			?>
 		</div>
 
 		<div id="card">
-			<h2>Que ofrecemos</h2>
+			<p class ='burbuja' id='btitulo'>Que ofrecemos</p>
 			<?php
-				echo "<p> ".$transfer->getOfrecemos()." </p>";
+				echo "<p class='burbuja' id='btexto'> ".$transfer->getOfrecemos()." </p>";
 			?>
 		</div>
 
 		<div id="card">
-			<h2>Que buscamos</h2>
+			<p class ='burbuja' id='btitulo'>Que buscamos</p>
 			<?php
-				echo "<p> ".$transfer->getBuscamos()." </p>";
+				echo "<p class='burbuja' id='btexto'> ".$transfer->getBuscamos()." </p>";
 			?>
 		</div>
 		<?php

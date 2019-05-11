@@ -30,7 +30,7 @@
         <p><b>¿Necesito algún requisito para registrar mi startup?</b></p>
         </div>
         <div>
-          <p>¡Para nada! Cualquier startup, sea cual sea su nivel de desarrollo, puede formar parte de nuestra plataforma. Desde una idea con un pequeño proyecto alrededor, hasta un unicornio como Uber</p>
+          <p>¡Para nada! Cualquier startup, sea cual sea su nivel de desarrollo, puede formar parte de nuestra plataforma. Desde una idea y su pequeño proyecto, hasta un unicornio como Uber</p>
         </div>
       </div>
 
