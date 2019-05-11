@@ -85,17 +85,17 @@ require_once ("../logica/SA_Usuario.php");
 				<p>Contraseña: <input type="text" id="ModperfilCampos"name="password" value=""></p>
 			 	<p>Localidad: <input type="text" id="ModperfilCampos"name="localizacion" value=<?php echo $transfer->getLocalizacion(); ?>></p>
 			  	<?php 	if(isset($_SESSION["id_usuario"])){
-				  			echo '<p>Experiencia: <textarea rows="4" cols="20" name="experiencia" id="ModperfilCampos"value=""></textarea><p>
-				  			<p>Pasiones: <textarea rows="4" cols="20" name="pasiones" id="ModperfilCampos"value=""></textarea></p>';
+				  			echo '<p>Experiencia: <textarea rows="4" cols="20" name="experiencia" id="ModperfilCampos" value=""> '. $transfer->getExperiencia().' </textarea><p>
+				  			<p>Pasiones: <textarea rows="4" cols="20" name="pasiones" id="ModperfilCampos"value=""> '. $transfer->getPasiones().' </textarea></p>';
 				  		}
 			  			else{
-			  				echo '<p>Fase: <input type="text" name="fase"id="ModperfilCampos" value=""></p>
-			  				<p>Buscamos: <textarea rows="4" cols="20" name="buscamos"id="ModperfilCampos" value=""></textarea><p>
-				  			<p>Ofrecemos: <textarea rows="4" cols="20" name="ofrecemos"id="ModperfilCampos" value=""></textarea></p>
-				  			<p>Sector: <input type="text" name="sector" value=""></p>';
+			  				echo '<p>Fase: <input type="text" name="fase"id="ModperfilCampos" value="'. $transfer->getFase().'"></p>
+			  				<p>Buscamos: <textarea rows="4" cols="20" name="buscamos"id="ModperfilCampos" value="">'. $transfer->getBuscamos().'</textarea><p>
+				  			<p>Ofrecemos: <textarea rows="4" cols="20" name="ofrecemos"id="ModperfilCampos" value="">'. $transfer->getOfrecemos().'</textarea></p>
+				  			<p>Sector: <input type="text"  id="ModperfilCampos" name="sector" value="'. $transfer->getSector().'"></p>';
 			  			}
 			  	 ?>
-			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" id="ModperfilCampos"value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
+			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" id="ModperfilCampos" value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
 			  	<p>Oficio: <input type="text" name="oficio" id="ModperfilCampos"value=<?php echo $transfer->getOficio(); ?>></p>
 			  	<p>Imagen de perfil: <input type="text"id="ModperfilCampos" name="imagen" value=<?php echo $transfer->getImagenPerfil(); ?>></p>
 				<p><input id="botonSubmit" class="botonGuay" type="submit" name="submit" value="Guardar"></p>

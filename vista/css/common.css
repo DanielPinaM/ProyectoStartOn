@@ -60,6 +60,7 @@ ul {
 }
 #container{
   margin-top: 0px;
+  margin-bottom: 60px;
 }
 li {
   float: left;
@@ -272,7 +273,7 @@ div #perfil {
 }
 #Modperfil{
 margin:auto;
-margin-top: 45px;
+margin-top: 20px;
 margin-bottom: 45px;
 display: inline-block;
 text-align: center;
@@ -280,7 +281,7 @@ text-align: center;
   background: #ffbdbd;
   padding: 25px;
   font-family: 'arial', arial;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
 }
