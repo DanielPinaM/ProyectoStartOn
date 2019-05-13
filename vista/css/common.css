@@ -15,7 +15,9 @@ html, body{
   display: flex;
   flex-direction: column;
 }
-
+#espacio{
+  margin-top: 250px;
+}
 
 body{
 	background-image: url('../../img/BackGround2.png');
@@ -106,7 +108,25 @@ li a:hover {
   font-size: 70px;
   color: #777777;
 }
-
+.fraseIndx{
+  font-size: 35px;
+  float: left;
+  width: 500px;
+  font-family: arial;
+  color: #777777;
+}
+.fotoIndex{
+width: 600px;
+height: auto;
+float: left;
+border-radius: 20px;
+}
+.rowind{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
 
 .row:after {
   content: "";
@@ -189,10 +209,11 @@ img{
   position: relative;
   position:fixed;
   margin: 0px;
+  height: 30px;
   width:  100%;
   bottom: 0px;
-  text-align: center;
-  padding: 10px;
+  text-align:center;
+  padding: 5px;
 }
 /*
  perfiles
