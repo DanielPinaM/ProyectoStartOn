@@ -18,7 +18,11 @@ require_once ("../logica/SA_Empresa.php");
 			<?php
 				$SA = SA_Empresa::getInstance();
 				$ListOfEmp = $SA->getAllElements();
+        $cont = 0;
 				foreach($ListOfEmp as $value){
+          if(($cont % 4) == 0){
+              echo '<div class = "row">';
+          }
 					echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
 						echo '<a href ="/ProyectoStartOn/vista/perfEmp.php?id='.$value->getId_Empresa().'" ><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"  style="width:100%"></a>';
 						echo ' <p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
@@ -26,6 +30,10 @@ require_once ("../logica/SA_Empresa.php");
 						echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
 						echo '<p class="burbuja" id="btexto"> '. $value->getCartaPresentacion(). '</p>';
 					echo'</div>';
+          if(($cont % 4) == 3){
+              echo '</div>';
+          }
+          $cont += 1;
 				}
 			?>
 		</div>

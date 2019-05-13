@@ -17,7 +17,11 @@ require_once ("../logica/SA_Eventos.php");
 	<?php
       $SA = SA_Eventos::getInstance();
       $ListOfEvents = $SA->getAllElements();
+      $cont = 0;
       foreach($ListOfEvents as $value){
+        if(($cont % 4) == 0){
+            echo '<div class = "row">';
+        }
         echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
           echo '<a href ="/ProyectoStartOn/vista/perfEvento.php" ><img src= "/ProyectoStartOn/img/'.$value->getImagenEvento().'"  style="width:100%"></a>';
           echo ' <p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
@@ -25,6 +29,10 @@ require_once ("../logica/SA_Eventos.php");
           echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
           echo '<p class="burbuja"> '. $value->getCantidad(). '</p>';
         echo'</div>';
+        if(($cont % 4) == 3){
+            echo '</div>';
+        }
+        $cont += 1;
       }
     ?>
 
