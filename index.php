@@ -41,6 +41,28 @@
 			} ?>
 
 		</div>
+    <div id="espacio"></div>
+    <div class="rowind">
+        <div class="fraseIndx">Si buscas sumergirte en el mundo de las Startups, encontraremos la indicada para ti</div>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        <img class="fotoIndex" src="img/indexpic1.png">
+    </div>
+    <div class="rowind">
+      <img class="fotoIndex" src="img/indexpic2.png">
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <div class="fraseIndx">Si tienes una startup joven, queremos que encuentres al talento ideal para desarollar tu proyecto</div>
+    </div>
+    <div id="espacio"></div>
+    <div class="rowind">
+      <div class="fraseIndx">Nuestra idea surgió al observar los tablones del Google campus Madrid.</div>
+      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      <img class="fotoIndex" src="img/indexpic3.png">
+    </div>
+    <div class="rowind">
+        <img class="fotoIndex" src="img/indexpic4.png">
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+          <div class="fraseIndx">En uno, las startups ofrecían un puesto de trabajo y en el otro la gente se presentaba marcando sus capacidades</div>
+    </div>
 	</div>
   		<?php require ("vista/common/footer.php")?>
 </body>

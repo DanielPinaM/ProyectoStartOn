@@ -17,15 +17,17 @@ require_once ("../logica/SA_Usuario.php");
 			<?php
 				$SA = SA_Usuario::getInstance();
 				$ListOfUser = $SA->getAllElements();
+        $cont = 0;
 				foreach($ListOfUser as $value){
 					/*
 					echo '<pre>';
 					var_dump($value->getImagenPerfil());
 					echo '</pre>';
-
 					*/
-					//FALTA PONERSE DE ACUERDO DONDE SE VAN A AGUARDAR LAS FOTOS
-	         echo '<div id= "card">';
+          if(($cont % 4) == 0){
+              echo '<div class = "row">';
+          }
+          echo '<div id= "card">';
            echo '<a ';
            if(isset($_SESSION['login']) && $_SESSION['login'])
             echo 'href ="/ProyectoStartOn/vista/perfUser.php?id='.$value->getId_Usuario().'"';
@@ -34,7 +36,11 @@ require_once ("../logica/SA_Usuario.php");
 						echo '<p class="burbuja"> '. $value->getOficio(). '</p>';
 						echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
 					echo'</div>';
-				}
+          if(($cont % 4) == 3){
+            	echo '</div>';
+          }
+          $cont += 1;
+        }
 			?>
 		</div>
 		<?php require("common/footer.php")?>
