@@ -74,8 +74,10 @@ require_once ("../logica/SA_Empresa.php");
 		</div>
 		<?php
 		if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa']))
-			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_empresa'])))
+			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_empresa']))){
 					echo '<a  id= "botonSubmit" class ="botonGuay" href="mod_perf.php" >Modificar perfil</a>';
+					echo '<a  id= "botonSubmit" class ="botonGuay" href="mod_perf.php" >Crear evento</a>';
+				}
 		?>
 	</div>
 

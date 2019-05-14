@@ -14,6 +14,14 @@ require_once ("../logica/SA_Eventos.php");
 <body>
   <?php require("common/header.php")?>
 	<div id="container">
+    <div id="espacio"></div>
+    <p>
+      
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+  </p>
+
 	<?php
       $SA = SA_Eventos::getInstance();
       $ListOfEvents = $SA->getAllElements();

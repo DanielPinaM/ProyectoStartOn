@@ -13,6 +13,13 @@ require_once ("../logica/SA_Usuario.php");
 <body>
     <?php require("common/header.php")?>
 	<div id="container">
+    <div id="espacio"></div>
+    <p>
+
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+  </p>
 		<div class="row">
 			<?php
 				$SA = SA_Usuario::getInstance();
