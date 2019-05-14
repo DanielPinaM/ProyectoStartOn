@@ -23,7 +23,7 @@ require_once ("../logica/SA_Eventos.php");
             echo '<div class = "row">';
         }
         echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
-          echo '<a href ="/ProyectoStartOn/vista/perfEvento.php" ><img src= "/ProyectoStartOn/img/'.$value->getImagenEvento().'"  style="width:100%"></a>';
+          echo '<a href ="/ProyectoStartOn/vista/perfEvento.php?id='.$value->getNombre().'" "><img src= "/ProyectoStartOn/img/'.$value->getImagenEvento().'"  style="width:100%"></a>';
           echo ' <p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
           echo '<p class="burbuja"> '. $value->getFecha(). '</p>';
           echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
