@@ -1,5 +1,5 @@
 <?php
-class comentarioTransfer {
+class transferComentario {
 
 	private $NombreEvento;
   private $IdUsuario;
