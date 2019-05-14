@@ -38,10 +38,11 @@ class DAO_Like {
 		$db = $app->conexionBd();
 		$consulta = "SELECT * FROM interaccion_emp_us WHERE ID_Empresa='$id_Empresa'";//consulta sql
 		$results = mysqli_query($db, $consulta);
+    $lista = array();
 
     if ($results){
 			while($likes = mysqli_fetch_assoc($results)){
-                $transfer = transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
+        $transfer = new transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
 				array_push($lista,$transfer);
 			}
 		}
@@ -56,7 +57,7 @@ class DAO_Like {
 
       if ($results){
   			while($likes = mysqli_fetch_assoc($results)){
-                  $transfer = transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
+          $transfer = new transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
   				array_push($lista,$transfer);
   			}
   		}
@@ -111,11 +112,26 @@ class DAO_Like {
 
 		if ($query){
 			while($likes = mysqli_fetch_assoc($query)){
-                $transfer = transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
+                $transfer = new transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
 				array_push($lista,$transfer);
 			}
 		}
     return empty($lista) ? null : $lista;
 	}
+
+
+  function insertLike($idEmpresa, $idusuario){
+    if(empty($idEmpresa) || empty($idusuario)){
+      echo "Esta vacio algo";
+      return "error";
+    }
+    else{
+    $consulta="INSERT INTO interaccion_emp_us (ID_Empresa, ID_Usuario) VALUES('$idEmpresa' ,'$idusuario')";
+		$rs = $conn->query($consulta);
+
+    if(!$rs) echo "<br>".$conn->error."<br>";
+		return $rs;
+  }
+  }
 }
 ?>

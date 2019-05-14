@@ -3,6 +3,8 @@
 require_once ("../includes/config.php");
 require_once ("../logica/SA_Empresa.php");
 require_once ("../logica/SA_Like.php");
+require_once ("../logica/SA_Usuario.php");
+require_once ("../logica/transferLike.php");
 ?>
 
 <html>
@@ -22,6 +24,9 @@ require_once ("../logica/SA_Like.php");
 				$id = $_SESSION['id_empresa'];
 				$SA = SA_Empresa::getInstance();
 				$SAlikes = SA_Like::getInstance();
+				$SAUsuario = SA_Usuario::getInstance();
+				$transferLikeClass = transferLike::getInstance();
+
 				$transfer = $SA->getElement($id);
 				$likesList = $SAlikes->getElementsByIdEmpresa($id);
 			}
@@ -29,6 +34,9 @@ require_once ("../logica/SA_Like.php");
 			$id = htmlspecialchars($_GET["id"]);
 			$SA = SA_Empresa::getInstance();
 			$SAlikes = SA_Like::getInstance();
+			$SAUsuario = SA_Usuario::getInstance();
+			$transferLikeClass = transferLike::getInstance();
+
 			$transfer = $SA->getElement($id);
 			$likesList = $SAlikes->getElementsByIdEmpresa($id);
 			}
@@ -37,6 +45,9 @@ require_once ("../logica/SA_Like.php");
 			$id = htmlspecialchars($_GET["id"]);
 			$SA = SA_Empresa::getInstance();
 			$SAlikes = SA_Like::getInstance();
+			$SAUsuario = SA_Usuario::getInstance();
+			$transferLikeClass = transferLike::getInstance();
+
 			$transfer = $SA->getElement($id);
 			$likesList = $SAlikes->getElementsByIdEmpresa($id);
 
@@ -49,6 +60,14 @@ require_once ("../logica/SA_Like.php");
 			return $data;
 		}
 	?>
+
+	<<?php
+		if(isset($_POST['like'])){
+			$SAlikes->insertElement($idempresa, $idusuario);
+		}
+	 ?>
+
+
 	<div id="perfil">
 		<div id="card">
 			<?php
@@ -81,27 +100,42 @@ require_once ("../logica/SA_Like.php");
 		</div>
 		<?php
 		if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa']))
-			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_empresa']))){
+			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_empresa'])))
 					echo '<a  id= "botonSubmit" class ="botonGuay" href="mod_perf.php" >Modificar perfil</a>';
-					echo '<a  id= "botonSubmit" class ="botonGuay" href="mod_perf.php" >Crear evento</a>';
-				}
 		?>
 
+		//PHP LISTA LIKES
 		<<?php
 				if(isset($_SESSION['login'])){
 					echo "<div>";
-					echo '<ul>';
+					if($likesList != null){
+						echo '<ul>';
 					foreach($likesList as $transfer) {
 						$idlikeDado = $transfer->getId_Usuario();
+						$tUsuario = $SAUsuario->getElement($idlikeDado);
+						$nombreUsuario = $tUsuario->getNombre();
+						$nombreUsuario = $nombreUsuario . " " . $tUsuario->getApellido();
+
 						echo '<li>';
-						echo "<p class='burbuja'> ".$idlikeDado." </p>";
+						echo "<p class='burbuja'> ".$nombreUsuario." </p>";
 						echo '</li>';
 					}
 					echo '</ul>';
+				}else{
+					echo "<p class='burbuja'> Esta empresa no tiene likes aún </p>";
+				}
 					echo "</div>";
 				}
 		 ?>
 	</div>
+
+	//PHP BOTON LIKES
+	<<?php
+			if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
+				echo '<button class="botonGuay" id="likeButton" name="like" value="like"> </button>';
+			}
+
+	 ?>
 
 		<?php require("common/footer.php")?>
 </body>

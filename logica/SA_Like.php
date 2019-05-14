@@ -63,15 +63,20 @@ function deleteElementByIdUsuario($id_Usuario){
   return $likeDAO->deleteElementByIdUsuario($id_Usuario);
 }
 
-    function createElement($transfer) {
-		//comprobamos si algun campo esta vacio y notificamos el error si lo estae, estos campos son obligatorios para crear un nuevo elemento
-			if (empty($transfer->getId_Empresa()) || empty($transfer->getId_Usuario())) {
-			     return "Error";
-			}
+function insertLike($idEmpresa, $iduser){
+  $likeDAO = DAO_Like::getInstance();
+  return $likeDAO->insertLike($iduser);
+}
 
-			$likeDAO = DAO_Like::getInstance();
-				$prueba = $empDAO->createElement($transfer);
-        return true;
-      }
+function createElement($transfer) {
+//comprobamos si algun campo esta vacio y notificamos el error si lo estae, estos campos son obligatorios para crear un nuevo elemento
+	if (empty($transfer->getId_Empresa()) || empty($transfer->getId_Usuario())) {
+	     return "Error";
+	}
+
+	$likeDAO = DAO_Like::getInstance();
+		$prueba = $empDAO->createElement($transfer);
+    return true;
+  }
 }
 ?>
