@@ -45,7 +45,7 @@ require_once ("../logica/SA_Empresa.php");
 	<div id="perfil">
 		<div id="card">
 			<?php
-			echo '<a href ="/ProyectoStartOn/vista/perfUser.php" ><img src= "/ProyectoStartOn/'.$transfer->getImagenPerfil().'"  style="width:100%"></a>';
+			echo '<img src= "/ProyectoStartOn/'.$transfer->getImagenPerfil().'"  style="width:100%">';
 			echo '<p class ="burbuja" id="btitulo"> '.$transfer->getNombre().'</p>';
 			echo '<p class ="burbuja"> '.$transfer->getLocalizacion().'</p>';
 			echo '<p class ="burbuja"> '.$transfer->getSector().'</p>';

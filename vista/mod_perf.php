@@ -82,7 +82,7 @@ require_once ("../logica/SA_Usuario.php");
 				echo '<p>Apellidos: <input type="text" name="apellido"id="ModperfilCampos" value="'.$transfer->getApellido().'"></p>';
 				}?>
 				<p>E-mail: <input type="email" id="ModperfilCampos"name="email" value=<?php echo $transfer->getEmail(); ?>></p>
-				<p>Contraseña: <input type="text" id="ModperfilCampos"name="password" value=""></p>
+				<p>Contraseña: <input type="password" id="ModperfilCampos"name="password" value=""></p>
 			 	<p>Localidad: <input type="text" id="ModperfilCampos"name="localizacion" value=<?php echo $transfer->getLocalizacion(); ?>></p>
 			  	<?php 	if(isset($_SESSION["id_usuario"])){
 				  			echo '<p>Experiencia: <textarea rows="4" cols="20" name="experiencia" id="ModperfilCampos" value=""> '. $transfer->getExperiencia().' </textarea><p>
