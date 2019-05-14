@@ -2,7 +2,7 @@
 
 require_once("DAO_Interface.php");
 
-class DAO_Like implements DAO_Interface {
+class DAO_Like {
 
     private static $instance = null;
 
@@ -41,7 +41,7 @@ class DAO_Like implements DAO_Interface {
 
     if ($results){
 			while($likes = mysqli_fetch_assoc($results)){
-                $transfer = tranferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
+                $transfer = transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
 				array_push($lista,$transfer);
 			}
 		}
@@ -56,7 +56,7 @@ class DAO_Like implements DAO_Interface {
 
       if ($results){
   			while($likes = mysqli_fetch_assoc($results)){
-                  $transfer = tranferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
+                  $transfer = transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
   				array_push($lista,$transfer);
   			}
   		}
@@ -75,13 +75,15 @@ class DAO_Like implements DAO_Interface {
         return false;
         }
 //--------------------------
-	public function deleteElement($id_Empresa, $id_Usuario){
+	public function deleteLike($id_Empresa, $id_Usuario){
 		$app = Aplicacion::getSingleton();
 		$db = $app->conexionBd();
 		$consulta="DELETE FROM interaccion_emp_us WHERE ID_Empresa = '$id_Empresa' AND ID_Usuario = '$id_Usuario'";
 		$res = mysqli_query($db, $consulta)? true : false;
     return $res;
 	}
+
+  public function deleteElement($id){}
 
   public function deleteElementByIdEmpresa($id_Empresa){
     $app = Aplicacion::getSingleton();
@@ -109,7 +111,7 @@ class DAO_Like implements DAO_Interface {
 
 		if ($query){
 			while($likes = mysqli_fetch_assoc($query)){
-                $transfer = tranferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
+                $transfer = transferLike($likes["ID_Empresa"],$likes["ID_Usuario"]);
 				array_push($lista,$transfer);
 			}
 		}

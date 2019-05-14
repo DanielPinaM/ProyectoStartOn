@@ -1,5 +1,5 @@
 <?php
-class empresaTransfer {
+class transferLike {
 
 	private $id_empresa;
   private $id_usuario;
@@ -31,6 +31,7 @@ class empresaTransfer {
 		/** set @param nombre : string value */
 	public function setId_Usuario($id_usuario){
 		$this->id_usuario = $id_usuario;
+
 	}
 }
 ?>
