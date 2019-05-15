@@ -66,7 +66,7 @@ class DAO_Usuario implements  DAO_Interface {
 		}
 		}
 		else {
-			return ;//NULL
+			return null;//NULL
 		}
 	}
 

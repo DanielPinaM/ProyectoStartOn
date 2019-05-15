@@ -6,7 +6,7 @@ class transferComentario {
 	private $Contenido;
 	private $Titulo;
 
-	function __construct($NombreEvento,$Id_Usuario,$Comentario,$titulo){
+	function __construct($NombreEvento,$Id_Usuario,$Titulo, $Contenido){
 		$this->NombreEvento = $NombreEvento;
 		$this->Id_Usuario = $Id_Usuario;
 		$this->Contenido = $Contenido;
