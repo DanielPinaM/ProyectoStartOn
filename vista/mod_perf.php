@@ -27,9 +27,15 @@ require_once ("../logica/SA_Usuario.php");
 				$apellido = test_input($_POST["apellido"]);
 				$experiencia = test_input($_POST["experiencia"]);
 				$pasiones = test_input($_POST["pasiones"]);
+				$archivo_destino = "";
+				if($_FILES["archivo"]["name"] != "" && $_FILES["archivo"]["type"] == "application/pdf"){
+					$archivo_ruta = $_FILES["archivo"]["tmp_name"];
+					$archivo_destino = "../pdf/curr". $_SESSION["id_usuario"].".pdf";
+					copy($archivo_ruta,$archivo_destino);
+				}
 
 				$SA = SA_Usuario::getInstance();
-				$transfer = new TransferUsuario($_SESSION["id_usuario"],$nombre,$apellido,$password, $email,$localizacion, $experiencia ,$pasiones ,$presentacion,$imagen,$oficio);
+				$transfer = new TransferUsuario($_SESSION["id_usuario"],$nombre,$apellido,$password, $email,$localizacion, $experiencia ,$pasiones ,$presentacion,$imagen,$oficio,$archivo_destino);
 			 	$dir = $SA->updateElement($transfer);
 			 	if($dir !== "Error"){
 					header('Location: '.$dir);
@@ -76,7 +82,7 @@ require_once ("../logica/SA_Usuario.php");
   </div>
 	<div id="Modperfil">
 
-		<form method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+		<form enctype="multipart/form-data" method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 				<p>Nombre: <input type="text" id="ModperfilCampos" name="nombre" value=<?php echo $transfer->getNombre(); ?>></p>
 				<?php if(isset($_SESSION["id_usuario"])){
 				echo '<p>Apellidos: <input type="text" name="apellido"id="ModperfilCampos" value="'.$transfer->getApellido().'"></p>';
@@ -86,7 +92,9 @@ require_once ("../logica/SA_Usuario.php");
 			 	<p>Localidad: <input type="text" id="ModperfilCampos"name="localizacion" value=<?php echo $transfer->getLocalizacion(); ?>></p>
 			  	<?php 	if(isset($_SESSION["id_usuario"])){
 				  			echo '<p>Experiencia: <textarea rows="4" cols="20" name="experiencia" id="ModperfilCampos" value=""> '. $transfer->getExperiencia().' </textarea><p>
-				  			<p>Pasiones: <textarea rows="4" cols="20" name="pasiones" id="ModperfilCampos"value=""> '. $transfer->getPasiones().' </textarea></p>';
+				  			<p>Pasiones: <textarea rows="4" cols="20" name="pasiones" id="ModperfilCampos"value=""> '. $transfer->getPasiones().' </textarea></p>
+				  			<p>Currículum: <input type="file" name="archivo" id="ModperfilCampos"value="">
+				  			';
 				  		}
 			  			else{
 			  				echo '<p>Fase: <input type="text" name="fase"id="ModperfilCampos" value="'. $transfer->getFase().'"></p>

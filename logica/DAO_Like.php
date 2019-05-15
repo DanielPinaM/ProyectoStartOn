@@ -54,6 +54,7 @@ class DAO_Like {
       $db = $app->conexionBd();
       $consulta = "SELECT * FROM interaccion_emp_us WHERE ID_Usuario='$id_Usuario'";//consulta sql
       $results = mysqli_query($db, $consulta);
+      $lista = array();
 
       if ($results){
   			while($likes = mysqli_fetch_assoc($results)){
