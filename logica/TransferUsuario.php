@@ -12,9 +12,10 @@ class TransferUsuario {
 	private $cartaPresentacion;
 	private $imagenPerfil;
 	private $oficio;
+	private $curriculum;
 
 
-	function __construct($id_usuario, $nombre, $apellido, $password, $email,$localizacion, $experiencia, $pasiones, $cartaPresentacion,$imagenPerfil, $oficio){
+	function __construct($id_usuario, $nombre, $apellido, $password, $email,$localizacion, $experiencia, $pasiones, $cartaPresentacion,$imagenPerfil, $oficio,$curriculum){
 		$this->id_usuario = $id_usuario;
 		$this->nombre = $nombre;
 		$this->apellido = $apellido;
@@ -26,6 +27,7 @@ class TransferUsuario {
 		$this->cartaPresentacion = $cartaPresentacion;
 		$this->imagenPerfil = $imagenPerfil;
 		$this->oficio = $oficio;
+		$this->curriculum = $curriculum;
 	}
 
 	/**GETTER: devuelve los parametros privados*/
@@ -87,6 +89,10 @@ class TransferUsuario {
 		else
 			return $this->imagenPerfil;
 	}
+	/**@return curriculum: url value*/
+	public function getCurriculum(){
+		return $this->curriculum;
+	}
 
 	/**SETTER: cambian los valores */
 
@@ -145,6 +151,9 @@ class TransferUsuario {
 	public function setImagenPerfil($imagenPerfil){
 		$this->imagenPerfil = $imagenPerfil;
 	}
-
+	/**set @param curriculum : url value */
+	public function setCurriculum($curriculum){
+		$this->curriculum = $curriculum;
+	}
 }
 ?>
