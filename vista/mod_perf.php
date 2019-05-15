@@ -22,6 +22,7 @@ require_once ("../logica/SA_Usuario.php");
 			$imagen = test_input($_POST["imagen"]);
 			$presentacion = test_input($_POST["presentacion"]);
 			$oficio = test_input($_POST["oficio"]);
+			$imagen_destino = "";
 
 			if(isset($_SESSION["id_usuario"])){
 				$apellido = test_input($_POST["apellido"]);
@@ -33,9 +34,20 @@ require_once ("../logica/SA_Usuario.php");
 					$archivo_destino = "../pdf/curr". $_SESSION["id_usuario"].".pdf";
 					copy($archivo_ruta,$archivo_destino);
 				}
+				if($_FILES["imagen"]["name"] != "" && ($_FILES["imagen"]["type"] == "image/png"||$_FILES["imagen"]["type"] == "image/jpeg")){
+				echo "bien";
+				$imagen_ruta = $_FILES["imagen"]["tmp_name"];
+				if ($_FILES["imagen"]["type"] == "image/jpeg") {
+					$imagen_destino = "img/imgU". $_SESSION["id_usuario"].".jpg";
+				}
+				else{
+					$imagen_destino = "img/imgU". $_SESSION["id_usuario"].".png";
+				}
+				copy($imagen_ruta,"../".$imagen_destino);
+			}
 
 				$SA = SA_Usuario::getInstance();
-				$transfer = new TransferUsuario($_SESSION["id_usuario"],$nombre,$apellido,$password, $email,$localizacion, $experiencia ,$pasiones ,$presentacion,$imagen,$oficio,$archivo_destino);
+				$transfer = new TransferUsuario($_SESSION["id_usuario"],$nombre,$apellido,$password, $email,$localizacion, $experiencia ,$pasiones ,$presentacion,$imagen_destino,$oficio,$archivo_destino);
 			 	$dir = $SA->updateElement($transfer);
 			 	if($dir !== "Error"){
 					header('Location: '.$dir);
@@ -46,9 +58,20 @@ require_once ("../logica/SA_Usuario.php");
 				$buscamos = test_input($_POST["buscamos"]);
 				$ofrecemos = test_input($_POST["ofrecemos"]);
 				$sector = test_input($_POST["sector"]);
+				if($_FILES["imagen"]["name"] != "" && ($_FILES["imagen"]["type"] == "image/png"||$_FILES["imagen"]["type"] == "image/jpeg")){
+				echo "bien";
+				$imagen_ruta = $_FILES["imagen"]["tmp_name"];
+				if ($_FILES["imagen"]["type"] == "image/jpeg") {
+					$imagen_destino = "img/imgS". $_SESSION["id_empresa"].".jpg";
+				}
+				else{
+					$imagen_destino = "img/imgS". $_SESSION["id_empresa"].".png";
+				}
+				copy($imagen_ruta,"../".$imagen_destino);
+			}
 
 				$SA = SA_Empresa::getInstance();
-				$transfer = new empresaTransfer($_SESSION["id_empresa"],$nombre,$password, $email,$localizacion,$sector,$oficio, $fase ,$imagen,$presentacion,$buscamos,$ofrecemos);
+				$transfer = new empresaTransfer($_SESSION["id_empresa"],$nombre,$password, $email,$localizacion,$sector,$oficio, $fase ,$imagen_destino,$presentacion,$buscamos,$ofrecemos);
 				$dir = $SA->updateElement($transfer);
 		 		if($dir !== "Error"){
 					header('Location: '.$dir);
@@ -90,6 +113,7 @@ require_once ("../logica/SA_Usuario.php");
 				<p>E-mail: <input type="email" id="ModperfilCampos"name="email" value=<?php echo $transfer->getEmail(); ?>></p>
 				<p>Contraseña: <input type="password" id="ModperfilCampos"name="password" value=""></p>
 			 	<p>Localidad: <input type="text" id="ModperfilCampos"name="localizacion" value=<?php echo $transfer->getLocalizacion(); ?>></p>
+			 	<p>Imagen(jpg o png): <input type="file" name="imagen" id="ModperfilCampos"value=""></p>
 			  	<?php 	if(isset($_SESSION["id_usuario"])){
 				  			echo '<p>Experiencia: <textarea rows="4" cols="20" name="experiencia" id="ModperfilCampos" value=""> '. $transfer->getExperiencia().' </textarea><p>
 				  			<p>Pasiones: <textarea rows="4" cols="20" name="pasiones" id="ModperfilCampos"value=""> '. $transfer->getPasiones().' </textarea></p>
@@ -105,7 +129,6 @@ require_once ("../logica/SA_Usuario.php");
 			  	 ?>
 			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" id="ModperfilCampos" value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
 			  	<p>Oficio: <input type="text" name="oficio" id="ModperfilCampos"value=<?php echo $transfer->getOficio(); ?>></p>
-			  	<p>Imagen de perfil: <input type="text"id="ModperfilCampos" name="imagen" value=<?php echo $transfer->getImagenPerfil(); ?>></p>
 				<p><input id="botonSubmit" class="botonGuay" type="submit" name="submit" value="Guardar"></p>
 		  		</form>
           <div>
