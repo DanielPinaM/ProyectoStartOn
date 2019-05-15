@@ -210,5 +210,9 @@ class SA_Empresa implements SA_Interface {
           $empDAO = DAO_Empresa::getInstance();
          return $empDAO->getTopTres();
         }
+        public function getAllElementsById($id) {
+          $eveDAO = DAO_Empresa::getInstance();
+          return $eveDAO->getAllElementsById($id);
+        }
 }
 ?>

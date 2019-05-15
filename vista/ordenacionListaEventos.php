@@ -10,6 +10,9 @@
     foreach($ListOfEvents as $value) {
       if ($seleccionOrdenada == "Fecha") {
         $title = $value->getFecha();
+        $fecha = explode('-', $title);
+        $title = traducirMes($fecha[1]);
+
       } else if ($seleccionOrdenada == "Precio") {
         $title = $value->getPrecio();
       } else if ($seleccionOrdenada == "Localizacion") {
@@ -33,5 +36,45 @@
     }
     if ($lastTitle != "") {
         echo'</div>';
+    }
+
+    function traducirMes($mes) {
+      if($mes == '01') {
+        $mes = "Enero";
+      }
+      else if($mes == '02') {
+        $mes = "Febrero";
+      }
+      else if($mes == '03') {
+        $mes = "Marzo";
+      }
+      else if($mes == '04') {
+        $mes = "Abril";
+      }
+      else if($mes == '05') {
+        $mes = "Mayo";
+      }
+      else if($mes == '06') {
+        $mes = "Junio";
+      }
+      else if($mes == '07') {
+        $mes = "Julio";
+      }
+      else if($mes == '08') {
+        $mes = "Agosto";
+      }
+      else if($mes == '09') {
+        $mes = "Septiembre";
+      }
+      else if($mes == '10') {
+        $mes = "Octubre";
+      }
+      else if($mes == '11') {
+        $mes = "Noviembre";
+      }
+      else if($mes == '12') {
+        $mes = "Diciembre";
+      }
+      return $mes;
     }
 ?>

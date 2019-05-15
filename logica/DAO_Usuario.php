@@ -147,5 +147,24 @@ public function updateElement($id, $campo, $nuevoValor) {
 		}
 
 	}
+  public function getAllElementsById($id) {
+    $app = Aplicacion::getSingleton();
+    $db = $app->conexionBd();
+    $lista= array();
+
+    $consul = "SELECT * FROM usuario ORDER BY $id";
+    $query = mysqli_query($db, $consul);
+
+    if ($query) {
+      while($fila=mysqli_fetch_assoc($query)){
+        $transfer = new TransferUsuario($fila["ID_usuario"],$fila["Nombre"],$fila["Apellidos"],
+        $fila["password"], $fila["email"], $fila["Localizacion"], $fila["Experiencia"], $fila["Pasiones"], $fila["CartaPresentacion"], $fila["Img_Perfil"], $fila["Oficio"], $fila["Curriculum"]);
+
+        array_push($lista,$transfer);
+      }
+    }
+    return empty($lista) ? null : $lista;
+  }
+
 }
 ?>

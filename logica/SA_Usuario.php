@@ -202,5 +202,9 @@ class SA_Usuario implements SA_Interface {
     	}
     	/*TODO: relaciones de las empresas con los eventos y empresas**/
     	public function elementRelation($transfer) {}
+      public function getAllElementsById($id) {
+        $userDAO = DAO_Usuario::getInstance();
+        return 	$userDAO->getAllElements();
+      }
 }
 ?>

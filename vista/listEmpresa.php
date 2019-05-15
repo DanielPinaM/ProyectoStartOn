@@ -11,19 +11,34 @@ require_once ("../logica/SA_Empresa.php");
 	<title>Start On</title>
 	<meta charset="utf-8">
 </head>
+<script>
+function showListaOrdenada(str) {
+  var xhttp;
+  if (str == "") {
+    document.getElementById("contendor").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("contenedor").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ordenacionListaEmpresa.php?q="+str, true);
+  xhttp.send();
+}
+</script>
 <body>
     <?php require("common/header.php")?>
 	<div id="container">
-
     <div class="row">
-
     <?php
         $SA = SA_Empresa::getInstance();
         $listPorLikes = $SA->getTopTres();
         $cont = 0;
 
-        echo '<div id="ayudacard">'; 
-        while($cont < 3){
+        echo '<div id="ayudacard">';
+        while($cont < 3) {
           $id =  $listPorLikes[$cont]->getId_Empresa();
           $nombre = $listPorLikes[$cont]->getNombre();
           $localizacion =  $listPorLikes[$cont]->getNombre();
@@ -40,13 +55,13 @@ require_once ("../logica/SA_Empresa.php");
         echo '</div>';
      ?>
      </div>
-
-    <div class="row">
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+     <div id="espacio"></div>
+     <p> <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Sector')" >Sector</a>
+       <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
+       <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Oficio')" >Oficio</a>
+     </p>
   </div>
-
+<div id="contenedor">
 		<div class="row">
 			<?php
 				$SA = SA_Empresa::getInstance();
@@ -70,6 +85,6 @@ require_once ("../logica/SA_Empresa.php");
 				}
 			?>
 		</div>
-	</div>
-  		<?php require("common/footer.php")?>
+  </div>
+	<?php require("common/footer.php")?>
 </body>

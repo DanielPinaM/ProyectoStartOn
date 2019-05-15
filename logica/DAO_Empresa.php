@@ -182,5 +182,22 @@ class DAO_Empresa implements DAO_Interface {
        $consulta="UPDATE empresa SET numLikes = $numLikes WHERE ID_Empresa = '$id'";
        $res = mysqli_query($db, $consulta) ? false :true ;
 	}
+  public function getAllElementsById($id) {
+    $app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$lista= array();
+
+		$consul = "SELECT * FROM empresa ORDER BY $id";
+		$query = mysqli_query($db, $consul);
+
+		if ($query){
+			while($fila = mysqli_fetch_assoc($query)){
+                $transfer = new empresaTransfer($fila["ID_Empresa"],$fila["Nombre"],$fila["password"],$fila["email"], $fila["Localizacion"], $fila["Sector"],
+                  $fila["Oficio"], $fila["Fase"], $fila["Img_Empresa"], $fila["cartaPresentacion"], $fila["ofrecemos"], $fila["buscamos"], $fila["numLikes"]);
+				array_push($lista,$transfer);
+			}
+		}
+    return empty($lista) ? null : $lista;
+  }
 }
 ?>
