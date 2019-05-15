@@ -75,5 +75,22 @@ class DAO_Eventos implements DAO_Interface {
 	public function getElementByEmail($gmail) {
 	 return false;
 	}
+  public function getAllElementsById($id) {
+    $app = Aplicacion::getSingleton();
+    $db = $app->conexionBd();
+    $lista= array();
+
+    $consul = "SELECT * FROM evento ORDER BY $id";
+    $query = mysqli_query($db, $consul);
+
+    if ($query){
+      while($fila = mysqli_fetch_assoc($query)){
+                $transfer = new eventoTransfer($fila["Nombre"],$fila["Localizacion"],
+                $fila["Precio"],$fila["Cantidad"],$fila["Fecha"],$fila["Img_Evento"]);
+        array_push($lista, $transfer);
+      }
+    }
+    return empty($lista) ? null : $lista;
+  }
 }
 ?>
