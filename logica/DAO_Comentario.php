@@ -2,7 +2,7 @@
 
 require_once("DAO_Interface.php");
 
-class DAO_Comentario implements DAO_Interface {
+class DAO_Comentario{
 
     private static $instance = null;
 
@@ -23,7 +23,7 @@ class DAO_Comentario implements DAO_Interface {
 		$app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
 
-		$NombreEvento=$transfer->getNobreEvento();
+		$NombreEvento=$transfer->getNombreEvento();
 		$id_usuario=$transfer->getId_Usuario();
     $Titulo=$transfer->getTitulo();
     $Contenido=$transfer->getContenido();
@@ -41,10 +41,11 @@ class DAO_Comentario implements DAO_Interface {
 		$db = $app->conexionBd();
 		$consulta = "SELECT * FROM comentario WHERE NombreEvento='$NombreEvento'";//consulta sql
 		$results = mysqli_query($db, $consulta);
+    $lista = array();
 
     if ($results){
 			while($Comentario = mysqli_fetch_assoc($results)){
-                $transfer = transferComentario($Comentario["NombreEvento"],$Comentario["ID_Usuario"],$Comentario["Titulo"],$Comentario["Contenido"]);
+                $transfer = new transferComentario($Comentario["NombreEvento"],$Comentario["ID_Usuario"],$Comentario["Titulo"],$Comentario["Contenido"]);
 				array_push($lista,$transfer);
 			}
 		}
@@ -56,10 +57,11 @@ class DAO_Comentario implements DAO_Interface {
       $db = $app->conexionBd();
       $consulta = "SELECT * FROM comentario WHERE ID_Usuario='$id_Usuario'";//consulta sql
       $results = mysqli_query($db, $consulta);
+      $lista = array();
 
       if ($results){
   			while($Comentario = mysqli_fetch_assoc($results)){
-                  $transfer = transferComentario($Comentario["NombreEvento"],$Comentario["ID_Usuario"],$Comentario["Titulo"],$Comentario["Contenido"]);
+                  $transfer = new transferComentario($Comentario["NombreEvento"],$Comentario["ID_Usuario"],$Comentario["Titulo"],$Comentario["Contenido"]);
   				array_push($lista,$transfer);
   			}
   		}
@@ -112,7 +114,7 @@ class DAO_Comentario implements DAO_Interface {
 
 		if ($query){
 			while($Comentario = mysqli_fetch_assoc($query)){
-                $transfer = transferComentario($Comentario["NombreEvento"],$Comentario["ID_Usuario"],$Comentario["Titulo"],$Comentario["Contenido"]);
+                $transfer = new transferComentario($Comentario["NombreEvento"],$Comentario["ID_Usuario"],$Comentario["Titulo"],$Comentario["Contenido"]);
 				array_push($lista,$transfer);
 			}
 		}
