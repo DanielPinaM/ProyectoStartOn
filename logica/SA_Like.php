@@ -41,13 +41,13 @@ function getElementsByIds($id_Empresa, $id_Usuario){
   return $likeDAO->getElementsByIds($id_Empresa, $id_Usuario);
 }
 
-function deleteElement($id_Empresa, $id_Usuario){
+function deleteLike($id_Empresa, $id_Usuario){
   if (empty($id_Empresa) || empty($id_Usuario)) {
     return "Error";
   }
 
   $likeDAO = DAO_Like::getInstance();
-  return $likeDAO->deleteElement($id_Empresa, $id_Usuario);
+  return $likeDAO->deleteLike($id_Empresa, $id_Usuario);
 }
 
 function deleteElementByIdEmpresa($id_Empresa){
@@ -65,7 +65,7 @@ function deleteElementByIdUsuario($id_Usuario){
 
 function insertLike($idEmpresa, $iduser){
   $likeDAO = DAO_Like::getInstance();
-  return $likeDAO->insertLike($iduser);
+  return $likeDAO->insertLike($idEmpresa, $iduser);
 }
 
 function createElement($transfer) {

@@ -70,7 +70,7 @@ class DAO_Like {
         $consulta = "SELECT * FROM interaccion_emp_us WHERE ID_Empresa = '$id_Empresa' AND ID_Usuario='$id_Usuario'";//consulta sql
 
         $res = mysqli_query($db, $consulta);
-        if(res == 1){
+        if($res->num_rows > 0){
           return $res;
         }
         return false;
@@ -121,6 +121,9 @@ class DAO_Like {
 
 
   function insertLike($idEmpresa, $idusuario){
+    $app = Aplicacion::getSingleton();
+    $conn = $app->conexionBd();
+
     if(empty($idEmpresa) || empty($idusuario)){
       echo "Esta vacio algo";
       return "error";
