@@ -35,7 +35,29 @@ function showListaOrdenada(str) {
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Precio')" >Precio</a>
       </p>
-	<div id="container"></div>
+	<div id="container">
+    <?php
+      $SA = SA_Eventos::getInstance();
+      $ListOfEv = $SA->getAllElements();
+      $cont = 0;
+      foreach($ListOfEv as $value){
+        if(($cont % 4) == 0){
+            echo '<div class = "row">';
+        }
+        echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
+          echo '<a href ="/ProyectoStartOn/vista/perfEvento.php?id='.$value->getNombre().'" "><img src= "/ProyectoStartOn/img/'.$value->getImagenEvento().'"  style="width:100%"></a>';
+          echo '<p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
+          echo '<p class="burbuja"> '. $value->getFecha(). '</p>';
+          echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
+          echo '<p class="burbuja"> '. $value->getCantidad(). '</p>';
+        echo'</div>';
+        if(($cont % 4) == 3){
+            echo '</div>';
+        }
+        $cont += 1;
+      }
+    ?>
+  </div>
   <?php require("common/footer.php")?>
 </body>
 
