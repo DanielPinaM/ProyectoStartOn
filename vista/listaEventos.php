@@ -11,20 +11,42 @@ require_once ("../logica/SA_Eventos.php");
   <title>Start On</title>
   <meta charset="utf-8">
 </head>
+<script>
+function showListaOrdenada(str) {
+  var xhttp;
+  if (str == "") {
+    document.getElementById("container").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("container").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ordenacionListaEventos.php?q="+str, true);
+  xhttp.send();
+}
+</script>
 <body>
   <?php require("common/header.php")?>
+      <div id="espacio"></div>
+      <p> <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Fecha')" >Fecha</a>
+        <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
+        <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Precio')" >Precio</a>
+      </p>
 	<div id="container">
-	<?php
+    <?php
       $SA = SA_Eventos::getInstance();
-      $ListOfEvents = $SA->getAllElements();
+      $ListOfEv = $SA->getAllElements();
       $cont = 0;
-      foreach($ListOfEvents as $value){
+      foreach($ListOfEv as $value){
         if(($cont % 4) == 0){
             echo '<div class = "row">';
         }
         echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
           echo '<a href ="/ProyectoStartOn/vista/perfEvento.php?id='.$value->getNombre().'" "><img src= "/ProyectoStartOn/img/'.$value->getImagenEvento().'"  style="width:100%"></a>';
-          echo ' <p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
+          echo '<p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
           echo '<p class="burbuja"> '. $value->getFecha(). '</p>';
           echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
           echo '<p class="burbuja"> '. $value->getCantidad(). '</p>';
@@ -35,8 +57,7 @@ require_once ("../logica/SA_Eventos.php");
         $cont += 1;
       }
     ?>
-
-	</div>
+  </div>
   <?php require("common/footer.php")?>
 </body>
 

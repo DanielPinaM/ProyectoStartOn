@@ -62,5 +62,10 @@ class SA_Eventos implements SA_Interface {
     function elementRelation($transfer) {}
 
     function updateElement($transfer) {}
+
+    public function getAllElementsById($id) {
+      $eveDAO = DAO_Eventos::getInstance();
+  		return $eveDAO->getAllElementsById($id);
+    }
 }
 ?>
