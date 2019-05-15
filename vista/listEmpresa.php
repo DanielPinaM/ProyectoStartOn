@@ -14,12 +14,39 @@ require_once ("../logica/SA_Empresa.php");
 <body>
     <?php require("common/header.php")?>
 	<div id="container">
-    <div id="espacio"></div>
-    <p>  
+
+    <div class="row">
+
+    <?php
+        $SA = SA_Empresa::getInstance();
+        $listPorLikes = $SA->getTopTres();
+        $cont = 0;
+
+        echo '<div id="ayudacard">'; 
+        while($cont < 3){
+          $id =  $listPorLikes[$cont]->getId_Empresa();
+          $nombre = $listPorLikes[$cont]->getNombre();
+          $localizacion =  $listPorLikes[$cont]->getNombre();
+          $img = $listPorLikes[$cont]->getImagenPerfil();
+
+          echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
+						echo '<a href ="/ProyectoStartOn/vista/perfEmp.php?id='.$id.'" ><img src= "/ProyectoStartOn/'.$img.'"  style="width:100%"></a>';
+						echo ' <p class="burbuja" id="btitulo"> '. $nombre. '</p>';
+						echo '<p class="burbuja"> '. $localizacion. '</p>';
+					echo'</div>';
+
+          $cont = $cont +1;
+        }
+        echo '</div>';
+     ?>
+     </div>
+
+    <div class="row">
     <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
     <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
     <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-  </p>
+  </div>
+
 		<div class="row">
 			<?php
 				$SA = SA_Empresa::getInstance();

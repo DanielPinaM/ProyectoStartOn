@@ -26,6 +26,8 @@ require_once ("../logica/transferLike.php");
 
 			$SAlikes = SA_Like::getInstance();
 			$SAlikes->insertLike($idempresa, $idusuario);
+			$SA = SA_Empresa::getInstance();
+			$SA->actualizarNumLikes($idempresa, 1);
 		}
 
 		if(isset($_POST['dislike'])){
@@ -34,6 +36,8 @@ require_once ("../logica/transferLike.php");
 
 			$SAlikes = SA_Like::getInstance();
 			$SAlikes->deleteLike($idempresa, $idusuario);
+			$SA = SA_Empresa::getInstance();
+			$SA->actualizarNumLikes($idempresa, -1);
 		}
 	 ?>
 

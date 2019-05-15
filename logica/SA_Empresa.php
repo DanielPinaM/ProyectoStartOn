@@ -200,5 +200,15 @@ class SA_Empresa implements SA_Interface {
     	}
         /*TODO: relaciones de las empresas con los usuarios y eventos**/
     	public function elementRelation($transfer) {}
+
+        function actualizarNumLikes($id, $valor){
+          $empDAO = DAO_Empresa::getInstance();
+         return $empDAO->actualizarNumLikes($id, $valor);
+        }
+
+        public function getTopTres(){
+          $empDAO = DAO_Empresa::getInstance();
+         return $empDAO->getTopTres();
+        }
 }
 ?>
