@@ -22,7 +22,7 @@ require_once ("../logica/SA_Usuario.php");
 
 					//if($_REQUEST["mode"] == "usuario"){
 						$SA = SA_Usuario::getInstance();
-						$transfer = new TransferUsuario("","","",$password, $email,"", "" ,"" ,"","", "");
+						$transfer = new TransferUsuario("","","",$password, $email,"", "" ,"" ,"","", "","");
 					 	$dir = $SA->login($transfer);
 					 if($dir !== "Error" && $dir!=="../index.php"){
 							header('Location: '.$dir);

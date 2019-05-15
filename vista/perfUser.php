@@ -72,10 +72,16 @@ require_once ("../logica/SA_Usuario.php");
 						echo "<p class='burbuja' id='btexto'> ".$transferUser->getPasiones()." </p>";
 					?>
 				</div>
+				<div class="row"></div>
 				<?php
 					if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario']))
-						if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario'])))
+						if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_usuario']))){
 							echo '<div class="row"><a class ="botonGuay" href="mod_perf.php" >Modificar perfil</a></div>';
+						}
+						else{
+							echo '<div class="row"><a class ="botonGuay" href="download.php?id='.$_GET["id"].'" >Currículum</a></div>
+							<br><br>';
+						}
 				?>
 			</div>
 
