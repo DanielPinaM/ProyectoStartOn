@@ -29,7 +29,7 @@ require_once ("../logica/SA_Usuario.php");
 					 	}
 					  else{
 						$SA = SA_Empresa::getInstance();
-						$transfer = new empresaTransfer("","",$password, $email,"", "" ,"" ,"","","","","");
+						$transfer = new empresaTransfer("","",$password, $email,"", "" ,"" ,"","","","","", "");
 						$dir = $SA->login($transfer);
 					 	if($dir !== "error"){
 							header('Location: '.$dir);
