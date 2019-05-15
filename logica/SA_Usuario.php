@@ -131,9 +131,6 @@ class SA_Usuario implements SA_Interface {
 					if (!empty($transfer->getOficio())) {
 				        $userDAO->updateElement($transfer->getId_Usuario(),"Oficio" ,$transfer->getOficio());
 					}
-          if (!empty($transfer->getCurriculum())) {
-                $userDAO->updateElement($transfer->getId_Usuario(),"Curriculum" ,$transfer->getCurriculum());
-          }
             return "perfUser.php";
 		    	}
 	  }

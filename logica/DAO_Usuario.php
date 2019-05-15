@@ -34,15 +34,14 @@ class DAO_Usuario implements  DAO_Interface {
 		$cartaPresentacion=$transfer->getCartaPresentacion();
 		$oficio=$transfer->getOficio();
 		$experiencia=$transfer->getExperiencia();
-		$curriculum=$transfer->getCurriculum();
 
 		if($imagen == NULL)
 		{
-			$consulta="INSERT INTO usuario (ID_usuario, email, password, Nombre, Apellidos, Localizacion, Experiencia, Pasiones, CartaPresentacion, Img_Perfil, Oficio, Curriculum) VALUES('$idUser' ,'$email', '$password', '$nombre', '$apellido', '$localizacion', '$experiencia','$pasiones', '$cartaPresentacion', 'img/usuario.png', '$oficio', '$curriculum')";
+			$consulta="INSERT INTO usuario (ID_usuario, email, password, Nombre, Apellidos, Localizacion, Experiencia, Pasiones, CartaPresentacion, Img_Perfil, Oficio) VALUES('$idUser' ,'$email', '$password', '$nombre', '$apellido', '$localizacion', '$experiencia','$pasiones', '$cartaPresentacion', 'img/usuario.png', '$oficio')";
 		}
 		else
 		{
-			$consulta="INSERT INTO usuario  (ID_usuario, email, password, Nombre, Apellidos, Localizacion, Experiencia, Pasiones, CartaPresentacion, Img_Perfil, Oficio, Curriculum) VALUES('$idUser' ,'$email', '$password', '$nombre', '$apellido', '$localizacion', '$experiencia' ,'$pasiones', '$cartaPresentacion', '$imagen', '$oficio', '$curriculum')";
+			$consulta="INSERT INTO usuario  (ID_usuario, email, password, Nombre, Apellidos, Localizacion, Experiencia, Pasiones, CartaPresentacion, Img_Perfil, Oficio) VALUES('$idUser' ,'$email', '$password', '$nombre', '$apellido', '$localizacion', '$experiencia' ,'$pasiones', '$cartaPresentacion', '$imagen', '$oficio')";
 		}
 		return $conn->query($consulta);
 	}
@@ -58,11 +57,11 @@ class DAO_Usuario implements  DAO_Interface {
 			//cambio
 			if($usuario["Img_Perfil"] == NULL)	{
 				return new TransferUsuario($usuario["ID_usuario"],$usuario["Nombre"],$usuario["Apellidos"],
-        $usuario["password"], $usuario["email"], $usuario["Localizacion"], $usuario["Experiencia"], $usuario["Pasiones"], $usuario["CartaPresentacion"], $usuario["Img_Perfil"], $usuario["Oficio"], $usuario["Curriculum"]);
+        $usuario["password"], $usuario["email"], $usuario["Localizacion"], $usuario["Experiencia"], $usuario["Pasiones"], $usuario["CartaPresentacion"], $usuario["Img_Perfil"], $usuario["Oficio"]);
 			}
 			else{
 				return new TransferUsuario($usuario["ID_usuario"],$usuario["Nombre"],$usuario["Apellidos"],
-        $usuario["password"], $usuario["email"], $usuario["Localizacion"], $usuario["Experiencia"], $usuario["Pasiones"], $usuario["CartaPresentacion"], $usuario["Img_Perfil"], $usuario["Oficio"], $usuario["Curriculum"]);
+        $usuario["password"], $usuario["email"], $usuario["Localizacion"], $usuario["Experiencia"], $usuario["Pasiones"], $usuario["CartaPresentacion"], $usuario["Img_Perfil"], $usuario["Oficio"]);
 		}
 		}
 		else {
@@ -117,7 +116,7 @@ public function updateElement($id, $campo, $nuevoValor) {
 		if ($query) {
 			while($fila=mysqli_fetch_assoc($query)){
         $transfer = new TransferUsuario($fila["ID_usuario"],$fila["Nombre"],$fila["Apellidos"],
-        $fila["password"], $fila["email"], $fila["Localizacion"], $fila["Experiencia"], $fila["Pasiones"], $fila["CartaPresentacion"], $fila["Img_Perfil"], $fila["Oficio"], $fila["Curriculum"]);
+        $fila["password"], $fila["email"], $fila["Localizacion"], $fila["Experiencia"], $fila["Pasiones"], $fila["CartaPresentacion"], $fila["Img_Perfil"], $fila["Oficio"]);
 
 				array_push($lista,$transfer);
 			}
@@ -139,7 +138,7 @@ public function updateElement($id, $campo, $nuevoValor) {
 	     if ($res){
 	     	$usuario = mysqli_fetch_assoc($res);
 			$transfer = new TransferUsuario($usuario["ID_usuario"],$usuario["Nombre"],$usuario["Apellidos"],
-      		$usuario["password"], $usuario["email"], $usuario["Localizacion"], $usuario["Experiencia"], $usuario["Pasiones"], $usuario["CartaPresentacion"], $usuario["Img_Perfil"], $usuario["Oficio"], $usuario["Curriculum"]);
+      		$usuario["password"], $usuario["email"], $usuario["Localizacion"], $usuario["Experiencia"], $usuario["Pasiones"], $usuario["CartaPresentacion"], $usuario["Img_Perfil"], $usuario["Oficio"]);
 			return $transfer;
 		}
 		else {
