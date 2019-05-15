@@ -1,6 +1,7 @@
 <?php
-
+require_once("../includes/config.php");
 require_once("DAO_Interface.php");
+require_once("SA_Like.php");
 
 class DAO_Empresa implements DAO_Interface {
 
@@ -35,14 +36,15 @@ class DAO_Empresa implements DAO_Interface {
 		$ofrecemos=$transfer->getOfrecemos();
 		$buscamos=$transfer->getBuscamos();
 		$Fase=$transfer->getFase();
+    $numLike=$transfer->getNumLikes();
 
 		if($Img_Empresa == NULL)
 		{
-			$consulta="INSERT INTO empresa (ID_Empresa, email, password, Nombre, Localizacion, Sector, Oficio, Fase, Img_Empresa, cartaPresentacion, ofrecemos, buscamos) VALUES('$ID_Empresa' ,'$email', '$password', '$Nombre', '$Localizacion', '$Sector', '$Oficio','$Fase', 'img/empresa.png', '$cartaPresentacion', '$ofrecemos', '$buscamos')";
+			$consulta="INSERT INTO empresa (ID_Empresa, email, password, Nombre, Localizacion, Sector, Oficio, Fase, Img_Empresa, cartaPresentacion, ofrecemos, buscamos, numLikes) VALUES('$ID_Empresa' ,'$email', '$password', '$Nombre', '$Localizacion', '$Sector', '$Oficio','$Fase', 'img/empresa.png', '$cartaPresentacion', '$ofrecemos', '$buscamos', '0')";
 		}
 		else
 		{
-			$consulta="INSERT INTO empresa (ID_Empresa, email, password, Nombre, Localizacion, Sector, Oficio, Fase, Img_Empresa, cartaPresentacion, ofrecemos, buscamos) VALUES('$ID_Empresa' ,'$email', '$password', '$Nombre', '$Localizacion', '$Sector', '$Oficio','$Fase', '$Img_Empresa', '$cartaPresentacion', '$ofrecemos', '$buscamos')";
+			$consulta="INSERT INTO empresa (ID_Empresa, email, password, Nombre, Localizacion, Sector, Oficio, Fase, Img_Empresa, cartaPresentacion, ofrecemos, buscamos, numLikes) VALUES('$ID_Empresa' ,'$email', '$password', '$Nombre', '$Localizacion', '$Sector', '$Oficio','$Fase', '$Img_Empresa', '$cartaPresentacion', '$ofrecemos', '$buscamos', '0')";
 		}
 		$rs = $conn->query($consulta);
 		if(!$rs) echo "<br>".$conn->error."<br>";
@@ -59,11 +61,12 @@ class DAO_Empresa implements DAO_Interface {
 			$empresa = mysqli_fetch_assoc($results);
 			//cambio
 			if($empresa["Img_Empresa"] == NULL)	{
-					return new empresaTransfer($empresa["ID_Empresa"],$empresa["Nombre"],$empresa["password"],$empresa["email"], $empresa["Localizacion"], $empresa["Sector"], $empresa["Oficio"], $empresa["Fase"], $empresa["Img_Empresa"], $empresa["cartaPresentacion"], $empresa["buscamos"], $empresa["ofrecemos"]);
+					return new empresaTransfer($empresa["ID_Empresa"],$empresa["Nombre"],$empresa["password"],$empresa["email"], $empresa["Localizacion"], $empresa["Sector"], $empresa["Oficio"], $empresa["Fase"], $empresa["Img_Empresa"],
+          $empresa["cartaPresentacion"], $empresa["buscamos"], $empresa["ofrecemos"], $empresa["numLikes"]);
 			}
 			else{
 			return new empresaTransfer($empresa["ID_Empresa"],$empresa["Nombre"],$empresa["password"],$empresa["email"], $empresa["Localizacion"], $empresa["Sector"],
-          	$empresa["Oficio"], $empresa["Fase"], $empresa["Img_Empresa"], $empresa["cartaPresentacion"], $empresa["buscamos"], $empresa["ofrecemos"]);
+          	$empresa["Oficio"], $empresa["Fase"], $empresa["Img_Empresa"], $empresa["cartaPresentacion"], $empresa["buscamos"], $empresa["ofrecemos"], $empresa["numLikes"]);
 			}
 		}
 		else {
@@ -113,7 +116,7 @@ class DAO_Empresa implements DAO_Interface {
 		if ($query){
 			while($fila = mysqli_fetch_assoc($query)){
                 $transfer = new empresaTransfer($fila["ID_Empresa"],$fila["Nombre"],$fila["password"],$fila["email"], $fila["Localizacion"], $fila["Sector"],
-                  $fila["Oficio"], $fila["Fase"], $fila["Img_Empresa"], $fila["cartaPresentacion"], $fila["ofrecemos"], $fila["buscamos"]);
+                  $fila["Oficio"], $fila["Fase"], $fila["Img_Empresa"], $fila["cartaPresentacion"], $fila["ofrecemos"], $fila["buscamos"], $fila["numLikes"]);
 				array_push($lista,$transfer);
 			}
 		}
@@ -135,12 +138,49 @@ class DAO_Empresa implements DAO_Interface {
 	  if ($res){
 	  		$empresa = mysqli_fetch_assoc($res);
 			$transfer = new empresaTransfer($empresa["ID_Empresa"],$empresa["Nombre"],$empresa["password"],$empresa["email"], $empresa["Localizacion"], $empresa["Sector"],
-        	$empresa["Oficio"], $empresa["Fase"], $empresa["Img_Empresa"], $empresa["cartaPresentacion"], $empresa["buscamos"], $empresa["ofrecemos"]);
+        	$empresa["Oficio"], $empresa["Fase"], $empresa["Img_Empresa"], $empresa["cartaPresentacion"], $empresa["buscamos"], $empresa["ofrecemos"], $empresa["numLikes"]);
 			return $transfer;
 		}
 		else {
 			return null;
 		}
+	}
+
+  function getTopTres(){
+    $app = Aplicacion::getSingleton();
+    $db = $app->conexionBd();
+    $lista= array();
+
+    $consul = "SELECT * FROM empresa ORDER BY numLikes DESC";
+    $query = mysqli_query($db, $consul);
+    if ($query){
+			while($fila = mysqli_fetch_assoc($query)){
+                $transfer = new empresaTransfer($fila["ID_Empresa"],$fila["Nombre"],$fila["password"],$fila["email"], $fila["Localizacion"], $fila["Sector"],
+                  $fila["Oficio"], $fila["Fase"], $fila["Img_Empresa"], $fila["cartaPresentacion"], $fila["ofrecemos"], $fila["buscamos"], $fila["numLikes"]);
+				array_push($lista,$transfer);
+			}
+		}
+    return $lista;
+  }
+
+
+  public function actualizarNumLikes($id, $valor) {
+    $SAlikes = SA_Like::getInstance();
+    $likesList = $SAlikes->getElementsByIdEmpresa($id);
+    $numLikes = 0;
+
+  /*  foreach($likesList) {
+      $numLikes = $numLikes + 1;
+    }*/
+    error_reporting(E_ERROR | E_PARSE);
+    $numLikes = sizeof($likesList);
+
+
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+
+       $consulta="UPDATE empresa SET numLikes = $numLikes WHERE ID_Empresa = '$id'";
+       $res = mysqli_query($db, $consulta) ? false :true ;
 	}
 }
 ?>

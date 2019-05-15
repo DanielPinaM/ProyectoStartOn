@@ -13,8 +13,9 @@ class empresaTransfer {
 	private $ofrecemos;
 	private $sector;
 	private $oficio;
+	private $numLikes;
 
-	function __construct($id_empresa, $nombre, $password, $email, $localizacion, $sector, $oficio,$fase,$imagenPerfil,$cartaPresentacion,$buscamos,$ofrecemos){
+	function __construct($id_empresa, $nombre, $password, $email, $localizacion, $sector, $oficio,$fase,$imagenPerfil,$cartaPresentacion,$buscamos,$ofrecemos, $numLikes){
 		$this->id_empresa = $id_empresa;
 		$this->nombre = $nombre;
 		$this->password = $password;
@@ -27,6 +28,7 @@ class empresaTransfer {
 		$this->ofrecemos = $ofrecemos;
 		$this->sector = $sector;
 		$this->oficio = $oficio;
+		$this->numLikes = $numLikes;
 	}
 
 	/**GETTER: devuelve los parametros privados*/
@@ -83,7 +85,9 @@ class empresaTransfer {
 	public function getOficio(){
 		return $this->oficio;
 	}
-
+	public function getNumLikes(){
+		return $this->numLikes;
+	}
 
 /**SETTER: cambian los valores */
 
@@ -135,6 +139,9 @@ class empresaTransfer {
 	}
 	public function setOficio($oficio){
 		$this->oficio = $oficio;
+	}
+	public function setNumLikes($numLikes){
+		$this->numLikes = $numLikes;
 	}
 }
 ?>
