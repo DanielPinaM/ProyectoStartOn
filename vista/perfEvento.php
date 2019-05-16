@@ -70,8 +70,8 @@ if(isset($_POST['delete'])){
 
 	?>
 	<div id="container"">
-		<div style = "margin-top: 40 px">
 		<div id="perfil">
+			<div id="card">
 				<?php
 				echo '<img src= "../img/'.$transfer->getImagenEvento().'"  style="width:100%">';
 				echo '<p class ="burbuja" id="btitulo"> '.$transfer->getNombre().'</p>';
@@ -82,16 +82,18 @@ if(isset($_POST['delete'])){
 
 				$idSess = $_GET["id"];
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
-					echo '<a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
+					echo '<p><a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
 					echo '<form action="perfEvento.php?id='.$transfer->getNombre().'" method="post">';
 						echo '<button class="botonGuay" id="botonSubmit" type="submit" name="crearComentario" value="'.$idSess.'">Crear Comentario</button>';
-					echo '</form>';
+					echo '</form></p>';
 				}
+
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa'])){
 					if($_SESSION['id_empresa'] == $SA->getEventEmpresa($transfer->getNombre())){
 						echo '<div class="row"><a class ="botonGuay">Modifica Evento</a></div>';
 					}
 				}
+				echo '</div>';
 		echo '</div>';
 
 		echo '<div>';
@@ -109,9 +111,9 @@ if(isset($_POST['delete'])){
       foreach($commentList as $document){  /* Follows will be created and deleted from the companies list*/
 						$transferUs = $SAuser->getElement($document->getId_Usuario());
 						$nombreUs = $transferUs->getNombre();
-						echo '<p> Usuario:  '.$nombreUs.'</p>';
-            echo ' <p>Titulo:  '. $document->getTitulo() .'</p>';
-            echo ' <p>Contenido: '. $document->getContenido() .'<p>';
+						echo '<p><img src= "../'.$transferUs->getImagenPerfil().'"  style="width:30px; height:auto;">'.$nombreUs.'</p>';
+            echo ' <p class ="burbuja" id="btitulo">  '. $document->getTitulo() .'</p>';
+            echo ' <p class ="burbuja" id="btexto"> '. $document->getContenido() .'<p>';
 
 
 
@@ -128,8 +130,6 @@ if(isset($_POST['delete'])){
 
 			?>
 		</div>
-
-	</div>
 	<?php require("common/footer.php")?>
 </body>
 </html>
