@@ -77,7 +77,7 @@ if(isset($_POST['delete'])){
 
 				$idSess = $_GET["id"];
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
-					echo '<a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
+					echo '<a class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
 				}
 
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa'])){
@@ -92,7 +92,7 @@ if(isset($_POST['delete'])){
 
 			$SA_Comentario = SA_Comentario::getInstance();
 			$commentList = $SA_Comentario->getElementsByNombreEvento($transfer->getNombre());
-			echo '<ul style="margin-top:80px">';
+			echo '<ul style="margin-top:80px; background-color: transparent;">';
 
 			if($commentList == null){
 				echo '<p class="burbuja"> No existen comentarios para este evento </p>';
@@ -101,6 +101,7 @@ if(isset($_POST['delete'])){
 			$SAuser = SA_Usuario::getInstance();
 
       foreach($commentList as $document){  /* Follows will be created and deleted from the companies list*/
+				echo "<ul style='margin-top:10px'>";
 						$transferUs = $SAuser->getElement($document->getId_Usuario());
 						$nombreUs = $transferUs->getNombre();
 						echo '<p><img src= "../'.$transferUs->getImagenPerfil().'"  style="width:30px; height:auto;">'.$nombreUs.'</p>';
@@ -115,6 +116,7 @@ if(isset($_POST['delete'])){
 							echo '</form>';
 						}
 					/*	'.<?php echo "htmlspecialchars($_SERVER["PHP_SELF"])"; ?>.'*/
+				echo '	</ul>';
       }
 
 		}
@@ -129,15 +131,15 @@ if(isset($_POST['delete'])){
 			echo '</div>';
 
 			$id = $_GET["id"];
-			echo '<div class="rowC">';
+			echo '<div class="row">';
 			echo '<div class="titulo">Crear comentario:</div>';
-			echo '</div>';
 			echo '<div id="Modperfil">';
 			echo '<form enctype="multipart/form-data" method="post" action= "perfEvento.php?id='.$id.'">';
 				echo '<p>Título: <input type="text" id="ModperfilCampos" name="titulo" value=""></p>';
 					echo '<p>Contenido: <input type="text" id="ModperfilCampos" name="contenido" value=""></p>';
-				echo '<button class="botonGuay" id="botonSubmit" type="submit" name="crearComentario" value="'.$id.'">Crear Comentario</button>';
+				echo '<button class="botonGuay" type="submit" name="crearComentario" value="'.$id.'">Crear Comentario</button>';
 			echo '</form>';
+			echo '</div>';
 		}
 	}
 			?>

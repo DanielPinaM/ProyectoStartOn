@@ -145,6 +145,11 @@ border-radius: 20px;
   font-size: 16px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: white;
+  margin-left: 10px;
+}
+#botonSubmit{
+  width: 15%;
+
 }
 .botonGuay:hover{
   border-style: solid;
