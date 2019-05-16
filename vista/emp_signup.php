@@ -26,7 +26,7 @@ require_once ("../logica/SA_Empresa.php");
 					}
 					else{
 						$SA = SA_Empresa::getInstance();
-						$transfer = new empresaTransfer("",$nombre,$password, $email,"", "" ,"" ,"","","","","");
+						$transfer = new empresaTransfer("",$nombre,$password, $email,"", "" ,"" ,"","img/empresa.png","","","", "");
 				 		$dir = $SA->createElement($transfer);
 				 	}
 				 	if($dir !== "Error"){

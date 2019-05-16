@@ -74,7 +74,7 @@ class DAO_Comentario{
         $consulta = "SELECT * FROM comentario WHERE NombreEvento = '$NombreEvento' AND ID_Usuario='$id_Usuario'";//consulta sql
 
         $res = mysqli_query($db, $consulta);
-        if(res == 1){
+        if($res->num_rows > 0){
           return $res;
         }
         return false;
