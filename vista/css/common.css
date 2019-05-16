@@ -184,10 +184,6 @@ border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 20px;
 }
-#botonRojo{
-background-color: black;
-color: red;
-}
 a {
   text-decoration: none;
   font-size: 18px;
@@ -311,19 +307,38 @@ text-align: center;
   background-color:#fefefe;
 }
 
+#likes{
+  margin-left: 15px;
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: #c9c9ff;
+}
 /*
 tarjetas ayuda
 */
 
-div .rankingcard{
+.rankingcard{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   max-width: 920px;
+  height: 300px;
   margin: 60px 30px 0px 30px;
   padding: 8px;
   border-radius: 20px;
-  float: center;
+  display: inline-block;
   text-align: center;
-  background-color: #c9c9ff;
+  background-color: #ffbdbd;
+}
+.rankingcard #card{
+  padding: 10px;
+  max-width: 150px;
+  margin: 10px 10px 10px 10px;
+  max-height: 100PX;
+}
+#likeButton{
+  background-color: green;
+}
+#botonRojo{
+  background-color: red;
 }
 .ayudaCard {
   padding: 5px;

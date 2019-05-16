@@ -20,17 +20,17 @@ require_once ("../logica/SA_Empresa.php");
     <?php
         $SA = SA_Empresa::getInstance();
         $listPorLikes = $SA->getTopTres();
-        $cont = 0;
+        $cont = 1;
 
         echo '<div class="rankingcard">';
-        while($cont < 3){
+        while($cont < 4){
           $id =  $listPorLikes[$cont]->getId_Empresa();
           $nombre = $listPorLikes[$cont]->getNombre();
           $localizacion =  $listPorLikes[$cont]->getNombre();
           $img = $listPorLikes[$cont]->getImagenPerfil();
 
-          echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
-						echo '<a href ="perfEmp.php?id='.$id.'" ><img src= "../'.$img.'"  style="width:100%"></a>';
+          echo '<div id= "card">' .$cont.'º';     //hay que hacer el css card en comon para la lista
+						echo '<a href ="perfEmp.php?id='.$id.'" ><img src= "../'.$img.'"></a>';
 						echo ' <p class="burbuja" id="btitulo"> '. $nombre. '</p>';
 						echo '<p class="burbuja"> '. $localizacion. '</p>';
 					echo'</div>';
