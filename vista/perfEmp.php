@@ -120,6 +120,7 @@ require_once ("../logica/transferLike.php");
 		if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa']))
 			if($_SERVER["REQUEST_METHOD"] !== "GET" || ($_SERVER["REQUEST_METHOD"] == "GET" && (!$_GET || $_GET["id"]==$_SESSION['id_empresa'])))
 					echo '<a  id= "botonSubmit" class ="botonGuay" href="mod_perf.php" >Modificar perfil</a>';
+					echo '<div class="row"><a class ="botonGuay" href="crear_evento.php" >Crear Evento</a></div>';
 		?>
 			</div>
 
