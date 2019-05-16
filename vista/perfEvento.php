@@ -47,7 +47,7 @@ if(isset($_POST['delete'])){
 		}
 
 	?>
-	<div id="container">
+	<div id="container"">
 
 		<div id="perfil">
 				<?php
@@ -88,10 +88,11 @@ if(isset($_POST['delete'])){
             echo ' <li> '. $document->getContenido() .'<li>';
 
 						if((isset($_SESSION['id_usuario'])) && ($document->getId_Usuario() == $_SESSION['id_usuario'])){
-							echo '<form action="'.<?php echo "htmlspecialchars($_SERVER["PHP_SELF"])"; ?>.'" method="post">';
+							echo '<form action="" method="post">';
 	            	echo '<button class="botonGuay" id="botonRojo" type="submit" name="delete" value="'.$document->getNombreEvento().'">Delete</button>';
 							echo '</form>';
 						}
+					/*	'.<?php echo "htmlspecialchars($_SERVER["PHP_SELF"])"; ?>.'*/
       }
 		}
 			echo'</ul>';
