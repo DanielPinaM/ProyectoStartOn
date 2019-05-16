@@ -145,10 +145,16 @@ border-radius: 20px;
   font-size: 16px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: white;
+  margin-left: 10px;
+}
+#botonSubmit{
+  width: 15%;
+
 }
 .botonGuay:hover{
   border-style: solid;
   border-width: 0.5px;
+  padding: 7px;
   box-shadow: 0 6px 10px 0 rgba(0,0,0,0.3);
   border-color: #aaaaaa;
 }
@@ -182,10 +188,6 @@ border-radius: 20px;
   background-repeat:no-repeat;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 20px;
-}
-#botonRojo{
-background-color: black;
-color: red;
 }
 a {
   text-decoration: none;
@@ -272,16 +274,7 @@ div #card img {
     }
 }
 */
-/*div #burbuja {
-  color: grey;
-  font-size: 18px;
-  border-style: outset;
-  border-radius: 20px;
-  height: 30px;
-  border-width: 1px;
-  background-color: #ffbdbd;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}*/
+
 #FotoPerfil{
     border-radius: 20px;
 }
@@ -319,10 +312,39 @@ text-align: center;
   background-color:#fefefe;
 }
 
+#likes{
+  margin-left: 15px;
+  margin-top: 10px;
+  font-size: 20px;
+  background-color: #c9c9ff;
+}
 /*
 tarjetas ayuda
 */
 
+.rankingcard{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  max-width: 920px;
+  height: 300px;
+  margin: 60px 30px 0px 30px;
+  padding: 8px;
+  border-radius: 20px;
+  display: inline-block;
+  text-align: center;
+  background-color: #ffbdbd;
+}
+.rankingcard #card{
+  padding: 10px;
+  max-width: 150px;
+  margin: 10px 10px 10px 10px;
+  max-height: 100PX;
+}
+#likeButton{
+  background-color: green;
+}
+#botonRojo{
+  background-color: red;
+}
 .ayudaCard {
   padding: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

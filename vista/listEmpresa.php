@@ -11,41 +11,26 @@ require_once ("../logica/SA_Empresa.php");
 	<title>Start On</title>
 	<meta charset="utf-8">
 </head>
-<script>
-function showListaOrdenada(str) {
-  var xhttp;
-  if (str == "") {
-    document.getElementById("contendor").innerHTML = "";
-    return;
-  }
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("contenedor").innerHTML = this.responseText;
-    }
-  };
-  xhttp.open("GET", "ordenacionListaEmpresa.php?q="+str, true);
-  xhttp.send();
-}
-</script>
 <body>
     <?php require("common/header.php")?>
 	<div id="container">
+
     <div class="row">
+
     <?php
         $SA = SA_Empresa::getInstance();
         $listPorLikes = $SA->getTopTres();
-        $cont = 0;
+        $cont = 1;
 
-        echo '<div id="ayudacard">';
-        while($cont < 3) {
+        echo '<div class="rankingcard">';
+        while($cont < 4){
           $id =  $listPorLikes[$cont]->getId_Empresa();
           $nombre = $listPorLikes[$cont]->getNombre();
           $localizacion =  $listPorLikes[$cont]->getNombre();
           $img = $listPorLikes[$cont]->getImagenPerfil();
 
-          echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
-						echo '<a href ="/ProyectoStartOn/vista/perfEmp.php?id='.$id.'" ><img src= "/ProyectoStartOn/'.$img.'"  style="width:100%"></a>';
+          echo '<div id= "card">' .$cont.'º';     //hay que hacer el css card en comon para la lista
+						echo '<a href ="perfEmp.php?id='.$id.'" ><img src= "../'.$img.'"></a>';
 						echo ' <p class="burbuja" id="btitulo"> '. $nombre. '</p>';
 						echo '<p class="burbuja"> '. $localizacion. '</p>';
 					echo'</div>';
@@ -55,13 +40,13 @@ function showListaOrdenada(str) {
         echo '</div>';
      ?>
      </div>
-     <div id="espacio"></div>
-     <p> <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Sector')" >Sector</a>
-       <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
-       <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Oficio')" >Oficio</a>
-     </p>
+
+    <div class="row" style="margin-top:30px">
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
   </div>
-<div id="contenedor">
+
 		<div class="row">
 			<?php
 				$SA = SA_Empresa::getInstance();
@@ -72,7 +57,7 @@ function showListaOrdenada(str) {
               echo '<div class = "row">';
           }
 					echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
-						echo '<a href ="/ProyectoStartOn/vista/perfEmp.php?id='.$value->getId_Empresa().'" ><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"  style="width:100%"></a>';
+						echo '<a href ="perfEmp.php?id='.$value->getId_Empresa().'" ><img src= "../'.$value->getImagenPerfil().'"  style="width:100%"></a>';
 						echo ' <p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
 						echo '<p class="burbuja"> '. $value->getFase(). '</p>';
 						echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';
@@ -85,6 +70,6 @@ function showListaOrdenada(str) {
 				}
 			?>
 		</div>
-  </div>
-	<?php require("common/footer.php")?>
+	</div>
+  		<?php require("common/footer.php")?>
 </body>

@@ -37,8 +37,20 @@ class SA_Eventos implements SA_Interface {
 
 
     function createElement($transfer) {
-	     return false;
-	  }
+    //comprobamos si algun campo esta vacio y notificamos el error si lo estae, estos campos son obligatorios para crear un nuevo elemento
+    if (empty($transfer->getNombre()) || empty($transfer->getLocalizacion()) || empty($transfer->getFecha())) {
+           return "Error";
+    }
+    //Si el tamaño del array es 0 significa que no tenemos errores en la lista
+    $eventDAO = DAO_Eventos::getInstance();
+    //Recibimos la lista de los elementos que tenemos en la base de datos
+    if($eventDAO->getElementById($transfer->getNombre()) == NULL) {
+      //Añadimos el elemento a la base de datos a traves del DAO
+      $prueba = $eventDAO->createElement($transfer);
+      return "listaEventos.php";
+    }
+    return "Error";
+  }
 
 	  /**Esta funcion se encarga de eliminar una empresa de la base de datos
       @param transfer: contiene un transfer de emoresa
@@ -66,6 +78,40 @@ class SA_Eventos implements SA_Interface {
     public function getAllElementsById($id) {
       $eveDAO = DAO_Eventos::getInstance();
   		return $eveDAO->getAllElementsById($id);
+    }
+    function linkUserEvent($id, $event){
+      $eveDAO = DAO_Eventos::getInstance();
+      $eveDAO->crearUnion($id,$event);
+    }
+    function unlinkUserEvent($id, $event){
+      $eveDAO = DAO_Eventos::getInstance();
+      $eveDAO->eliminarUnion($id,$event);
+    }
+    /**
+    Esta funcion se encarga de indicar si el usuario ya se ha apuntado al evento.
+    @param id: id del usuario.
+    @param event: nombre del evento.
+    @return: true si ya se encuentra apuntado; false en caso contrario.
+    */
+    function existsUserEvent($id,$event){
+      $eveDAO = DAO_Eventos::getInstance();
+      return $eveDAO->existeUnion($id,$event);
+    }
+    /**
+    Esta funcion devuelve el número de plazas libres que quedan en el evento
+    @param event: nombre del evento.
+    @return: numero de plazas restantes.
+    */
+    function usersRemainingEvent($event){
+      $eveDAO = DAO_Eventos::getInstance();
+      $transfer = $eveDAO->getElementById($event);
+      $total = $transfer->getCantidad();
+      $apuntados = $eveDAO->numberUsersEvent($event);
+      return $total - $apuntados;
+    }
+    function getEventEmpresa($event){
+      $eveDAO = DAO_Eventos::getInstance();
+      return $eveDAO->getEventEmpresa($event);
     }
 }
 ?>

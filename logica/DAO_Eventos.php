@@ -18,9 +18,25 @@ class DAO_Eventos implements DAO_Interface {
       }
 
 	//METODOS
-  public function createElement($transfer) {//crea usuario
-      return false;
-	}
+     public function createElement($transfer) {
+		$app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $id_empresa = $_SESSION['id_empresa'];
+        
+        $Nombre = $transfer->getNombre();
+        $Localizacion = $transfer->getLocalizacion();
+        $Precio = $transfer->getPrecio();
+        $Cantidad = $transfer->getCantidad();
+        $Fecha = $transfer->getFecha();
+        $Img_Evento = $transfer->getImagenEvento();
+        $consulta_emp = "INSERT INTO crea_evento (ID_Empresa, Nombre_Evento) VALUES('$id_empresa', '$Nombre')";
+	$consulta="INSERT INTO evento (Nombre, Localizacion, Precio, Cantidad, Fecha, Img_Evento) VALUES('$Nombre', '$Localizacion', '$Precio', '$Cantidad', '$Fecha', '$Img_Evento')";
+	$rs = $conn->query($consulta);
+	$res = $conn->query($consulta_emp);
+	if(!$rs) echo "<br>".$conn->error."<br>";
+	if(!$res) echo "<br>".$conn->error."<br>";
+	return $rs;
+     }
 //--------------------------
 	public function getElementById($id){
 		$app = Aplicacion::getSingleton();
@@ -92,5 +108,48 @@ class DAO_Eventos implements DAO_Interface {
     }
     return empty($lista) ? null : $lista;
   }
+	public function crearUnion($id_user, $nombre_evento){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consul = "INSERT INTO user_apunta_evento (ID_Usuario, Event_Name) VALUES('$id_user', '$nombre_evento')";
+		$rs = $db->query($consul);
+		if(!$rs) echo "<br>".$db->error."<br>";
+		return $rs;
+	}
+	public function eliminarUnion($id,$event){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consulta="DELETE FROM user_apunta_evento WHERE ID_Usuario ='$id' AND Event_Name ='$event'";
+		$res = mysqli_query($db, $consulta)? true : false;
+    	return $res;
+	}
+	public function existeUnion($id_user, $nombre_evento){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consul = "SELECT * FROM user_apunta_evento WHERE ID_Usuario ='$id_user' AND Event_Name ='$nombre_evento'";
+		$query = mysqli_query($db, $consul);
+		if(mysqli_num_rows($query)==0)
+			return false;
+		else
+			return true;
+	}
+	public function numberUsersEvent($nombre){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consul = "SELECT * FROM user_apunta_evento WHERE Event_Name ='$nombre'";
+		$query = mysqli_query($db, $consul);
+		return mysqli_num_rows($query);
+	}
+	public function getEventEmpresa($evento){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consul = "SELECT * FROM crea_evento WHERE Nombre_Evento ='$evento'";
+		$query = mysqli_query($db, $consul);
+		if(mysqli_num_rows($query) > 0){
+			$row = mysqli_fetch_assoc($query);
+			return $row["ID_Empresa"];
+		}
+		return "0";
+	}
 }
 ?>

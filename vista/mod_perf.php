@@ -113,12 +113,12 @@ require_once ("../logica/SA_Usuario.php");
 				<p>E-mail: <input type="email" id="ModperfilCampos"name="email" value=<?php echo $transfer->getEmail(); ?>></p>
 				<p>Contraseña: <input type="password" id="ModperfilCampos"name="password" value=""></p>
 			 	<p>Localidad: <input type="text" id="ModperfilCampos"name="localizacion" value=<?php echo $transfer->getLocalizacion(); ?>></p>
-			 	<p>Imagen(jpg o png): <input type="file" name="imagen" id="ModperfilCampos"value=""></p>
-			  	<?php 	if(isset($_SESSION["id_usuario"])){
+        <p>Presentación: <textarea rows="4" cols="20" name="presentacion" id="ModperfilCampos" value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
+        <p>Oficio: <input type="text" name="oficio" id="ModperfilCampos"value=<?php echo $transfer->getOficio(); ?>></p>
+          <?php 	if(isset($_SESSION["id_usuario"])){
 				  			echo '<p>Experiencia: <textarea rows="4" cols="20" name="experiencia" id="ModperfilCampos" value=""> '. $transfer->getExperiencia().' </textarea><p>
 				  			<p>Pasiones: <textarea rows="4" cols="20" name="pasiones" id="ModperfilCampos"value=""> '. $transfer->getPasiones().' </textarea></p>
-				  			<p>Currículum: <input type="file" name="archivo" id="ModperfilCampos"value="">
-				  			';
+				  			<p>Currículum: <input type="file" name="archivo" value="">';
 				  		}
 			  			else{
 			  				echo '<p>Fase: <input type="text" name="fase"id="ModperfilCampos" value="'. $transfer->getFase().'"></p>
@@ -127,8 +127,8 @@ require_once ("../logica/SA_Usuario.php");
 				  			<p>Sector: <input type="text"  id="ModperfilCampos" name="sector" value="'. $transfer->getSector().'"></p>';
 			  			}
 			  	 ?>
-			  	<p>Presentación: <textarea rows="4" cols="20" name="presentacion" id="ModperfilCampos" value=<?php echo $transfer->getCartaPresentacion(); ?>></textarea></p>
-			  	<p>Oficio: <input type="text" name="oficio" id="ModperfilCampos"value=<?php echo $transfer->getOficio(); ?>></p>
+
+          <p>Imagen(jpg o png): <input type="file" name="imagen" value=""></p>
 				<p><input id="botonSubmit" class="botonGuay" type="submit" name="submit" value="Guardar"></p>
 		  		</form>
           <div>

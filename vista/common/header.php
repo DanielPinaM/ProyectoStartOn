@@ -1,7 +1,7 @@
 <?php if(!isset($_SESSION['login'])) $_SESSION['login']=false ?>
 	<div id="cabecera">
 	<ul>
-		<li><a href="../index.php"><img id='logo_cabecera' src="/ProyectoStartOn/img/Logo1.png"></a>
+		<li><a href="../index.php"><img id='logo_cabecera' src="../img/Logo1.png"></a>
 		<li><a href="listEmpresa.php">Startups</a>
 		<li><a href="listUser.php">Usuarios</a>
 		<li><a href="listaEventos.php">Eventos</a>

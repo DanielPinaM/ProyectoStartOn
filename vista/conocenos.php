@@ -31,7 +31,7 @@
       <div class="row_content"  id="pers1">
         <div class="conocenosCard">
           <h2>Pablo Aguilera Heredero</h2>
-          <img src = "/ProyectoStartOn/img/pabloa.jpg">
+          <img src = "../img/pabloa.jpg">
 	   			<p class="burbuja" id="btitulo"><i>pablagui@ucm.es</i></p>
 				  <p class="burbuja" id="btexto">Programador y diseñador CSS, nacido en Madrid en 1995, estudiante de ingeniería informática en la universidad complutense de Madrid. Se unió al proyecto debido a la dificultad a la que se enfrentó al intentar encontrar gente para su nueva StartUp.</p>
 			  </div>
@@ -40,7 +40,7 @@
 		<div class="row_content"  id="pers2">
 			<div class="conocenosCard">
 				<h2>Pablo Fernández Jara</h2>
-        <img src = "/ProyectoStartOn/img/pablof.jpg">
+        <img src = "../img/pablof.jpg">
 	   			<p class="burbuja" id="btitulo"><i>pablof10@ucm.es</i></p>
 				<p class="burbuja" id="btexto">Programador y diseñador CSS, estudiante de ingeniería informática en la universidad complutense de Madrid. Se unió al proyecto motivado por facilitar a los nuevos graduados salidas laborales en el ámbito de la programación. </p>
 			</div>
@@ -49,7 +49,7 @@
 		<div class="row_content"  id="pers3">
 			<div class="conocenosCard">
 				<h2>Eric Heresi Medina</h2>
-        <img src = "/ProyectoStartOn/img/eric.jpg">
+        <img src = "../img/eric.jpg">
 	   			<p class="burbuja" id="btitulo"><i>eheresi@ucm.es</i></p>
 				<p class="burbuja" id="btexto">Programador especialicado en php, estudiante de ingeniería informática en la universidad complutense de Madrid. Se unió al proyecto para facilitar a las startups una fácil contratación de personal.</p>
 			</div>
@@ -58,7 +58,7 @@
 		<div class="row_content"  id="pers4">
 			<div class="conocenosCard">
 				<h2>Jennifer Marmolejos Urbaz</h2>
-        <img src = "/ProyectoStartOn/img/jeni.jpg">
+        <img src = "../img/jeni.jpg">
 	   			<p class="burbuja" id="btitulo"><i>jenmarmo@ucm.es</i></p>
 				<p class="burbuja" id="btexto">Alumna de Ingenieria Informática,me encanta programar por libre en lenguajes como Swift o Python, resolver problemas de algoritmia es mi pasión!! </p>
 			</div>
@@ -67,7 +67,7 @@
 		<div class="row_content"  id="pers5">
 			<div class="conocenosCard">
 				<h2>Cristian Molina Muñoz</h2>
-        <img src = "/ProyectoStartOn/img/cris.jpg">
+        <img src = "../img/cris.jpg">
 	   			<p class="burbuja" id="btitulo"><i>crismo04@ucm.es</i></p>
 				<p class="burbuja" id="btexto">Programador y diseñador CSS, nacido en Soria en 1996, estudiante de ingeniería informática en la universidad complutense de Madrid. Abandonó su pequeño pueblo para venir a cumplir su sueño de crear una página web que pueda ayudar a la gente</p>
 			</div>
@@ -76,7 +76,7 @@
 		<div class="row_content"  id="pers6">
 			<div class="conocenosCard">
 				<h2>Daniel Piña Miguelsanz</h2>
-        <img src = "/ProyectoStartOn/img/piña.jpg">
+        <img src = "../img/piña.jpg">
 	   			<p class="burbuja" id="btitulo"><i>danpina@ucm.es</i></p>
 				<p class="burbuja" id="btexto">Estusiasta del emprendimiento y estudiante de ingenieria informática. Trabajando duro y aprendiendo día a día para construir mi camino, centrándome en lo que de verdad me importa en el recorrido.</p>
 			</div>
@@ -85,7 +85,7 @@
 		<div class="row_content" id="pers7">
 			<div class="conocenosCard">
 				<h2>Antonio Rodríguez Hurtado</h2>
-        <img src = "/ProyectoStartOn/img/toni.jpg">
+        <img src = "../img/toni.jpg">
 	   			<p class="burbuja" id="btitulo"><i>antrod03@ucm.es</i></p>
 				<p class="burbuja" id="btexto">Programador especializado en páginas webs, estudiante de ingeniería informática en la universidad complutense de Madrid. Se unió al proyecto para intentar dejar huella creando accesos a los nuevos emprendedores</p>
 			</div>
