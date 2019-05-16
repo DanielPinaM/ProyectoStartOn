@@ -18,9 +18,25 @@ class DAO_Eventos implements DAO_Interface {
       }
 
 	//METODOS
-  public function createElement($transfer) {//crea usuario
-      return false;
-	}
+     public function createElement($transfer) {
+		$app = Aplicacion::getSingleton();
+        $conn = $app->conexionBd();
+        $id_empresa = $_SESSION['id_empresa'];
+        
+        $Nombre = $transfer->getNombre();
+        $Localizacion = $transfer->getLocalizacion();
+        $Precio = $transfer->getPrecio();
+        $Cantidad = $transfer->getCantidad();
+        $Fecha = $transfer->getFecha();
+        $Img_Evento = $transfer->getImagenEvento();
+        $consulta_emp = "INSERT INTO crea_evento (ID_Empresa, Nombre_Evento) VALUES('$id_empresa', '$Nombre')";
+	$consulta="INSERT INTO evento (Nombre, Localizacion, Precio, Cantidad, Fecha, Img_Evento) VALUES('$Nombre', '$Localizacion', '$Precio', '$Cantidad', '$Fecha', '$Img_Evento')";
+	$rs = $conn->query($consulta);
+	$res = $conn->query($consulta_emp);
+	if(!$rs) echo "<br>".$conn->error."<br>";
+	if(!$res) echo "<br>".$conn->error."<br>";
+	return $rs;
+     }
 //--------------------------
 	public function getElementById($id){
 		$app = Aplicacion::getSingleton();
