@@ -53,8 +53,12 @@ require_once ("../logica/SA_Usuario.php");
 				 <!--<p> <input type="radio" name="mode" value ="usuario" checked> Usuario
 				  <input type="radio" name="mode" value ="empresa"> Empresa </p>-->
 				  <input  class ='botonGuay' type="submit" name="submit" value="Submit">
+          <p>¿No estas registrado?</p>
+          <p><a href="emp_signup.php" style="color:blue; font-size: 15px;" >Registro de empresa,</a>
+          <a href="usr_signup.php"  style="color: blue; font-size: 15px;">&nbsp&nbspRegistro de usuarios</a></p>
 		  		</form>
 			</div>
+
 			<?php require("common/footer.php")?>
 		</div>
 </body>
