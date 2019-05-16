@@ -73,7 +73,7 @@ if(isset($_POST['delete'])){
 
 		<div id="perfil">
 				<?php
-				echo '<img src= "/ProyectoStartOn/img/'.$transfer->getImagenEvento().'"  style="width:100%">';
+				echo '<img src= "../img/'.$transfer->getImagenEvento().'"  style="width:100%">';
 				echo '<p class ="burbuja" id="btitulo"> '.$transfer->getNombre().'</p>';
 				echo '<p class ="burbuja"> '.$transfer->getLocalizacion().'</p>';
 				echo '<p class ="burbuja"> '.$transfer->getFecha().'</p>';

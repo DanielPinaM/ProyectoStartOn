@@ -30,7 +30,7 @@ require_once ("../logica/SA_Empresa.php");
           $img = $listPorLikes[$cont]->getImagenPerfil();
 
           echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
-						echo '<a href ="/ProyectoStartOn/vista/perfEmp.php?id='.$id.'" ><img src= "/ProyectoStartOn/'.$img.'"  style="width:100%"></a>';
+						echo '<a href ="perfEmp.php?id='.$id.'" ><img src= "../'.$img.'"  style="width:100%"></a>';
 						echo ' <p class="burbuja" id="btitulo"> '. $nombre. '</p>';
 						echo '<p class="burbuja"> '. $localizacion. '</p>';
 					echo'</div>';
@@ -57,7 +57,7 @@ require_once ("../logica/SA_Empresa.php");
               echo '<div class = "row">';
           }
 					echo '<div id= "card">';     //hay que hacer el css card en comon para la lista
-						echo '<a href ="/ProyectoStartOn/vista/perfEmp.php?id='.$value->getId_Empresa().'" ><img src= "/ProyectoStartOn/'.$value->getImagenPerfil().'"  style="width:100%"></a>';
+						echo '<a href ="perfEmp.php?id='.$value->getId_Empresa().'" ><img src= "../'.$value->getImagenPerfil().'"  style="width:100%"></a>';
 						echo ' <p class="burbuja" id="btitulo"> '. $value->getNombre(). '</p>';
 						echo '<p class="burbuja"> '. $value->getFase(). '</p>';
 						echo '<p class="burbuja"> '. $value->getLocalizacion(). '</p>';

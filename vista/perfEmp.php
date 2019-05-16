@@ -89,7 +89,7 @@ require_once ("../logica/transferLike.php");
 	<div id="perfil">
 		<div id="card">
 			<?php
-			echo '<img src= "/ProyectoStartOn/'.$transfer->getImagenPerfil().'"  style="width:100%">';
+			echo '<img src= "../'.$transfer->getImagenPerfil().'"  style="width:100%">';
 			echo '<p class ="burbuja" id="btitulo"> '.$transfer->getNombre().'</p>';
 			echo '<p class ="burbuja"> '.$transfer->getLocalizacion().'</p>';
 			echo '<p class ="burbuja"> '.$transfer->getSector().'</p>';
