@@ -82,7 +82,11 @@ if(isset($_POST['delete'])){
 
 				$idSess = $_GET["id"];
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
-					echo '<p><a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
+					echo '<a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >';
+					if(!$SA->existsUserEvent($_SESSION['id_usuario'],$transfer->getNombre()))
+						echo '¡Apuntate!</a>';
+					else
+						echo 'Desapuntate</a>';
 					echo '<form action="perfEvento.php?id='.$transfer->getNombre().'" method="post">';
 						echo '<button class="botonGuay" id="botonSubmit" type="submit" name="crearComentario" value="'.$idSess.'">Crear Comentario</button>';
 					echo '</form></p>';
