@@ -31,10 +31,15 @@ function showListaOrdenada(str) {
 <body>
   <?php require("common/header.php")?>
 
-      <div style="margin-top:80px">
+      <div class="row" style="margin-top:80px;">
+        <!-- poner aqui el ranking card
+          echo '<div class="rankingcard">';
+            aqui los elementos
+          </div>
+      -->
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Fecha')" >Fecha</a>
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
-        <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Precio')" >Precio</a>
+        <a  id= "botonSubmit" class ="botonGuay onclick="showListaOrdenada('Precio')" >Precio</a>
       </div>
 	<div id="container">
     <?php

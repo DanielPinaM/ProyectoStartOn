@@ -14,13 +14,18 @@ require_once ("../logica/SA_Usuario.php");
     <?php require("common/header.php")?>
 	<div id="container">
 
-    <div style="margin-top: 80px">
+    <div style="margin-top: 80px"></div>
 
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-  </div>
 		<div class="row">
+      <!-- poner aqui el ranking card
+        echo '<div class="rankingcard">';
+          aqui los elementos
+        </div>
+    -->
+
+      <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+      <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
+      <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
 			<?php
 				$SA = SA_Usuario::getInstance();
 				$ListOfUser = $SA->getAllElements();
