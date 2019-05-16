@@ -60,6 +60,11 @@ if(isset($_POST['delete'])){
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
 					echo '<a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
 				}
+				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa'])){
+					if($_SESSION['id_empresa'] == $SA->getEventEmpresa($transfer->getNombre())){
+						echo '<div class="row"><a class ="botonGuay">Modifica Evento</a></div>';
+					}
+				}
 		echo '</div>';
 
 		echo '<div>';
