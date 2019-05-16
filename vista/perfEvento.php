@@ -48,7 +48,7 @@ if(isset($_POST['delete'])){
 
 	?>
 	<div id="container"">
-
+		<div style = "margin-top: 40 px">
 		<div id="perfil">
 				<?php
 				echo '<img src= "../img/'.$transfer->getImagenEvento().'"  style="width:100%">';
@@ -82,10 +82,10 @@ if(isset($_POST['delete'])){
       foreach($commentList as $document){  /* Follows will be created and deleted from the companies list*/
 						$transferUs = $SAuser->getElement($document->getId_Usuario());
 						$nombreUs = $transferUs->getNombre();
+						echo '<p> Usuario:  '.$nombreUs.'</p>';
+            echo ' <p>Titulo:  '. $document->getTitulo() .'</p>';
+            echo ' <p>Contenido: '. $document->getContenido() .'<p>';
 
-						echo '<li> '.$nombreUs.'</li>';
-            echo ' <li> '. $document->getTitulo() .'</li>';
-            echo ' <li> '. $document->getContenido() .'<li>';
 
 						if((isset($_SESSION['id_usuario'])) && ($document->getId_Usuario() == $_SESSION['id_usuario'])){
 							echo '<form action="" method="post">';
