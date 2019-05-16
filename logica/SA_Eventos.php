@@ -37,8 +37,20 @@ class SA_Eventos implements SA_Interface {
 
 
     function createElement($transfer) {
-	     return false;
-	  }
+    //comprobamos si algun campo esta vacio y notificamos el error si lo estae, estos campos son obligatorios para crear un nuevo elemento
+    if (empty($transfer->getNombre()) || empty($transfer->getLocalizacion()) || empty($transfer->getFecha())) {
+           return "Error";
+    }
+    //Si el tamaño del array es 0 significa que no tenemos errores en la lista
+    $eventDAO = DAO_Eventos::getInstance();
+    //Recibimos la lista de los elementos que tenemos en la base de datos
+    if($eventDAO->getElementById($transfer->getNombre()) == NULL) {
+      //Añadimos el elemento a la base de datos a traves del DAO
+      $prueba = $eventDAO->createElement($transfer);
+      return "listaEventos.php";
+    }
+    return "Error";
+  }
 
 	  /**Esta funcion se encarga de eliminar una empresa de la base de datos
       @param transfer: contiene un transfer de emoresa
