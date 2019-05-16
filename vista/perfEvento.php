@@ -49,7 +49,7 @@ if(isset($_POST['delete'])){
 	?>
 	<div id="container">
 
-		<div id="card">
+		<div id="perfil">
 				<?php
 				echo '<img src= "/ProyectoStartOn/img/'.$transfer->getImagenEvento().'"  style="width:100%">';
 				echo '<p class ="burbuja" id="btitulo"> '.$transfer->getNombre().'</p>';

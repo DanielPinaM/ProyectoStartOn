@@ -272,16 +272,7 @@ div #card img {
     }
 }
 */
-/*div #burbuja {
-  color: grey;
-  font-size: 18px;
-  border-style: outset;
-  border-radius: 20px;
-  height: 30px;
-  border-width: 1px;
-  background-color: #ffbdbd;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}*/
+
 #FotoPerfil{
     border-radius: 20px;
 }
@@ -323,6 +314,16 @@ text-align: center;
 tarjetas ayuda
 */
 
+div .rankingcard{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  max-width: 920px;
+  margin: 60px 30px 0px 30px;
+  padding: 8px;
+  border-radius: 20px;
+  float: center;
+  text-align: center;
+  background-color: #c9c9ff;
+}
 .ayudaCard {
   padding: 5px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

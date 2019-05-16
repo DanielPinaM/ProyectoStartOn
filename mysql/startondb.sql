@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-05-2019 a las 14:17:22
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.3
+-- Tiempo de generación: 16-05-2019 a las 11:41:56
+-- Versión del servidor: 10.1.36-MariaDB
+-- Versión de PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -23,6 +23,26 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `startondb` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `startondb`;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `NombreEvento` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `ID_Usuario` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `Titulo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL,
+  `Contenido` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`NombreEvento`, `ID_Usuario`, `Titulo`, `Contenido`) VALUES
+('Blockchain exe', '2', 'jjjjjjjjjjjj', 'faaaaaaaaaaaaaaaaaaaack');
+
 -- --------------------------------------------------------
 
 --
@@ -52,18 +72,19 @@ CREATE TABLE `empresa` (
   `Img_Empresa` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `cartaPresentacion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `ofrecemos` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `buscamos` varchar(255) COLLATE utf8_spanish_ci NOT NULL
+  `buscamos` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `numLikes` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `empresa`
 --
 
-INSERT INTO `empresa` (`ID_Empresa`, `email`, `password`, `Nombre`, `Localizacion`, `Sector`, `Oficio`, `Fase`, `Img_Empresa`, `cartaPresentacion`, `ofrecemos`, `buscamos`) VALUES
-('1', 'triwater@gmail.com', 'c3070c6fadc86c125256e32b05745508ae7bc491', 'Triwater', 'Barcelona', 'Medioambiente', 'Programador', 'Growth Stage', 'img/triwater.jpg', 'Triwater produce filtros biodegradables que de forma sencilla transforma agua salada, sucia o con bacterias en agua completamente potable en tres sencillos pasos.', 'Ofrecemos un ambiente de trabajo agradable y joven, con energía para afrontar nuevos desafíos. Somos un equipo de 12 personas así que te sentirás como en casa.', 'Buscamos un presidente de marketing y dos programadores para desarrollar una nueva web.'),
-('2', 'reparatech@gmail.com', 'f033f567382a7c044209c8bfedb0e1b05b41c2aa', 'ReparaTech', 'Madrid', 'Tecnología', 'Marketing', 'Expansion', 'img/reparatech.jpg', 'Somos una empresa nueva que buscamos hacernos un hueco en el mundo de la tecnología.\r\nNos dedicamos a ofrecer el servicio de reparación de tecnología a través de plataformas modernas.\r\nNos consideramos el &quot;Uber de las reparaciones&quot;.', 'Ofrecemos la posibilidad de que nuestros empleados sientan que realizan un servicio útil para aquellos que tengan pocos conocimientos sobre tecnología de forma justa, fiable y rápida.', 'Buscamos trabajadores para rellenar varios puestos de reparador de ordenadores de sobremesa y dos para dispositivos móviles.\r\nBuscamos también a un encargado de marketing para llevar las nuevas campañas publicitarias, así como un encargado de ventas.'),
-('3', 'simplysmart@gmail.com', 'a21dd8e2136bfb9902d566d7a0f31905119da048', 'SimplySmart', 'Madrid', 'Tecnología', 'CTO', 'Expansion', 'img/simplysmart.jpg', 'En SimplySmart transformamos las casas de nuestros clientes en casas inteligentes completamente controlables por voz y monitorizables desde el smartphone.\r\nTrabajamos con distintos presupuestos dependiendo del nivel de transformación que desee el cliente.', 'Ofrecemos la posibilidad de trabajar en el mundo del IoT en una empresa que trata con este sector de forma directa. Además tratarás mano a mano con expertos en la transformación de viviendas.', 'Buscamos un CTO para investigación en el mundo de IoT ya que pretendemos lanzar nuestro propio hub de tecnologías IoT para poder acoger diferentes tecnologías y presentarlas al cliente de forma fácilmente controlable, con un programa hecho in-house.'),
-('4', 'travelmore@gmail.com', '1ab96373b03439029a078c064091abf6f913eaa8', 'TravelMore', 'Valencia', 'Turismo', 'Programadores', 'Early-Stage', 'img/travelmore.jpg', 'TravelMore es una agencia de viajes completamente online, que basa sus servicios en buscar los mejores precios para sus clientes buscando en las mayores webs de servicios para viajeros a través de un motor con inteligencia artificial.', 'Ofrecemos un ambiente de trabajo agradable y joven, con energía para afrontar nuevos desafíos. Somos un equipo de 4 personas así que te sentirás como en casa.', 'Buscamos programadores para continuar con el desarrollo de nuestra herramienta, así como mejorar y mantener la página web y aplicación.');
+INSERT INTO `empresa` (`ID_Empresa`, `email`, `password`, `Nombre`, `Localizacion`, `Sector`, `Oficio`, `Fase`, `Img_Empresa`, `cartaPresentacion`, `ofrecemos`, `buscamos`, `numLikes`) VALUES
+('1', 'triwater@gmail.com', 'c3070c6fadc86c125256e32b05745508ae7bc491', 'Triwater', 'Barcelona', 'Medioambiente', 'Programador', 'Growth Stage', 'img/triwater.jpg', 'Triwater produce filtros biodegradables que de forma sencilla transforma agua salada, sucia o con bacterias en agua completamente potable en tres sencillos pasos.', 'Ofrecemos un ambiente de trabajo agradable y joven, con energía para afrontar nuevos desafíos. Somos un equipo de 12 personas así que te sentirás como en casa.', 'Buscamos un presidente de marketing y dos programadores para desarrollar una nueva web.', 2),
+('2', 'reparatech@gmail.com', 'f033f567382a7c044209c8bfedb0e1b05b41c2aa', 'ReparaTech', 'Madrid', 'Tecnología', 'Marketing', 'Expansion', 'img/reparatech.jpg', 'Somos una empresa nueva que buscamos hacernos un hueco en el mundo de la tecnología.\r\nNos dedicamos a ofrecer el servicio de reparación de tecnología a través de plataformas modernas.\r\nNos consideramos el &quot;Uber de las reparaciones&quot;.', 'Ofrecemos la posibilidad de que nuestros empleados sientan que realizan un servicio útil para aquellos que tengan pocos conocimientos sobre tecnología de forma justa, fiable y rápida.', 'Buscamos trabajadores para rellenar varios puestos de reparador de ordenadores de sobremesa y dos para dispositivos móviles.\r\nBuscamos también a un encargado de marketing para llevar las nuevas campañas publicitarias, así como un encargado de ventas.', 1),
+('3', 'simplysmart@gmail.com', 'a21dd8e2136bfb9902d566d7a0f31905119da048', 'SimplySmart', 'Madrid', 'Tecnología', 'CTO', 'Expansion', 'img/simplysmart.jpg', 'En SimplySmart transformamos las casas de nuestros clientes en casas inteligentes completamente controlables por voz y monitorizables desde el smartphone.\r\nTrabajamos con distintos presupuestos dependiendo del nivel de transformación que desee el cliente.', 'Ofrecemos la posibilidad de trabajar en el mundo del IoT en una empresa que trata con este sector de forma directa. Además tratarás mano a mano con expertos en la transformación de viviendas.', 'Buscamos un CTO para investigación en el mundo de IoT ya que pretendemos lanzar nuestro propio hub de tecnologías IoT para poder acoger diferentes tecnologías y presentarlas al cliente de forma fácilmente controlable, con un programa hecho in-house.', 1),
+('4', 'travelmore@gmail.com', '1ab96373b03439029a078c064091abf6f913eaa8', 'TravelMore', 'Valencia', 'Turismo', 'Programadores', 'Early-Stage', 'img/travelmore.jpg', 'TravelMore es una agencia de viajes completamente online, que basa sus servicios en buscar los mejores precios para sus clientes buscando en las mayores webs de servicios para viajeros a través de un motor con inteligencia artificial.', 'Ofrecemos un ambiente de trabajo agradable y joven, con energía para afrontar nuevos desafíos. Somos un equipo de 4 personas así que te sentirás como en casa.', 'Buscamos programadores para continuar con el desarrollo de nuestra herramienta, así como mejorar y mantener la página web y aplicación.', 3);
 
 -- --------------------------------------------------------
 
@@ -113,6 +134,19 @@ CREATE TABLE `interaccion_emp_us` (
   `ID_Usuario` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `Fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `interaccion_emp_us`
+--
+
+INSERT INTO `interaccion_emp_us` (`ID_Empresa`, `ID_Usuario`, `Fecha`) VALUES
+('1', '2', '0000-00-00'),
+('1', '6', '0000-00-00'),
+('2', '6', '0000-00-00'),
+('3', '2', '0000-00-00'),
+('4', '2', '0000-00-00'),
+('4', '3', '0000-00-00'),
+('4', '6', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -166,11 +200,17 @@ INSERT INTO `usuario` (`ID_usuario`, `email`, `password`, `Nombre`, `Apellidos`,
 ('3', 'helenap@gmail.com', '6f6b0db803758bcafba10900d4269ccceebc9eaa', 'Helena', 'Pómez', 'Valencia', 'Mi experiencia se basa en haber estudiado diseño de producto en la EASD Valencia. He producido decenas de diseños para diferentes compañías y proyectos que se pueden ver en mi portfolio helenapomez.es , tengo ganas de añadir a este camino desde el mundo del emprendimiento.', 'Si tuviese que escoger mis principales pasiones tendrían que ser dibujar comics, bailar y reír con mis amigos y familia. Cada día leo lo que pueda y pienso que es la mejor manera de aprender de forma rápido junto a la práctica. Me encanta ser sociable y conocer a gente maravillosa.', 'Buenas me llamo Helena y tengo 26 años. Toda mi vida me he dedicado a diseñar, desde varias perspectivas, más concretamente ropa, comics y los últimos 5 años aplicaciones y páginas web. Llevo tiempo queriendo experimentar con lo que significa llevar una startup adelante.', 'img/helenap.jpg', 'UX Designer', ''),
 ('4', 'tomask@gmail.com', '2a2ced81987b9344dcd56dd19877b7cbe6ff34b2', 'Tomás', 'Ko', 'Bilbao', 'Mi experiencia ha sido el grado en Economía en la universidad de Utah, además de 6 años de contable para 3 empresas multinacionales. Pero creo que la experiencia que más vale es la que he adquirido en el sector del turismo por todo mi movimiento.', 'Mi pasión principal es, cómo puedes adivinar, viajar. Me encanta todos los aspectos de ello desde los cambios culturales en las grandes ciudades hasta perderme por los bosques de cada país que visito.', 'Hola soy Tomás, tengo 31 y llevo toda mi vida moviendome por el mundo, he vivido en 5 continentes y estos últimos 2 años estoy muy contento en España. Me gustaría encontrar una empresa de viajes o turismo para aplicar mis experiencias junto a la economía.', 'img/tomask.jpg', 'Contable', ''),
 ('5', 'laurac@gmail.com', 'a43782cbc6ef9032aa29ddf6e29bf46f3712a6f1', 'Laura', 'Canales', 'La Coruña', 'Trabaje 8 años de profesora de conducir de motos, y estos últimos 10 de profesora de Movilidad y Urbanismo en la Universidad de A Coruña. Tengo ganas de perseguir lo que de verdad importa y pasar al siguiente nivel en mi vida.', 'Mi pasión es el motociclismo y utilizarlo para viajar por todo tipo de lugares, desde las más altas montañas a temperaturas negativas, hasta calas calurosas y con curvas vertiginosas. Quiero aprovechar mi pasión y trabajar en alguna empresa que relacione el motociclismo con los viajes, ¡o si no la crearé yo misma!', '¡Hola StartOn! Soy Laura, tengo 41 años y quiero dejar mi puesto de profesora en la universidad para perseguir mi obsesión con el motociclismo y los viajes.', 'img/laurac.jpg', 'Profesora', ''),
-('6', 'danpina@ucm.es', 'c7a2851fd2f7da303050a63d00a8135322d81147', 'Daniel', 'Piña', 'Madrid', 'Tengo experiencia en proyectos personales así como de la universidad.\r\nLlevo casi 3 años inmerso en el mundo del emprendimiento y las startups y con ganas de cada vez más aprender más sobre ello.', 'Me apasionan pocas cosas pero que de verdad me importan.\r\nMe apasiona mirar a los ojos y rodearme de gente con tenga sus propias pasiones que le causen un brillo en los ojos.\r\nTambién me apasiona investigar sobre creación de hábitos, minimalismo, y con ello centrarse en lo que de verdad le importa a uno mismo en la vida.', 'Hola soy Daniel, tengo 20 años y vivo en Madrid pero nacido y con mi corazón en La Coruña. Estudio Ingeniería Informática.\r\nLLevo ya un tiempo muy interesado en el emprendimiento, en como se comportan las personas, y cómo ser feliz de verdad y encontrar tu camino centrandote en lo que de verdad importa día a día.', 'img/usuario.png', 'Estudiante', '');
+('6', 'danpina@ucm.es', 'c7a2851fd2f7da303050a63d00a8135322d81147', 'Daniel', 'Piña', 'Madrid', 'Tengo experiencia en proyectos personales así como de la universidad.\r\nLlevo casi 3 años inmerso en el mundo del emprendimiento y las startups y con ganas de cada vez más aprender más sobre ello.', 'Me apasionan pocas cosas pero que de verdad me importan.\r\nMe apasiona mirar a los ojos y rodearme de gente con tenga sus propias pasiones que le causen un brillo en los ojos.\r\nTambién me apasiona investigar sobre creación de hábitos, minimalismo, y con ello centrarse en lo que de verdad le importa a uno mismo en la vida.', 'Hola soy Daniel, tengo 20 años y vivo en Madrid pero nacido y con mi corazón en La Coruña. Estudio Ingeniería Informática.\r\nLLevo ya un tiempo muy interesado en el emprendimiento, en como se comportan las personas, y cómo ser feliz de verdad y encontrar tu camino centrandote en lo que de verdad importa día a día.', 'img/imgU6.jpg', 'Estudiante', '');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`NombreEvento`,`ID_Usuario`);
 
 --
 -- Indices de la tabla `crea_evento`

@@ -30,11 +30,11 @@ function showListaOrdenada(str) {
 </script>
 <body>
   <?php require("common/header.php")?>
-      <div id="espacio"></div>
-      <p> <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Fecha')" >Fecha</a>
+
+      <div style="margin-top:80px"> <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Fecha')" >Fecha</a>
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Precio')" >Precio</a>
-      </p>
+      </div>
 	<div id="container">
     <?php
       $SA = SA_Eventos::getInstance();

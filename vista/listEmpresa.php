@@ -22,7 +22,7 @@ require_once ("../logica/SA_Empresa.php");
         $listPorLikes = $SA->getTopTres();
         $cont = 0;
 
-        echo '<div id="ayudacard">'; 
+        echo '<div class="rankingcard">';
         while($cont < 3){
           $id =  $listPorLikes[$cont]->getId_Empresa();
           $nombre = $listPorLikes[$cont]->getNombre();
@@ -41,7 +41,7 @@ require_once ("../logica/SA_Empresa.php");
      ?>
      </div>
 
-    <div class="row">
+    <div class="row" style="margin-top:30px">
     <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
     <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
     <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
