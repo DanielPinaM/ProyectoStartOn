@@ -44,8 +44,8 @@ require_once ("../logica/SA_Eventos.php");
 				  <p>Nombre del evento: <input type="text" name="nombre" value="" class="campo-form"></p>
 				  <p>Localizacion: <input type="text" name="localizacion" value="" class="campo-form"></p>
 				  <p>Precio: <input type="text" name="precio" value="" class="campo-form"></p>
-				  <p>Aforo: <input type="text" name="aforo" value="" class="campo-form"></p>
-				  <p>Fecha: <input type="text" name= "fecha" value="" class="campo-form"></p>
+				  <p>Aforo: <input type="number" name="aforo" value="" class="campo-form"></p>
+				  <p>Fecha: <input type="date" name= "fecha" value="" class="campo-form"></p>
 				  <input id= 'botonSubmitU' class ='botonGuay' type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>
