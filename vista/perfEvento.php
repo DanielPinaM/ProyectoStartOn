@@ -57,7 +57,9 @@ if(isset($_POST['delete'])){
 				echo '<p class ="burbuja"> '.$transfer->getFecha().'</p>';
 				echo '<p class ="burbuja"> '.$transfer->getCantidad().'</p>';
 				echo '<p class ="burbuja"> '.$transfer->getPrecio().'</p>';
-
+				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
+					echo '<a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
+				}
 		echo '</div>';
 
 		echo '<div>';
