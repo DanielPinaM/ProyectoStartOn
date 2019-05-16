@@ -70,7 +70,7 @@ function deleteElementByIdUsuario($id_Usuario){
 			}
 
 			$ComentarioDAO = DAO_Comentario::getInstance();
-				$prueba = $empDAO->createElement($transfer);
+				$prueba = $ComentarioDAO->createElement($transfer);
         return true;
       }
 }
