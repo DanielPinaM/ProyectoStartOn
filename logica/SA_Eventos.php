@@ -57,8 +57,29 @@ class SA_Eventos implements SA_Interface {
       @return errores: devuelve los errores cometidos en la ejecucion de las comprobaciones de la funcion
       @return .php: si el codigo es correcto se genera el perfil de usuario o si
       la verificación no ha sido incorrecta se carga la pagina principal*/
-	  function deleteElement($id) {
-      return false;
+   function deleteElement($id) {
+
+      if (empty($id)) {
+        return "Error";
+      }
+      //si no hay ningun error...
+
+      $eventDAO = DAO_Eventos::getInstance();
+                //Comprobamos si el id del posible empresa esta en la base de datos
+        if ($eventDAO->getElementById($id) != NULL) {
+            //Eliminamos el usuario y si no ha producico error redirigimos al inicio
+          if ($eventDAO->deleteElement($id)) {
+            return "listaEventos.php";
+          }
+          //Si no se ha podido eliminar se comunica al empresa
+          else {
+             return "Error";
+          }
+        }
+        //Si ha pasado un id incorrecto se comunica a la empresa
+        else {
+           return "Error";
+        }
     }
 
 	 /**Esta funcion se encarga de logear una empresa a traves del id
@@ -73,8 +94,37 @@ class SA_Eventos implements SA_Interface {
         /*TODO: relaciones de las empresas con los usuarios y eventos**/
     function elementRelation($transfer) {}
 
-    function updateElement($transfer) {}
+    function updateElement($transfer) {
 
+      if (empty($transfer->getNombre())) {
+          return "Error";
+        }
+      //Realizamos la conexion
+      $eventDAO = DAO_Eventos::getInstance();
+            //Comprobamos si el identificador de la empresa existe en nuestra base de datos
+      if ($eventDAO->getElementById($transfer->getNombre())) {
+        //Modificamos los diferentes campos de la base de datos que no esten incorrectos
+        if (!empty($transfer->getLocalizacion())) {
+          $eventDAO->updateElement($transfer->getNombre(),"Localizacion" ,$transfer->getLocalizacion());
+        }
+        if (!empty($transfer->getPrecio())) {
+          $eventDAO->updateElement($transfer->getNombre(),"Precio" ,$transfer->getPrecio());
+        }
+        if (!empty($transfer->getCantidad())) {
+          $eventDAO->updateElement($transfer->getNombre(),"Cantidad" ,$transfer->getCantidad());
+        }
+        if (!empty($transfer->getFecha())) {
+          $eventDAO->updateElement($transfer->getNombre(),"Fecha" ,$transfer->getFecha());
+        }
+        if (!empty($transfer->getImagenEvento())) {
+          $eventDAO->updateElement($transfer->getNombre(),"Img_Evento" ,$transfer->getImagenEvento());
+        }
+        return "listaEventos.php";
+        }
+        else {
+          return "Error";
+        }
+    }
     public function getAllElementsById($id) {
       $eveDAO = DAO_Eventos::getInstance();
   		return $eveDAO->getAllElementsById($id);
