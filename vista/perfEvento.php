@@ -77,14 +77,7 @@ if(isset($_POST['delete'])){
 
 				$idSess = $_GET["id"];
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
-					echo '<a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >';
-					if(!$SA->existsUserEvent($_SESSION['id_usuario'],$transfer->getNombre()))
-						echo '¡Apuntate!</a>';
-					else
-						echo 'Desapuntate</a>';
-					echo '<form action="perfEvento.php?id='.$transfer->getNombre().'" method="post">';
-						echo '<button class="botonGuay" id="botonSubmit" type="submit" name="crearComentario" value="'.$idSess.'">Crear Comentario</button>';
-					echo '</form></p>';
+					echo '<a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
 				}
 
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa'])){
@@ -132,7 +125,7 @@ if(isset($_POST['delete'])){
 			<?php
 			$SA_Comentario = SA_Comentario::getInstance();
 			if(isset($_SESSION['id_usuario'])){
-			if($SA_Comentario->getElementsByIds($_SESSION['id_usuario'], $_GET["id"])){
+			if($SA_Comentario->getElementsByIds($_GET["id"], $_SESSION['id_usuario']) ==false){
 			echo '</div>';
 
 			$id = $_GET["id"];

@@ -84,7 +84,7 @@ class TransferUsuario {
 
 	/**@return imagenPerfil: url value*/
 	public function getImagenPerfil(){
-		if(!file_exists($this->imagenPerfil))
+		if($this->imagenPerfil==null)
 			return 'img/usuario.png';
 		else
 			return $this->imagenPerfil;
