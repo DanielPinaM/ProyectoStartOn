@@ -67,5 +67,6 @@ require_once ("../logica/SA_Eventos.php");
 		?>
 		</div>
 	</div>
+	<?php require("common/footer.php")?>
 </body>
 </html>
