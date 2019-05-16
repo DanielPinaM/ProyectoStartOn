@@ -109,5 +109,9 @@ class SA_Eventos implements SA_Interface {
       $apuntados = $eveDAO->numberUsersEvent($event);
       return $total - $apuntados;
     }
+    function getEventEmpresa($event){
+      $eveDAO = DAO_Eventos::getInstance();
+      return $eveDAO->getEventEmpresa($event);
+    }
 }
 ?>
