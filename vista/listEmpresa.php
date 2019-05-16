@@ -11,8 +11,48 @@ require_once ("../logica/SA_Empresa.php");
 	<title>Start On</title>
 	<meta charset="utf-8">
 </head>
+<script>
+function showListaOrdenada(str) {
+  var xhttp;
+  if (str == "") {
+    document.getElementById("container2").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("container2").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ordenacionListaEmpresa.php?q="+str, true);
+  xhttp.send();
+}
+
+function showSugerencia(str) {
+    if (str.length == 0) {
+        document.getElementById("container2").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("container2").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "filtrarListaEmpresa.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
+</script>
 <body>
     <?php require("common/header.php")?>
+    <div class="row" style="margin-top:80px;">
+      <!-- poner aqui el ranking card
+        echo '<div class="rankingcard">';
+          aqui los elementos
+        </div>
+    -->
+
 	<div id="container">
 
     <div class="row">
@@ -41,13 +81,14 @@ require_once ("../logica/SA_Empresa.php");
      ?>
      </div>
 
-    <div class="row" style="margin-top:30px">
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-    <a  id= "botonSubmit" class ="botonGuay" href="" >Crear evento</a>
-  </div>
+     <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Sector')" >Sector</a>
+     <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
+     <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Oficio')" >Oficio</a>
+     <input type="text" class="campo-form" onkeyup="showSugerencia(this.value)"></p>
+   </div>
 
-		<div class="row">
+</div>
+		<div id="container2">
 			<?php
 				$SA = SA_Empresa::getInstance();
 				$ListOfEmp = $SA->getAllElements();
@@ -70,6 +111,5 @@ require_once ("../logica/SA_Empresa.php");
 				}
 			?>
 		</div>
-	</div>
   		<?php require("common/footer.php")?>
 </body>

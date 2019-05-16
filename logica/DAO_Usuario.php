@@ -149,20 +149,21 @@ public function updateElement($id, $campo, $nuevoValor) {
 	}
   public function getAllElementsById($id) {
     $app = Aplicacion::getSingleton();
-    $db = $app->conexionBd();
-    $lista= array();
+		$db = $app->conexionBd();
+		$lista= array();
 
-    $consul = "SELECT * FROM usuario ORDER BY $id";
-    $query = mysqli_query($db, $consul);
+		$consul = "SELECT * FROM usuario ORDER BY $id";
+		$query = mysqli_query($db, $consul);
 
-    if ($query) {
-      while($fila=mysqli_fetch_assoc($query)){
-        $transfer = new TransferUsuario($fila["ID_usuario"],$fila["Nombre"],$fila["Apellidos"],
-        $fila["password"], $fila["email"], $fila["Localizacion"], $fila["Experiencia"], $fila["Pasiones"], $fila["CartaPresentacion"], $fila["Img_Perfil"], $fila["Oficio"], $fila["Curriculum"]);
-
-        array_push($lista,$transfer);
-      }
-    }
+		if ($query){
+			while($fila = mysqli_fetch_assoc($query)) {
+        $transfer = new TransferUsuario($usuario["ID_usuario"],$usuario["Nombre"],$usuario["Apellidos"],
+            $usuario["password"], $usuario["email"], $usuario["Localizacion"], $usuario["Experiencia"],
+            $usuario["Pasiones"], $usuario["CartaPresentacion"], $usuario["Img_Perfil"], $usuario["Oficio"],
+            $usuario["Curriculum"]);
+				array_push($lista,$transfer);
+			}
+		}
     return empty($lista) ? null : $lista;
   }
 

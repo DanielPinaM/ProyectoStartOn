@@ -15,33 +15,64 @@ require_once ("../logica/SA_Eventos.php");
 function showListaOrdenada(str) {
   var xhttp;
   if (str == "") {
-    document.getElementById("container").innerHTML = "";
+    document.getElementById("container2").innerHTML = "";
     return;
   }
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("container").innerHTML = this.responseText;
+      document.getElementById("container2").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "ordenacionListaEventos.php?q="+str, true);
   xhttp.send();
 }
+
+function showSugerencia(str) {
+    if (str.length == 0) {
+        document.getElementById("container2").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("container2").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "filtrarListaEventos.php?q=" + str, true);
+        xmlhttp.send();
+    }
+}
 </script>
 <body>
   <?php require("common/header.php")?>
-
+  <div class = container>
       <div class="row" style="margin-top:80px;">
-        <!-- poner aqui el ranking card
+        <?php
+        $SA = SA_Eventos::getInstance();
+        $ListOfEv = $SA->getAllElements();
+        shuffle($ListOfEv);
+        $i = 0;
+        $size = sizeof($ListOfEv) / 2;
           echo '<div class="rankingcard">';
-            aqui los elementos
-          </div>
-      -->
+          while($i < 5) {
+            $value = $ListOfEv[$i];
+            echo '<div id= "card">';
+                echo '<a href ="perfEvento.php?id='.$value->getNombre().'" "><img src= "../img/'.$value->getImagenEvento().'"  style="width:100%"></a>';
+            echo'</div>';
+            $i+=1;
+          }
+          echo '</div>';
+      ?>
+      </div>
+      <div class = row >
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Fecha')" >Fecha</a>
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
-        <a  id= "botonSubmit" class ="botonGuay onclick="showListaOrdenada('Precio')" >Precio</a>
-      </div>
-	<div id="container">
+        <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Precio')" >Precio</a>
+        <input type="text" class="campo-form" onkeyup="showSugerencia(this.value)"></p>
+    </div>
+
+	<div id="container2">
     <?php
       $SA = SA_Eventos::getInstance();
       $ListOfEv = $SA->getAllElements();
