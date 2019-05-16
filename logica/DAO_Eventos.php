@@ -140,5 +140,16 @@ class DAO_Eventos implements DAO_Interface {
 		$query = mysqli_query($db, $consul);
 		return mysqli_num_rows($query);
 	}
+	public function getEventEmpresa($evento){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consul = "SELECT * FROM crea_evento WHERE Nombre_Evento ='$evento'";
+		$query = mysqli_query($db, $consul);
+		if(mysqli_num_rows($query) > 0){
+			$row = mysqli_fetch_assoc($query);
+			return $row["ID_Empresa"];
+		}
+		return "0";
+	}
 }
 ?>
