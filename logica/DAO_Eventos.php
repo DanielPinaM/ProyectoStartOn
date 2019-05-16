@@ -92,5 +92,37 @@ class DAO_Eventos implements DAO_Interface {
     }
     return empty($lista) ? null : $lista;
   }
+	public function crearUnion($id_user, $nombre_evento){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consul = "INSERT INTO user_apunta_evento (ID_Usuario, Event_Name) VALUES('$id_user', '$nombre_evento')";
+		$rs = $db->query($consul);
+		if(!$rs) echo "<br>".$db->error."<br>";
+		return $rs;
+	}
+	public function eliminarUnion($id,$event){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consulta="DELETE FROM user_apunta_evento WHERE ID_Usuario ='$id' AND Event_Name ='$event'";
+		$res = mysqli_query($db, $consulta)? true : false;
+    	return $res;
+	}
+	public function existeUnion($id_user, $nombre_evento){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consul = "SELECT * FROM user_apunta_evento WHERE ID_Usuario ='$id_user' AND Event_Name ='$nombre_evento'";
+		$query = mysqli_query($db, $consul);
+		if(mysqli_num_rows($query)==0)
+			return false;
+		else
+			return true;
+	}
+	public function numberUsersEvent($nombre){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consul = "SELECT * FROM user_apunta_evento WHERE Event_Name ='$nombre'";
+		$query = mysqli_query($db, $consul);
+		return mysqli_num_rows($query);
+	}
 }
 ?>
