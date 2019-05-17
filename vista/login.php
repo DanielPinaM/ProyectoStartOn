@@ -46,7 +46,7 @@ require_once ("../logica/SA_Usuario.php");
 				?>
 
 				<p class="titulo">Inicia sesión:</p>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-consulta">
+				<form method="post" action="login.php" class="form-consulta">
 				  <p>E-mail: <input type="email" name="email" value="" class="campo-form"></p>
 				  <p>Contraseña: <input type="password" name="password" value="" class="campo-form"></p>
 				 <!--<p> Iniciar sesión como:<p>  -->

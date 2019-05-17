@@ -62,13 +62,34 @@ class DAO_Eventos implements DAO_Interface {
 	}
 //--------------------------
 	public function deleteElement($id) {
-    return false;
-	}
+    $app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$consulta="DELETE FROM evento WHERE Nombre = '$id'";
+		if (mysqli_query($db, $consulta)){
+			return true;
+		} else{
+			return false;
+		}	}
 //--------------------------
 	public function updateElement($id, $campo, $nuevoValor) {
-		return false;
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		if($campo == "Img_Evento")
+		{
+			$query = "SELECT 'Img_Evento' FROM evento WHERE Nombre = '$id'";
+			$results  = mysqli_query($db, $query);
+			if(mysqli_num_rows($results) != 0)
+			{
+				while($fila=mysqli_fetch_assoc($results))
+				{
+					$imagen = $fila["Img_Evento"];
+				}
+			}
+		}
+		$consulta="UPDATE evento SET ".$campo." = '".$nuevoValor."' WHERE Nombre = '".$id."'";
+		$res = mysqli_query($db, $consulta) ? false : true;
+    	return $res;
 	}
-
     //--------------------------
 	public function getAllElements(){
 		$app = Aplicacion::getSingleton();

@@ -77,12 +77,16 @@ if(isset($_POST['delete'])){
 
 				$idSess = $_GET["id"];
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_usuario'])){
-					echo '<a class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >¡Apuntate!</a>';
+					echo '<a  id= "botonSubmit" class ="botonGuay" href="unirEvento.php?id='.$transfer->getNombre().'" >';
+					if(!$SA->existsUserEvent($_SESSION['id_usuario'],$transfer->getNombre()))
+						echo '¡Apuntate!</a>';
+					else
+						echo 'Desapuntate</a>';
 				}
 
 				if(isset($_SESSION['login']) && $_SESSION['login'] == true && isset($_SESSION['id_empresa'])){
 					if($_SESSION['id_empresa'] == $SA->getEventEmpresa($transfer->getNombre())){
-						echo '<div class="row"><a class ="botonGuay">Modifica Evento</a></div>';
+						echo '<div class="row"><a class ="botonGuay" href="mod_evento.php?id='.$transfer->getNombre().'">Modifica Evento</a></div>';
 					}
 				}
 				echo '</div>';
