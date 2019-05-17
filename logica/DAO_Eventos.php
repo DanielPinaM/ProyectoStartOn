@@ -22,7 +22,7 @@ class DAO_Eventos implements DAO_Interface {
 		$app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
         $id_empresa = $_SESSION['id_empresa'];
-        
+
         $Nombre = $transfer->getNombre();
         $Localizacion = $transfer->getLocalizacion();
         $Precio = $transfer->getPrecio();
@@ -65,11 +65,13 @@ class DAO_Eventos implements DAO_Interface {
     $app = Aplicacion::getSingleton();
 		$db = $app->conexionBd();
 		$consulta="DELETE FROM evento WHERE Nombre = '$id'";
-		if (mysqli_query($db, $consulta)){
+    $res = mysqli_query($db, $consulta);
+		if ($res){
 			return true;
 		} else{
 			return false;
-		}	}
+		}
+  }
 //--------------------------
 	public function updateElement($id, $campo, $nuevoValor) {
 		$app = Aplicacion::getSingleton();
