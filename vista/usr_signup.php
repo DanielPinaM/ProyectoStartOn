@@ -45,7 +45,7 @@ require_once ("../logica/SA_Usuario.php");
 				?>
 				</form>
 				<p class="titulo">Regístrate como usuario aquí:</p>
-				<form method="post" action="usr_signup.php" class="form-consulta">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-consulta">
 					<p>Nombre de usuario: <input type="text" name="nombre" value="" class="campo-form"></p>
 					<p>Apellido: <input type="text" name="apellido" value="" class="campo-form"></p>
 				  <p>E-mail: <input type="email" name="email" value="" class="campo-form"></p>
