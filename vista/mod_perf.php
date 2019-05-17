@@ -133,14 +133,15 @@ require_once ("../logica/SA_Usuario.php");
 		  		</form>
           <div>
 		  		      <input id="botonSubmit" class="botonGuay" type="button" value="Borrar" onclick="borrarPerfil()"></input>
+                <script type="text/javascript">
+                  function borrarPerfil(){
+                    if(confirm("¿Estás seguro de que quieres borrar tu perfil? (Los datos guardados se perderán para siempre)")){
+                      window.location.assign("delete.php");
+                    }
+                  }
+                </script>
           </div>
-		  		<script type="text/javascript">
-		  			function borrarPerfil(){
-		  				if(confirm("¿Estás seguro de que quieres borrar tu perfil? (Los datos guardados se perderán para siempre)")){
-		  					window.location.assign("delete.php");
-		  				}
-		  			}
-		  		</script>
+
 	</div>
 		 <?php require("common/footer.php")?>
 </body>

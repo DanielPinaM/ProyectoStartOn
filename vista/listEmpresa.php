@@ -46,7 +46,7 @@ function showSugerencia(str) {
 </script>
 <body>
     <?php require("common/header.php")?>
-    <div class="row" style="margin-top:80px;">
+    <div class="row" style="margin-top:70px;">
       <!-- poner aqui el ranking card
         echo '<div class="rankingcard">';
           aqui los elementos
@@ -62,7 +62,7 @@ function showSugerencia(str) {
         $listPorLikes = $SA->getTopTres();
         $cont = 1;
 
-        echo '<div class="rankingcard">';
+        echo '<div class="rankingcard"><p style="font-weight:bold; margin-top:-5px; margin-botton:-5px;">RANKING DE EMPRESAS</p>';
         while($cont < 4){
           $id =  $listPorLikes[$cont]->getId_Empresa();
           $nombre = $listPorLikes[$cont]->getNombre();
@@ -81,10 +81,10 @@ function showSugerencia(str) {
      ?>
      </div>
 
-     <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Sector')" >Sector</a>
+     <p><a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Sector')" >Sector</a>
      <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
-     <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Oficio')" >Oficio</a>
-     <input type="text" class="campo-form" onkeyup="showSugerencia(this.value)"></p>
+     <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Oficio')" >Oficio</a><p>
+     <p><input type="text" placeholder="Busca una empresa" class="busqueda" onkeyup="showSugerencia(this.value)"></p>
    </div>
 
 </div>

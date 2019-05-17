@@ -65,7 +65,7 @@ if(isset($_POST['delete'])){
 
 	?>
 	<div id="container"">
-		<div id="perfil">
+		<div id="perfil" style='height:1000px;'>
 			<div id="card">
 				<?php
 				echo '<img src= "../img/'.$transfer->getImagenEvento().'"  style="width:100%">';
@@ -92,7 +92,7 @@ if(isset($_POST['delete'])){
 
 			$SA_Comentario = SA_Comentario::getInstance();
 			$commentList = $SA_Comentario->getElementsByNombreEvento($transfer->getNombre());
-			echo '<ul style="margin-top:80px; background-color: transparent;">';
+			echo '<div style="margin-top:80px">';
 
 			if($commentList == null){
 				echo '<p class="burbuja"> No existen comentarios para este evento </p>';
@@ -101,14 +101,12 @@ if(isset($_POST['delete'])){
 			$SAuser = SA_Usuario::getInstance();
 
       foreach($commentList as $document){  /* Follows will be created and deleted from the companies list*/
-				echo "<ul style='margin-top:10px'>";
+				echo "<div id='bcoment' style='margin-top:15px'>";
 						$transferUs = $SAuser->getElement($document->getId_Usuario());
 						$nombreUs = $transferUs->getNombre();
 						echo '<p><img src= "../'.$transferUs->getImagenPerfil().'"  style="width:30px; height:auto;">'.$nombreUs.'</p>';
             echo ' <p class ="burbuja" id="btitulo">  '. $document->getTitulo() .'</p>';
             echo ' <p class ="burbuja" id="btexto"> '. $document->getContenido() .'<p>';
-
-
 
 						if((isset($_SESSION['id_usuario'])) && ($document->getId_Usuario() == $_SESSION['id_usuario'])){
 							echo '<form action="perfEvento.php?id='.$document->getNombreEvento().'" method="post">';
@@ -116,11 +114,10 @@ if(isset($_POST['delete'])){
 							echo '</form>';
 						}
 					/*	'.<?php echo "htmlspecialchars($_SERVER["PHP_SELF"])"; ?>.'*/
-				echo '	</ul>';
+				echo '	</div>';
       }
-
 		}
-			echo'</ul>';
+			echo'</div>';
 
 			?>
 

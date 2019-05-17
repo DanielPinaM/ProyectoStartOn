@@ -47,29 +47,23 @@ function showSugerencia(str) {
 <body>
   <?php require("common/header.php")?>
   <div class = container>
-      <div class="row" style="margin-top:80px;">
+      <div class="row" style="margin-top:70px;">
         <?php
         $SA = SA_Eventos::getInstance();
         $ListOfEv = $SA->getAllElements();
         shuffle($ListOfEv);
         $i = 0;
-        $size = sizeof($ListOfEv) / 2;
-          echo '<div class="rankingcard">';
-          while($i < 5) {
+          echo '<div class="rankingcard" style="margin-top:-5px;"><p style="font-weight:bold;">¿QUE TE PARECE ESTE EVENTO?</p>';
             $value = $ListOfEv[$i];
-            echo '<div id= "card">';
                 echo '<a href ="perfEvento.php?id='.$value->getNombre().'" "><img src= "../img/'.$value->getImagenEvento().'"  style="width:100%"></a>';
-            echo'</div>';
-            $i+=1;
-          }
           echo '</div>';
       ?>
       </div>
-      <div class = row >
+      <div class = "row" style="margin-top:10px;">
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Fecha')" >Fecha</a>
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
         <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Precio')" >Precio</a>
-        <input type="text" class="campo-form" onkeyup="showSugerencia(this.value)"></p>
+        <input type="text" placeholder="Busca tu evento" style="margin-top:10px;" class="busqueda" onkeyup="showSugerencia(this.value)"></p>
     </div>
 
 	<div id="container2">
