@@ -65,6 +65,7 @@ function deleteElementByIdUsuario($id_Usuario){
 
 function insertLike($idEmpresa, $iduser){
   $likeDAO = DAO_Like::getInstance();
+
   return $likeDAO->insertLike($idEmpresa, $iduser);
 }
 

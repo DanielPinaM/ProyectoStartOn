@@ -1,12 +1,12 @@
 <?php
-require_once("../includes/config.php");
+
 require_once("DAO_Interface.php");
 require_once("SA_Like.php");
 
 class DAO_Empresa implements DAO_Interface {
 
     private static $instance = null;
-
+    private $db;
     //Evitamos asi la contruccion de la clase
     private function __construct() {  }
 
@@ -70,17 +70,24 @@ class DAO_Empresa implements DAO_Interface {
 			}
 		}
 		else {
-			return ;//NULL
+			return null;//NULL
 		}
 	}
 //--------------------------
-	public function deleteElement($id){
-		$app = Aplicacion::getSingleton();
-		$db = $app->conexionBd();
-		$consulta="DELETE FROM empresa WHERE ID_Empresa = '$id'";
-		$res = mysqli_query($db, $consulta)? true : false;
-    return $res;
-	}
+  public function deleteElement($id){
+    $app = Aplicacion::getSingleton();
+    $db = $app->conexionBd();
+
+    $consulta="DELETE FROM empresa WHERE ID_Empresa = '$id'";
+
+    $var = mysqli_query($db, $consulta);
+    var_dump($var);
+    if ($var){
+      return true;
+    } else{
+      return false;
+    }
+  }
 //--------------------------
 	public function updateElement($id, $campo, $nuevoValor){
 		$app = Aplicacion::getSingleton();
@@ -169,7 +176,7 @@ class DAO_Empresa implements DAO_Interface {
     $likesList = $SAlikes->getElementsByIdEmpresa($id);
     $numLikes = 0;
 
-  /*  foreach($likesList) {
+    /*foreach($likesList as $value) {
       $numLikes = $numLikes + 1;
     }*/
     error_reporting(E_ERROR | E_PARSE);

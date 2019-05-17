@@ -1,7 +1,7 @@
 <?php
 
 require_once("DAO_Interface.php");
-
+require_once("DAO_Empresa.php");
 class DAO_Like {
 
     private static $instance = null;
@@ -82,6 +82,9 @@ class DAO_Like {
 		$db = $app->conexionBd();
 		$consulta="DELETE FROM interaccion_emp_us WHERE ID_Empresa = '$id_Empresa' AND ID_Usuario = '$id_Usuario'";
 		$res = mysqli_query($db, $consulta)? true : false;
+
+    $DAO_Empresa = DAO_Empresa::getInstance();
+    $DAO_Empresa->actualizarNumLikes($id_Empresa, 0);
     return $res;
 	}
 
@@ -122,6 +125,7 @@ class DAO_Like {
 
 
   function insertLike($idEmpresa, $idusuario){
+    $DAO_Empresa = DAO_Empresa::getInstance();
     $app = Aplicacion::getSingleton();
     $conn = $app->conexionBd();
 
@@ -132,6 +136,8 @@ class DAO_Like {
     else{
     $consulta="INSERT INTO interaccion_emp_us (ID_Empresa, ID_Usuario) VALUES('$idEmpresa' ,'$idusuario')";
 		$rs = $conn->query($consulta);
+
+    $DAO_Empresa->actualizarNumLikes($idEmpresa, 0);
 
     if(!$rs) echo "<br>".$conn->error."<br>";
 		return $rs;

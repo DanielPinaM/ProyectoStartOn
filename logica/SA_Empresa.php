@@ -140,8 +140,19 @@ class SA_Empresa implements SA_Interface {
       @return .php: si el codigo es correcto se genera el perfil de usuario o si
       la verificación no ha sido incorrecta se carga la pagina principal*/
 	  function deleteElement($id) {
+      $empDAO = DAO_Empresa::getInstance();
+                //Comprobamos si el id del posible empresa esta en la base de datos
+				if ($empDAO->getElementById($id) != NULL) {
+				    //Eliminamos el usuario y si no ha producico error redirigimos al inicio
+					if ($empDAO->deleteElement($id)) { //FALSE
+						return "logout.php";
+					}
+          else { 	//Si no se ha podido eliminar se comunica al empresa
+						 return "Error";
+					}
+				}
 		//comprobamos si algun campo esta vacio y notificamos el error
-			if (empty($id)) {
+			/*if (empty($id)) {
 				return "Error";
 			}
 			//si no hay ningun error...
@@ -161,7 +172,7 @@ class SA_Empresa implements SA_Interface {
 				//Si ha pasado un id incorrecto se comunica a la empresa
 				else {
 					 return "Error";
-				}
+				}*/
 
 	}
 
