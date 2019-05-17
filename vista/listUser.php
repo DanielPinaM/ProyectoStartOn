@@ -46,29 +46,26 @@ function showSugerencia(str) {
 <body>
     <?php require("common/header.php")?>
     <div class = container>
-        <div class="row" style="margin-top:80px;">
+        <div class="row" style="margin-top:70px;">
           <?php
           $SA = SA_Usuario::getInstance();
   				$ListOfUser = $SA->getAllElements();
           shuffle($ListOfUser);
           $i = 0;
           $size = sizeof($ListOfUser) / 2;
-            echo '<div class="rankingcard">';
+            echo '<div class="rankingcard"><p style="font-weight:bold; margin-bottom:-10; margin-top:-10;">CONOCE USUARIOS!</p>';
             while($i < $size) {
               $value = $ListOfUser[$i];
-              echo '<div id= "card">';
                 echo '<a href ="perfUser.php?id='.$value->getId_Usuario().'"';
-                echo '><img src= "../'.$value->getImagenPerfil().'"  style="width:100%"></a>';
-              echo'</div>';
+                echo '><img id ="imagenCuadro" src= "../'.$value->getImagenPerfil().'"></a>';
               $i+=1;
             }
-            echo '</div>';
+            echo '<p><input type="text" placeholder="O busca uno por su nombre" class="busqueda" onkeyup="showSugerencia(this.value)"></p></div>';
         ?>
         </div>
-        <div class = row >
-        <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Oficio')" >Oficio</a>
-        <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a>
-        <input type="text" class="campo-form" onkeyup="showSugerencia(this.value)"></p>
+        <div class = "row" style="margin-top: 10px;" >
+        <p><a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Oficio')" >Oficio</a>
+        <a  id= "botonSubmit" class ="botonGuay" onclick="showListaOrdenada('Localizacion')" >Localizacion</a></p>
       </div>
   </div>
 	<div id="container2">

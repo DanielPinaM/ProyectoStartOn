@@ -201,6 +201,21 @@ img{
  border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
+#imagenCuadro{
+  object-fit: cover;
+  margin: -10px 10px 10px 0px;
+  width: 130px;
+  height: 150px;
+}
+.busqueda{
+  margin-top: -5px;
+  width: 70%;
+  border-radius: 10px;
+  background-color: white;
+  padding: 10px;
+  font-family: 'arial', arial;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+}
 /*
   Estilo del footer
 */
@@ -229,6 +244,15 @@ img{
   padding-bottom: 4px;
   margin-left: 3px;
   margin-right: 3px;
+}
+#bcoment{
+  float:left;
+  background-color: #c9c9ff;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  width: 66%;
 }
 
 #btitulo{
