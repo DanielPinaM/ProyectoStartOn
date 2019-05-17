@@ -17,8 +17,8 @@ if(isset($_SESSION['login']) /*&& $_SESSION['login'] == true*/){
 
  	$dir= $SA->deleteElement($id);
  	if($dir !== "Error"){
- 	//	header('Location: '.$dir);
+ 		header('Location: '.$dir);
  	}else{
- 	//	header('Location: ../index.php');
+ 		header('Location: ../index.php');
  	}
   ?>

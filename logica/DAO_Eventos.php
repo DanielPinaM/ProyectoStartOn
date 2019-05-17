@@ -2,6 +2,7 @@
 
 require_once("DAO_Interface.php");
 
+
 class DAO_Eventos implements DAO_Interface {
 
     private static $instance = null;
@@ -22,7 +23,7 @@ class DAO_Eventos implements DAO_Interface {
 		$app = Aplicacion::getSingleton();
         $conn = $app->conexionBd();
         $id_empresa = $_SESSION['id_empresa'];
-        
+
         $Nombre = $transfer->getNombre();
         $Localizacion = $transfer->getLocalizacion();
         $Precio = $transfer->getPrecio();
@@ -109,6 +110,23 @@ class DAO_Eventos implements DAO_Interface {
     return empty($lista) ? null : $lista;
 	}
 
+  /*public function getAllElementsByIdEmpresa($id){
+		$app = Aplicacion::getSingleton();
+		$db = $app->conexionBd();
+		$lista= array();
+
+		$consul = "SELECT * FROM crea_evento WHERE ID_Empresa = '$id'";
+		$query = mysqli_query($db, $consul);
+
+		if ($query){
+			while($fila = mysqli_fetch_assoc($query)){
+                $transfer = $fila["Nombre_Evento"];
+				array_push($lista, $transfer);
+			}
+		}
+    return empty($lista) ? null : $lista;
+	}*/
+
 	public function getElementByEmail($gmail) {
 	 return false;
 	}
@@ -172,5 +190,21 @@ class DAO_Eventos implements DAO_Interface {
 		}
 		return "0";
 	}
+
+  /*public function empresaEliminada($id){
+    $app = Aplicacion::getSingleton();
+    $db = $app->conexionBd();
+
+    $DAO_Eventos=DAO_Eventos::getInstance();
+    $empList = $DAO_Eventos->getAllElementsByIdEmpresa($id);
+
+    $consulta="DELETE FROM crea_evento WHERE ID_Empresa = '$id'";
+    mysqli_query($db, $consulta);
+
+    foreach($empList as $value){
+      $DAO_Eventos->deleteElement($value);
+    }
+
+  }*/
 }
 ?>

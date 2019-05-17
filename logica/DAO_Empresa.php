@@ -2,6 +2,7 @@
 
 require_once("DAO_Interface.php");
 require_once("SA_Like.php");
+require_once("DAO_Eventos.php");
 
 class DAO_Empresa implements DAO_Interface {
 
@@ -77,6 +78,12 @@ class DAO_Empresa implements DAO_Interface {
   public function deleteElement($id){
     $app = Aplicacion::getSingleton();
     $db = $app->conexionBd();
+/*
+    $SA_Likes = SA_Like::getInstance();
+    $SA_Likes->deleteElementByIdEmpresa($id);
+
+    $DAO_Eventos= DAO_Eventos::getInstance();
+    $DAO_Eventos->empresaEliminada($id);*/
 
     $consulta="DELETE FROM empresa WHERE ID_Empresa = '$id'";
 
