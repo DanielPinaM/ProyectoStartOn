@@ -71,7 +71,9 @@ require_once ("../logica/SA_Usuario.php");
 			}
 
 				$SA = SA_Empresa::getInstance();
-				$transfer = new empresaTransfer($_SESSION["id_empresa"],$nombre,$password, $email,$localizacion,$sector,$oficio, $fase ,$imagen_destino,$presentacion,$buscamos,$ofrecemos);
+        $tEmpActual = $SA->getElement($_SESSION["id_empresa"]);
+        $numLikes= $tEmpActual->getNumLikes();
+				$transfer = new empresaTransfer($_SESSION["id_empresa"],$nombre,$password, $email,$localizacion,$sector,$oficio, $fase ,$imagen_destino,$presentacion,$buscamos,$ofrecemos, $numLikes);
 				$dir = $SA->updateElement($transfer);
 		 		if($dir !== "Error"){
 					header('Location: '.$dir);
@@ -105,7 +107,7 @@ require_once ("../logica/SA_Usuario.php");
   </div>
 	<div id="Modperfil">
 
-		<form enctype="multipart/form-data" method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+		<form enctype="multipart/form-data" method="post" action= "mod_perf.php">
 				<p>Nombre: <input type="text" id="ModperfilCampos" name="nombre" value=<?php echo $transfer->getNombre(); ?>></p>
 				<?php if(isset($_SESSION["id_usuario"])){
 				echo '<p>Apellidos: <input type="text" name="apellido"id="ModperfilCampos" value="'.$transfer->getApellido().'"></p>';

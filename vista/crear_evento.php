@@ -40,12 +40,12 @@ require_once ("../logica/SA_Eventos.php");
 				?>
 				</form>
 				<p class="titulo">Crea tu propio evento:</p>
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="form-consulta">
+				<form method="post" action="crear_evento.php" class="form-consulta">
 				  <p>Nombre del evento: <input type="text" name="nombre" value="" class="campo-form"></p>
 				  <p>Localizacion: <input type="text" name="localizacion" value="" class="campo-form"></p>
 				  <p>Precio: <input type="text" name="precio" value="" class="campo-form"></p>
-				  <p>Aforo: <input type="text" name="aforo" value="" class="campo-form"></p>
-				  <p>Fecha: <input type="text" name= "fecha" value="" class="campo-form"></p>
+				  <p>Aforo: <input type="number" name="aforo" value="" class="campo-form"></p>
+				  <p>Fecha: <input type="date" name= "fecha" value="" class="campo-form"></p>
 				  <input id= 'botonSubmitU' class ='botonGuay' type="submit" name="submit" value="Submit">
 		  		</form>
 			</div>

@@ -98,7 +98,7 @@
       </div>
       <div class="ayudaCard"> <!--Row BUSCAS OTRA COSA-->
         <div class="card"> <!--Div Titulo-->
-          <a href="/ProyectoStartOn/vista/politicaprivacidad.php">Política de privacidad.</a>
+          <a href="politicaprivacidad.php">Política de privacidad.</a>
         </div>
       </div>
 
